@@ -3,7 +3,6 @@ const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
 
 var skillSchema = Schema( {
-
   ConventionName: String,
   ConventionLocation: String,
   ConventionDate: String,
@@ -14,7 +13,6 @@ var skillSchema = Schema( {
   ConventionContactInformation: String,
   ConventionPicture: String,
   ConventionEvents: String
-
 } );
 
 module.exports = mongoose.model( 'Skill', skillSchema );
