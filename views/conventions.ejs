@@ -1,0 +1,16 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+<ol>
+  <% for(i = 0; i<conventions.length; i++){  %>
+    <li> <a href="/showConvention/<%= conventions[i]._id %>">
+      <%= conventions[i].Name %></a>
+      <i>
+      <%= conventions[i].Date %>
+      <%= conventions[i].Location %>
+      <%= conventions[i].Description %>
+      </\/i>
+    </li>
+  <% } %>
+</ol>
+
+<%- include('bootfooter') -%>
