@@ -2,12 +2,12 @@
 const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
 
-var skillSchema = Schema( {
-  ConventionName: String,
-  ConventionLocation: String,
-  ConventionDate: String,
+var conventionSchema = Schema( {
+  Name: String,
+  Location: String,
+  Date: String,
+  Description: String,
   ConventionType: String,
-  ConventionDescription: String,
   ConventionTicketPrice: String,
   ConventionCelebritiesGoing: String,
   ConventionContactInformation: String,
@@ -15,4 +15,4 @@ var skillSchema = Schema( {
   ConventionEvents: String
 } );
 
-module.exports = mongoose.model( 'Skill', skillSchema );
+module.exports = mongoose.model('Convention', conventionSchema);
