@@ -15,7 +15,15 @@ var userSchema = Schema( {
   lastUpdate: Date,
   userName: String,
   city: String,
-  state: String
+  state: String,
+  type: String,
+  postsmade: String,
+  bookmarks: String,
+  twitterURL: String,
+  instagramURL: String,
+  facebookURL: String,
+  websiteURL: String
+
 } );
 
 module.exports = mongoose.model( 'User', userSchema );
