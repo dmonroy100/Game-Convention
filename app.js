@@ -24,6 +24,17 @@ const listController = require('./controllers/listController')
 
 var app = express();
 
+
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+// here we set up authentication with passport
+const passport = require('passport')
+const configPassport = require('./config/passport')
+configPassport(passport)
+
+
+
+
+
 /*************************************************************************
      HERE ARE THE AUTHENTICATION ROUTES
 **************************************************************************/
@@ -182,10 +193,6 @@ app.post('/processform', listController.saveConvenion)
 
 app.get('/showConventions', listController.getAllConventions)
 app.get('/showConvention/:id', listController.getOneConvention)
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
