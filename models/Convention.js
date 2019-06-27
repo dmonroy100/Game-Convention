@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 var conventionSchema = Schema( {
   Name: String,
   Location: String,
-  Date: String,
+  Date: Date,
   Description: String,
   ConventionType: String,
   ConventionTicketPrice: String,
