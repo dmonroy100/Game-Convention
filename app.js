@@ -66,19 +66,6 @@ app.use((req,res,next) => {
     }
     console.log('req.user = ')
     console.dir(req.user)
-    // here is where we can handle whitelisted logins ...
-    if (req.user){
-      if (req.user.googleemail=='tjhickey@brandeis.edu'){
-        console.log("Owner has logged in")
-        res.locals.status = 'teacher'
-      } else if (taList.includes(req.user.googleemail)){
-        console.log("A TA has logged in")
-        res.locals.status = 'ta'
-      }else {
-        console.log('student has logged in')
-        res.locals.status = 'student'
-      }
-    }
   }
   next()
 })
