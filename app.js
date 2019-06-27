@@ -70,8 +70,6 @@ app.use((req,res,next) => {
   next()
 })
 
-
-
 // here are the authentication routes
 
 app.get('/loginerror', function(req,res){
@@ -81,8 +79,6 @@ app.get('/loginerror', function(req,res){
 app.get('/login', function(req,res){
   res.render('login',{})
 })
-
-
 
 // route for logging out
 app.get('/logout', function(req, res) {
