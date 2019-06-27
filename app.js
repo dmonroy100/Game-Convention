@@ -21,6 +21,7 @@ db.once('open', function() {
 });
 
 const listController = require('./controllers/listController')
+const profileController = require('./controllers/profileController')
 
 var app = express();
 
@@ -131,6 +132,17 @@ app.get('/profile', isLoggedIn, function(req, res) {
             user : req.user // get the user out of session and pass to template
         });*/
     });
+
+// app.get('/editProfile',isLoggedIn, (req,res)=>{
+//   res.render('editProfile')
+// })
+
+//app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
+app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
+
+
+//app.post('/updateProfile',profileController.update)
+
 
 // END OF THE AUTHENTICATION ROUTES
 
