@@ -21,6 +21,7 @@ db.once('open', function() {
 });
 
 const listController = require('./controllers/listController')
+const profileController = require('./controllers/profileController')
 
 var app = express();
 
@@ -70,8 +71,6 @@ app.use((req,res,next) => {
   next()
 })
 
-
-
 // here are the authentication routes
 
 app.get('/loginerror', function(req,res){
@@ -81,8 +80,6 @@ app.get('/loginerror', function(req,res){
 app.get('/login', function(req,res){
   res.render('login',{})
 })
-
-
 
 // route for logging out
 app.get('/logout', function(req, res) {
@@ -131,6 +128,17 @@ app.get('/profile', isLoggedIn, function(req, res) {
             user : req.user // get the user out of session and pass to template
         });*/
     });
+
+// app.get('/editProfile',isLoggedIn, (req,res)=>{
+//   res.render('editProfile')
+// })
+
+//app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
+app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
+
+
+//app.post('/updateProfile',profileController.update)
+
 
 // END OF THE AUTHENTICATION ROUTES
 
