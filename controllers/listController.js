@@ -24,7 +24,7 @@ exports.saveConvenion = ( req, res ) => {
 };
 
 exports.getAllConventions = ( req, res ) => {
-  Convention.find( )
+  Convention.find({}).sort({Date: 1})
     .exec()
     .then( ( conventions ) => {
       res.render( 'conventions', {
