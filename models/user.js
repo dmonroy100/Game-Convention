@@ -14,7 +14,6 @@ var userSchema = Schema( {
   bio: String,
   lastUpdate: Date,
   userName: String,
-  zipcode: String,
   city: String,
   state: String
 } );
