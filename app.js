@@ -171,6 +171,14 @@ app.get('/', function(req, res, next) {
   res.render('index',{title:"YellowCartwheel"});
 });
 
+app.get('/convbar', function(req, res, next) {
+  res.render('convbar',{title:"YellowCartwheel"});
+});
+
+app.get('/navbar', function(req, res, next) {
+  res.render('navbar',{title:"YellowCartwheel"});
+});
+
 
 //render addConvention, showList
 app.get('/addConvention', function(req, res, next) {
