@@ -8,7 +8,7 @@ var logger = require('morgan');
 // AUTHENTICATION MODULES
 session = require("express-session"),
 bodyParser = require("body-parser"),
-user = require( './models/User' ),
+user = require( './models/user' ),
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
