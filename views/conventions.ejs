@@ -1,5 +1,4 @@
-<%- include('bootheader') -%>
-<%- include('menubar') -%>
+<%- include('navbar') -%>
 <ol>
   <% for(i = 0; i<conventions.length; i++){  %>
     <li> <a href="/showConvention/<%= conventions[i]._id %>">
@@ -12,5 +11,3 @@
     </li>
   <% } %>
 </ol>
-
-<%- include('bootfooter') -%>
