@@ -174,12 +174,10 @@ app.get('/navbar', function(req, res, next) {
   res.render('navbar',{title:"YellowCartwheel"});
 });
 
-
 //render addConvention, showList
 app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
-
 
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
