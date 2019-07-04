@@ -174,6 +174,10 @@ app.get('/navbar', function(req, res, next) {
   res.render('navbar',{title:"YellowCartwheel"});
 });
 
+app.get('/profile', function(req, res, next) {
+  res.render('profile');
+});
+
 //render addConvention, showList
 app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
