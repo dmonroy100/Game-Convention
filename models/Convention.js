@@ -7,11 +7,11 @@ var conventionSchema = Schema( {
   Location: String,
   Date: Date,
   Description: String,
+  Picture: String,
   ConventionType: String,
   ConventionTicketPrice: String,
   ConventionCelebritiesGoing: String,
   ConventionContactInformation: String,
-  ConventionPicture: String,
   ConventionEvents: String
 } );
 
