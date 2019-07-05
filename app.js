@@ -8,17 +8,26 @@ var logger = require('morgan');
 // AUTHENTICATION MODULES
 session = require("express-session"),
 bodyParser = require("body-parser"),
-user = require( './models/User' ),
+//user = require( './models/User' ),
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const mongoose = require( 'mongoose' );
-mongoose.connect( 'mongodb://localhost/mydb' );
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("we are connected!!!")
-});
+
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz';
+
+    // Makes connection asynchronously.  Mongoose will queue up database
+    // operations and release them when the connection is complete.
+    mongoose.connect(uristring, function (err, res) {
+      if (err) {
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+      } else {
+      console.log ('Succeeded connected to: ' + uristring);
+      }
+    });
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
@@ -175,12 +184,14 @@ app.get('/navbar', function(req, res, next) {
   res.render('navbar',{title:"YellowCartwheel"});
 });
 
+app.get('/profile', function(req, res, next) {
+  res.render('profile');
+});
 
 //render addConvention, showList
 app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
-
 
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
