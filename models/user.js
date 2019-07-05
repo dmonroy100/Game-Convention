@@ -1,4 +1,5 @@
 'use strict';
+console.log("trying to load module User.js")
 const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
 
@@ -25,6 +26,8 @@ var userSchema = Schema( {
   websiteURL: String
 
 } );
+
+console.log("loaded module User")
 
 module.exports = mongoose.model( 'User', userSchema );
 
