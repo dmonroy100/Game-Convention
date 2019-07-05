@@ -9,9 +9,7 @@ var logger = require('morgan');
 // AUTHENTICATION MODULES
 session = require("express-session")
 bodyParser = require("body-parser")
-console.log("about to require ./models/User")
-User = require( './models/User' )
-console.log("required User")
+
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
@@ -20,6 +18,7 @@ const mongoose = require( 'mongoose' );
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
+    //'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz' ||
     'mongodb://heroku_1mh6jvp2:mggno2vrjh2036n5tf58ppqh7t@ds247637.mlab.com:47637/heroku_1mh6jvp2';
 console.log("setting uristring to "+uristring)
 //uristring ='mongodb://localhost/convengo'
@@ -32,6 +31,10 @@ console.log("setting uristring to "+uristring)
       console.log ('Succeeded connected to: ' + uristring);
       }
     });
+
+console.log("about to require ./models/User")
+User = require( './models/User' )
+console.log("required User")
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
