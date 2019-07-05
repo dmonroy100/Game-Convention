@@ -6,9 +6,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // AUTHENTICATION MODULES
-session = require("express-session"),
+session = require("express-session")
 bodyParser = require("body-parser")
-User = require( './models/User' ),
+console.log("about to require ./models/User")
+User = require( './models/User' )
+console.log("required User")
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
