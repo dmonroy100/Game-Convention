@@ -8,7 +8,7 @@ var logger = require('morgan');
 // AUTHENTICATION MODULES
 session = require("express-session"),
 bodyParser = require("body-parser"),
-//user = require( './models/User' ),
+user = require( './models/User' ),
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
@@ -19,6 +19,7 @@ var uristring =
     process.env.MONGOHQ_URL ||
     'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz';
 
+uristring ='mongodb://localhost/convengo'
     // Makes connection asynchronously.  Mongoose will queue up database
     // operations and release them when the connection is complete.
     mongoose.connect(uristring, function (err, res) {

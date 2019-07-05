@@ -26,7 +26,7 @@ var userSchema = Schema( {
 
 } );
 
-module.exports = mongoose.model( 'User', UserSchema );
+module.exports = mongoose.model( 'User', userSchema );
 
 /*
 newUser.google.id    = profile.id;
