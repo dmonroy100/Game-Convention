@@ -22,6 +22,7 @@ db.once('open', function() {
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
+const discussionController = require('./controllers/discussionController')
 
 var app = express();
 
@@ -196,6 +197,10 @@ app.post('/processform', listController.saveConvenion)
 
 app.get('/showConventions', listController.getAllConventions)
 app.get('/showConvention/:id', listController.getOneConvention)
+
+app.get('/discussion',discussionController.getAllDiscussion)
+
+app.post('/processDiscussion',discussionController.saveDiscussion)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
