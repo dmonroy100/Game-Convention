@@ -9,6 +9,7 @@ exports.saveConvenion = ( req, res ) => {
     Date: req.body.Date,
     Location:req.body.Location,
     Description:req.body.Description,
+    Picture: req.body.Picture
     }
   )
 

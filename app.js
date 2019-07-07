@@ -1,4 +1,5 @@
 
+console.log("running app.js")
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,19 +7,36 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // AUTHENTICATION MODULES
-session = require("express-session"),
-bodyParser = require("body-parser"),
-user = require( './models/User' ),
+session = require("express-session")
+bodyParser = require("body-parser")
+
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const mongoose = require( 'mongoose' );
-mongoose.connect( 'mongodb://localhost/mydb' );
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("we are connected!!!")
-});
+
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    //'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz' ||
+    'mongodb://heroku_1mh6jvp2:mggno2vrjh2036n5tf58ppqh7t@ds247637.mlab.com:47637/heroku_1mh6jvp2';
+console.log("setting uristring to "+uristring)
+//uristring ='mongodb://localhost/convengo'
+    // Makes connection asynchronously.  Mongoose will queue up database
+    // operations and release them when the connection is complete.
+    mongoose.connect(uristring, function (err, res) {
+      if (err) {
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+      } else {
+      console.log ('Succeeded connected to: ' + uristring);
+      }
+    });
+
+Test = require('./models/test')
+console.log("Test = "+Test)
+console.log("about to require ./models/User")
+User = require( './models/user' )
+console.log("required User")
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
