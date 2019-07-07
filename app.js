@@ -178,6 +178,10 @@ app.get('/profile', function(req, res, next) {
   res.render('profile');
 });
 
+app.get('/profileview', function(req, res, next) {
+  res.render('profileview');
+});
+
 //render addConvention, showList
 app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
