@@ -5,7 +5,8 @@
     <li> <a href="/showConvention/<%= conventions[i]._id %>">
       <%= conventions[i].Name %></a>
       <i>
-      <%= conventions[i].Date.toLocaleDateString('en-US') %>
+      <%= conventions[i].From.toLocaleDateString('en-US') %>
+      <%= conventions[i].To.toLocaleDateString('en-US') %>
       <%= conventions[i].Location %>
       </\/i>
     </li>
