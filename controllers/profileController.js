@@ -27,7 +27,7 @@ exports.getAllProfiles = ( req, res ) => {
     .exec()
     .then( ( profiles ) => {
       res.render( 'profiles', {
-        profiles:profiles, title:"Profiles"
+        profiles:profiles, title:"profiles"
       } );
     } )
     .catch( ( error ) => {
@@ -48,7 +48,7 @@ exports.getOneProfile = ( req, res ) => {
     .exec()
     .then( ( profile ) => {
       res.render( 'showProfile', {
-        profile:profile, title:"Profile"
+        profile:profile, title:"profile"
       } );
     } )
     .catch( ( error ) => {
