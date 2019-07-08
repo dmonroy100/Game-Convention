@@ -6,6 +6,7 @@ exports.saveConvenion = ( req, res ) => {
   //console.dir(req)
   let newConvention = new Convention( {
     Name: req.body.Name,
+    Website: req.body.Website,
     From: req.body.From,
     To:req.body.To,
     Location:req.body.Location,
