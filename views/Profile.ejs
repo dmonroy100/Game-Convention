@@ -1,53 +1,16 @@
-
 <html <%- include('navbar') -%>>
-<body>
 
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<div class="jumbotron">
+       <h1>ConvenGO Profile for <%= user.userName %></h1>
+       <img src="<%= user.profilePicURL%>" width="200">
+       <hr>
+       <p> Welcome <%= user.googlename %>
+           with email <%= user.googleemail %>
+           You are logged in to Convengo.
+       </p>
+       <p> <%= user.zipcode %> <%= user.city %> <%= user.state %>
+       <p> Last updated on <%= user.lastUpdate %> </p>
+<a href="/editProfile">edit profile</a>
+   </div>
 
-
-
-<body class="profile-page sidebar-collapse">
-
-  <div class="wrapper">
-    <div class="page-header clear-filter" filter-color="orange">
-      <div class="page-header-image" data-parallax="true" style="background-image:url('images/profilebackground.jpg');">
-      </div>
-      <div class="container">
-        <div class="photo-container">
-          <img src= "<%= user.profilePicURL%>" alt="">
-        </div>
-        <h3 class="title"><%= user.userName %></h3>
-        <p class="category"><%= user.type %></p>
-        <div class="content">
-          <div class="social-description">
-            <h2> user.postsmade </h2>
-            <p>Posts</p>
-          </div>
-          <div class="social-description">
-            <h2> user.bookmarks </h2>
-            <p>Bookmarks</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="button-container">
-          <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a>
-          <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </div>
-        <h3 class="title">About me</h3>
-        <h5 class="description"> <%= user.bio %> </h5>
-
-        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-
-      </body>
-      </html
-      <%- include('bootfooter') -%> >
+</html <%- include('bootfooter') -%> >

@@ -151,11 +151,11 @@ app.get('/profile', isLoggedIn, function(req, res) {
 //   res.render('editProfile')
 // })
 
-//app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
+app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
 app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
 
 
-//app.post('/updateProfile',profileController.update)
+app.post('/updateProfile',profileController.update)
 
 
 // END OF THE AUTHENTICATION ROUTES
@@ -181,15 +181,20 @@ app.use(function(req,res,next){
 
 
 app.get('/', function(req, res, next) {
-  res.render('index',{title:"YellowCartwheel"});
+  res.render('index');
+});
+
+
+app.get('/editprofile', function(req, res, next) {
+  res.render('editprofile');
 });
 
 app.get('/convbar', function(req, res, next) {
-  res.render('convbar',{title:"YellowCartwheel"});
+  res.render('convbar');
 });
 
 app.get('/navbar', function(req, res, next) {
-  res.render('navbar',{title:"YellowCartwheel"});
+  res.render('navbar');
 });
 
 app.get('/profile', function(req, res, next) {
