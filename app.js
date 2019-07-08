@@ -148,11 +148,11 @@ app.get('/profile', isLoggedIn, function(req, res) {
         });*/
     });
 
-// app.get('/editProfile',isLoggedIn, (req,res)=>{
-//   res.render('editProfile')
-// })
+app.get('/editprofile',isLoggedIn, (req,res)=>{
+  res.render('editprofile')
+})
 
-app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
+// app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
 app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
 
 
