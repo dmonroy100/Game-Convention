@@ -156,7 +156,7 @@ app.get('/editprofile',isLoggedIn, (req,res)=>{
 app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
 
 
-app.post('/updateProfile',profileController.update)
+app.post('/updateProfile',profileController.update);
 
 
 // END OF THE AUTHENTICATION ROUTES
