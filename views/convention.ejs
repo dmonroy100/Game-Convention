@@ -2,12 +2,13 @@
 <%- include('navbar') -%>
 
 	    <h1><%=  convention.Name  %> </h1>
-			Official Website:<a href="/"> <%= convention.Website %> </a><br>
+			Official Website:<a href="<convention.Website"> <%= convention.Website %> </a><br>
       From: <%= convention.From.toLocaleDateString('en-US')  %> <br>
 			To:   <%= convention.To.toLocaleDateString('en-US')  %> <br>
 	    Location: <%= convention.Location %><br>
       Description: <%= convention.Description %><br>
 			Picture: <img src="<%= convention.Picture %>"> <br>
+
 
 
 <%- include('bootfooter') -%>

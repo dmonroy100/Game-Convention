@@ -1,13 +1,6 @@
 <%- include('bootheader') -%>
 <%- include('navbar') -%>
-    <div class="jumbotron">
-        <h1>Quiz 2</h1>
-        <p>Add routes and controllers so that when the user
-           submit this form, their info is stored in the MovieRating collection and
-           all of the documents in the collection are shown on this page.
 
-           </p >
-    </div>
 
     <form method="post" action="/processDiscussion">
       Username: <input type="text" name="d_username"> <br>
@@ -24,7 +17,7 @@
     </form>
 
     <ol>
-      <% for(i = 0; i<discussion.length; i++){  %>
+    <% for(i = 0; i< discussion.length; i++){  %>
           <li>
                 <b>     <%= discussion[i].d_username %> </b>
                 Title:  <%= discussion[i].d_title %>    <br>
