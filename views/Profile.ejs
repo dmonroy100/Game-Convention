@@ -5,28 +5,23 @@
       <div class="col-md-12 text-center ">
         <div class="panel panel-default">
           <div class="userprofile social ">
-            <div class="userpic"> <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="userpicimg"> </div>
-            <h3 class="username">Lucky Sans</h3>
-            <p>Gujarat, India</p>
+            <div class="userpic"> <img src="<%= user.profilePicURL%>" alt="" class="userpicimg"> </div>
+            <h3 class="username"><%= user.userName %></h3>
+            <p><%= user.bio %></p>
             <div class="socials tex-center"> <a href="" class="btn btn-circle btn-primary ">
-            <i class="fa fa-facebook"></i></a> <a href="" class="btn btn-circle btn-danger ">
-            <i class="fa fa-google-plus"></i></a> <a href="" class="btn btn-circle btn-info ">
-            <i class="fa fa-twitter"></i></a> <a href="" class="btn btn-circle btn-warning "><i class="fa fa-envelope"></i></a>
+            <i class="fa fa-facebook"></i></a> <a href="<%= user.facebookURL%>" class="btn btn-circle btn-danger ">
+            <i class="fa fa-twitter"></i></a> <a href="<%= user.twitterURL%>" class="btn btn-circle btn-warning "><i class="fa fa-envelope"></i></a>
             </div>
           </div>
           <div class="col-md-12 border-top border-bottom">
             <ul class="nav nav-pills pull-left countlist" role="tablist">
               <li role="presentation">
-                <h3>1452<br>
+                <h3><%= user.followers%><br>
                   <small>Follower</small> </h3>
               </li>
               <li role="presentation">
-                <h3>245<br>
+                <h3><%= user.following%><br>
                   <small>Following</small> </h3>
-              </li>
-              <li role="presentation">
-                <h3>5000<br>
-                  <small>Activity</small> </h3>
               </li>
             </ul>
             <button class="btn btn-primary followbtn">Follow</button>
@@ -36,20 +31,5 @@
       </div>
     </div>
   </div>
-
-  <div class="card">
-    <div class="card-body">
-       <h1>ConvenGO Profile for <%= user.userName %></h1>
-       <img src="<%= user.profilePicURL%>" width="200">
-       <hr>
-       <p> Welcome <%= user.googlename %>
-           with email <%= user.googleemail %>
-           You are logged in to ConvenGO.
-       </p>
-       <p>
-       <p> Last updated on <%= user.lastUpdate %> </p>
-<a href="/editprofile">edit profile</a>
-   </div>
- </div>
 
 </html <%- include('bootfooter') -%> >

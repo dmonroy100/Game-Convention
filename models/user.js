@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 //var userSchema = mongoose.Schema( {any:{}})
 
 var userSchema = Schema( {
-  googleid: String, 
+  googleid: String,
   googletoken: String,
   googlename:String,
   googleemail:String,
@@ -23,7 +23,9 @@ var userSchema = Schema( {
   twitterURL: String,
   instagramURL: String,
   facebookURL: String,
-  websiteURL: String
+  websiteURL: String,
+  followers: String,
+  following: String
 
 } );
 
