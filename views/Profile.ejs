@@ -6,7 +6,7 @@
         <div class="panel panel-default">
           <div class="userprofile social ">
             <div class="userpic"> <img src="<%= user.profilePicURL%>" alt="" class="userpicimg"> </div>
-            <h3 class="username"><%= user.userName %></h3>
+            <h3 class="username"><%= user.googlename %></h3>
             <p><%= user.bio %></p>
             <div class="socials tex-center"> <a href="" class="btn btn-circle btn-primary ">
             <i class="fa fa-facebook"></i></a> <a href="<%= user.facebookURL%>" class="btn btn-circle btn-danger ">
@@ -30,6 +30,51 @@
         </div>
       </div>
     </div>
+    <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+   <div class="card card-plain">
+     <div class="card-header" role="tab" id="headingOne">
+         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+           Bookmarked Posts
+
+       <i class="now-ui-icons arrows-1_minimal-down"></i>
+         </a>
+     </div>
+
+     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+       <div class="card-body">
+        <%= user.bookmarks%> <!-- I have to make a for loop that posts all their posts -->
+       </div>
+     </div>
+   </div>
+   <div class="card card-plain">
+     <div class="card-header" role="tab" id="headingTwo">
+     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         Forum Posts
+
+         <i class="now-ui-icons arrows-1_minimal-down"></i>
+         </a>
+     </div>
+     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+       <div class="card-body">
+         <%= user.postsmade%>
+       </div>
+     </div>
+   </div>
+   <div class="card card-plain">
+     <div class="card-header" role="tab" id="headingThree">
+     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+       Comments
+
+       <i class="now-ui-icons arrows-1_minimal-down"></i>
+       </a>
+     </div>
+     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+       <div class="card-body">
+         <%= user.comments%>
+       </div>
+     </div>
+   </div>
+ </div>
   </div>
 
 </html <%- include('bootfooter') -%> >

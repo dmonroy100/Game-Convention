@@ -20,12 +20,14 @@ var userSchema = Schema( {
   type: String,
   postsmade: String,
   bookmarks: String,
+  comments: String,
   twitterURL: String,
   instagramURL: String,
   facebookURL: String,
   websiteURL: String,
   followers: String,
   following: String
+
 
 } );
 
