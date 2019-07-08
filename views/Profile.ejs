@@ -1,16 +1,18 @@
 <html <%- include('navbar') -%>>
 
-<div class="jumbotron">
+  <div class="card">
+    <div class="card-body">
        <h1>ConvenGO Profile for <%= user.userName %></h1>
        <img src="<%= user.profilePicURL%>" width="200">
        <hr>
        <p> Welcome <%= user.googlename %>
            with email <%= user.googleemail %>
-           You are logged in to Convengo.
+           You are logged in to ConvenGO.
        </p>
        <p>
        <p> Last updated on <%= user.lastUpdate %> </p>
 <a href="/editprofile">edit profile</a>
    </div>
+ </div>
 
 </html <%- include('bootfooter') -%> >
