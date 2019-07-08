@@ -142,7 +142,7 @@ function isLoggedIn(req, res, next) {
 }
 
 // we require them to be logged in to see their profile
-app.get('/Profile', isLoggedIn, function(req, res) {
+app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile')
     });
 
