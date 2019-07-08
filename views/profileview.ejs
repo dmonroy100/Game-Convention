@@ -1,0 +1,154 @@
+<!-- Taylor was testing different Profile views -->
+
+<html <%- include('navbar') -%>>
+
+<style>
+  /* .jumbotron{
+    background-image: url("../images/profilebackground.jpg");
+    background-size: cover;
+  } */
+  </style>
+
+      <!-- <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <div class="jumbotron" style=background-image: url("../images/profilebackground.jpg");
+            background size= 100%; >
+              <a href="/addConvention"><h1 class="text-center text-danger">View Profile</h1></a>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="jumbotron" style=background-image: url("../images/profilebackground.jpg");
+            background size= 100%; >
+              <a href="/showConventions"><h1 class="text-center text-danger">View Bookmarked Posts</h1></a>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="jumbotron" style=background-image: url("../images/profilebackground.jpg");
+            background size= 100%; >
+              <a href="/addConvention"><h1 class="text-center text-danger">View Posts Made</h1></a>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="jumbotron" style=background-image: url("../images/profilebackground.jpg");
+            background size= 100%; >
+              <a href="/addConvention"><h1 class="text-center text-danger"></h1></a>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="jumbotron" style=background-image: url("../images/profilebackground.jpg");
+            background size= 100%; >
+              <a href="/addConvention"><h1 class="text-center text-danger">Add Convention</h1></a>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="jumbotron" style=background-image: url("../images/profilebackground.jpg");
+            background size= 100%; >
+              <a href="/addConvention"><h1 class="text-center text-danger">Add Convention</h1></a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="container left">
+        <div class="photo-container">
+          <img src= "/images/IMG_3363.jpg" alt="round"  width="150">
+        </div>
+        <div class="col-md">
+          <h1>Name</h1>
+          <h2>Username</h2>
+          <br>
+          <h3> #bold Following  #bold Followers <h3>
+
+          <p>Profile</p>
+          <p>Schedules</p>
+          <p>Bookmarks</p>
+
+          <br>
+          <p>Settings and Privacy</p>
+
+
+          </div>
+        </div>
+
+        <div class="card text-center">
+          <div class="card-header">
+            <ul class="nav nav-pills card-header-pills">
+              <div class="card body">
+              <li class="nav-item">
+                <a class"nav-link active" href="#">Biography</a>
+                </li>
+                </div>
+                <div class="card body">
+                <li class="nav-item">
+                  <a class"nav-link active" href="#">Notifications</a>
+                  </li>
+                  </div>
+                  <div class="card body">
+                <li class="nav-item">
+                  <a class"nav-link active" href="#">Posts</a>
+                  </li>
+                  </div>
+                  <div class="card body">
+                  <li class="nav-item">
+                    <a class"nav-link active" href="#">Comments</a>
+                    </li>
+                    </div>
+                    <div class="card body">
+                    <li class="nav-item">
+                      <a class"nav-link active" href="#">Bookmarks</a>
+                      </li>
+                      </div>
+    </ul>
+    </div>
+    </div> -->
+    <body>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+
+
+    <body class="profile-page sidebar-collapse">
+
+      <div class="wrapper">
+        <div class="page-header clear-filter" filter-color="orange">
+          <div class="page-header-image" data-parallax="true" style="background-image:url('images/profilebackground.jpg');" width="400" height="200">
+          </div>
+          <div class="container">
+            <div class="photo-container">
+              <img src= "<%= user.profilePicURL%>" alt="">
+            </div>
+            <h3 class="title"><%= user.userName %></h3>
+            <p class="category"><%= user.type %></p>
+            <div class="content">
+              <div class="social-description">
+                <h2> user.postsmade </h2>
+                <p>Posts</p>
+              </div>
+              <div class="social-description">
+                <h2> user.bookmarks </h2>
+                <p>Bookmarks</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="container">
+            <div class="button-container">
+              <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a>
+              <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+            <h3 class="title">About me</h3>
+            <h5 class="description"> <%= user.bio %> </h5>
+
+            <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+
+          </body>
+<%- include('bootfooter') -%>

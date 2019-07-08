@@ -1,0 +1,57 @@
+<html <%- include('navbar') -%>>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+</head>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 ">
+      <div class="list-group ">
+        <a href="#" class="list-group-item list-group-item-action">User Management</a>
+        <a href="#" class="list-group-item list-group-item-action">Preferences</a>
+        <a href="#" class="list-group-item list-group-item-action">Settings</a>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Your Profile</h4>
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+               <form method="post" action="/updateProfile">
+                <div class="text-center">
+                  <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                  <h6>Upload a different photo...</h6>
+                    <input type="file" class="text-center center-block file-upload" name="profilePicURL" value="<%= user.profilePicURL %>">
+                </div>
+                <div class="form-group row">
+                  <label for="text" class="col-4 col-form-label">User Name*</label>
+                  <div class="col-8">
+                    <input type="text" name="userName" value="<%= user.userName %>">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="publicinfo" class="col-4 col-form-label">Public Info</label>
+                  <div class="col-8">
+                    <textarea id="publicinfo" name="publicinfo" cols="40" rows="4" class="form-control"></textarea>
+                  </div>
+                </div>
+                <input type="submit" class="btn btn-lg btn-primary">
+                </form>
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</html <%- include('bootfooter') -%>>
