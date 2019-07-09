@@ -4,7 +4,6 @@ var Amadeus = require('amadeus');
 var amadeus = new Amadeus({
     clientId: '../config/apitravel.js',
     clientSecret: '../config/apisecret.js'
-    logLevel: 'debug'
   });
 var amadeus = new Amadeus();
 
