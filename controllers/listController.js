@@ -7,7 +7,7 @@ var amadeus = new Amadeus({
   });
 var amadeus = new Amadeus();
 
-exports.travel ( req, res ) => {
+exports.travel = ( req, res ) => {
   console.dir(con)
   con.Location = req.body.Location
 
@@ -18,7 +18,7 @@ exports.travel ( req, res ) => {
     return amadeus.next(response);
   }).then(function(nextResponse){
     console.log(nextResponse.data); // second page
-  }); } 
+  }); }
 
 
 exports.saveConvenion = ( req, res ) => {
