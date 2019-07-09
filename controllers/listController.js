@@ -12,7 +12,7 @@ var amadeus = new Amadeus({
     clientId: cID.getclientID,
     clientSecret: cSecret.getclientSecret
   });
-var amadeus = new Amadeus();
+
 
 exports.travel = ( req, res ) => {
   console.dir(con)
