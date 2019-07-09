@@ -1,30 +1,30 @@
 'use strict';
 const Convention = require( '../models/Convention' );
-const cID = require ('../config/clientSecret');
-const cSecret = require('../config/clientSecret')
+// const cID = require ('../config/clientSecret');
+// const cSecret = require('../config/clientSecret')
+//
+// console.log(cID.getclientID)
+// console.log(cSecret.getclientSecret)
 
-console.log(cID.getclientID)
-console.log(cSecret.getclientSecret)
 
-
-var Amadeus = require('amadeus');
-var amadeus = new Amadeus({
-    clientId: cID.clientId,
-    clientSecret: cSecret.clientSecret
-  });
-var amadeus = new Amadeus();
-
-exports.travel = ( req, res ) => {
-  console.dir(con)
-  con.Location = req.body.Location
-
-  amadeus.referenceData.locations.get({
-    keyword: 'con.Location'
-  }).then(function(response){
-    console.log(response.data); // first page
-    return amadeus.next(response);
-  })
-}
+// var Amadeus = require('amadeus');
+// var amadeus = new Amadeus({
+//     clientId: cID.clientId,
+//     clientSecret: cSecret.clientSecret
+//   });
+// var amadeus = new Amadeus();
+//
+// exports.travel = ( req, res ) => {
+//   console.dir(con)
+//   con.Location = req.body.Location
+//
+//   amadeus.referenceData.locations.get({
+//     keyword: 'con.Location'
+//   }).then(function(response){
+//     console.log(response.data); // first page
+//     return amadeus.next(response);
+//   })
+// }
 
 
 exports.saveConvenion = ( req, res ) => {
