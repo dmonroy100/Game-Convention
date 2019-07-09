@@ -1,7 +1,12 @@
 'use strict';
 const Convention = require( '../models/Convention' );
-const cID = require('../config/clientId')
+const cID = require ('../config/clientSecret');
 const cSecret = require('../config/clientSecret')
+
+console.log(cID.getclientID)
+console.log(cSecret.getclientSecret)
+
+
 var Amadeus = require('amadeus');
 var amadeus = new Amadeus({
     clientId: cID.clientId,
