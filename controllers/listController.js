@@ -1,9 +1,11 @@
 'use strict';
 const Convention = require( '../models/Convention' );
+const cID = require('../config/clientId')
+const cSecret = require('../config/clientSecret')
 var Amadeus = require('amadeus');
 var amadeus = new Amadeus({
-    clientId: '../config/clientId.js',
-    clientSecret: '../config/clientSecret.js'
+    clientId: cID.clientId,
+    clientSecret: cSecret.clientSecret
   });
 var amadeus = new Amadeus();
 
