@@ -1,6 +1,6 @@
 module.exports = {
 
-  'apikey':{
-    travel: '2frveXyrGqBQ6GqkAahbIehhyIYnBWp6'
+  'clientId':{
+    clientId: '2frveXyrGqBQ6GqkAahbIehhyIYnBWp6'
   }
 };

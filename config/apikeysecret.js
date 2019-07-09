@@ -1,6 +1,6 @@
 module.exports = {
 
-  'apisecret':{
-    secret: 'qXTvGJkep85jvMqm'
+  'clientSecret':{
+    clientSecret: 'qXTvGJkep85jvMqm'
   }
 };
