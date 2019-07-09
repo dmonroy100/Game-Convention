@@ -2,6 +2,7 @@ const amadeusObject = require ('./app.js');
 
 var amadeus = amadeusObject.getAmadeus;
 
+exports.run = function (data){
 amadeus.referenceData.urls.locations.airports.get({
   longitude: 49.0000,
   latitude: 2.55
@@ -14,3 +15,4 @@ amadeus.referenceData.urls.locations.airports.get({
   console.log(error.response.request); //=> The details of the request made
   console.log(error.code); //=> A unique error code to identify the type of error
 });
+}
