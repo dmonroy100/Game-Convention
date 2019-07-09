@@ -2,8 +2,8 @@
 const Convention = require( '../models/Convention' );
 var Amadeus = require('amadeus');
 var amadeus = new Amadeus({
-    clientId: '../config/apitravel.js',
-    clientSecret: '../config/apisecret.js'
+    clientId: '../config/clientId.js',
+    clientSecret: '../config/clientSecret.js'
   });
 var amadeus = new Amadeus();
 
