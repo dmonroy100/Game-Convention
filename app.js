@@ -231,6 +231,10 @@ exports.getAmadeus = function (data){
 const amadeusCall = require('./amadeusObject/amadeusCalls.js')
 
 amadeusCall.run
+
+app.get('/apitest', function(req, res, next) {
+  res.render('apitest');
+});
   // when completed put all API calls in a seperate folder for better readability
 
 app.post('/processform', listController.saveConvenion)
