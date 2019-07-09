@@ -1,9 +1,11 @@
 'use strict';
 const Convention = require( '../models/Convention' );
-const amadeus = require('amadeus');
-var apikey = require(../config/apitravel);
-var apisecret = require(../config/apisecret);
-
+var Amadeus = require('amadeus');
+var amadeus = new Amadeus({
+    clientId:    '../config/apitravel.js',
+    clientSecret: '../config/apisecret.js'
+  });
+var amadeus = new Amadeus();
 
 exports.travel ( req, res) => {
   console.dir(con)

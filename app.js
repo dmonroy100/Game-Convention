@@ -13,13 +13,13 @@ bodyParser = require("body-parser")
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-var Amadeus = require('amadeus');
-var amadeus = new Amadeus({
-    clientId:    '../config/apitravel.js',
-    clientSecret: '../config/apisecret.js'
-  });
+// var Amadeus = require('amadeus');
+// var amadeus = new Amadeus({
+//     clientId:    '../config/apitravel.js',
+//     clientSecret: '../config/apisecret.js'
+//   });
 
-var amadeus = new Amadeus();
+// var amadeus = new Amadeus();
 
 const mongoose = require( 'mongoose' );
 
