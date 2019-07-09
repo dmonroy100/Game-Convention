@@ -2,7 +2,7 @@ const amadeusObject = require ('./app.js');
 
 var amadeus = amadeusObject.getAmadeus;
 
-exports.run{
+exports.run = function (data){
   amadeus.referenceData.urls.checkinLinks.get({
     airlineCode: 'BA'
   }).then(function(response){
