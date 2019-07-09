@@ -1,4 +1,4 @@
-const amadeusObject = require ('app.js');
+
 
 var amadeus = amadeusObject.getAmadeus;
 
