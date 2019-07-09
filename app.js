@@ -13,13 +13,6 @@ bodyParser = require("body-parser")
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-// var Amadeus = require('amadeus');
-// var amadeus = new Amadeus({
-//     clientId:    '../config/apitravel.js',
-//     clientSecret: '../config/apisecret.js'
-//   });
-
-// var amadeus = new Amadeus();
 
 const mongoose = require( 'mongoose' );
 
@@ -225,21 +218,23 @@ function processFormData(req,res,next){
 const cID = require ('./config/clientId.js');
 const cSecret = require('./config/clientSecret.js');
 
-console.log(cID.getclientID)
-console.log(cSecret.getclientSecret)
-
-
 var Amadeus = require('amadeus');
 var amadeus = new Amadeus({
     clientId: cID.getclientID,
     clientSecret: cSecret.getclientSecret
   });
 
+exports.getAmadeus = function (data){
+  return amadeus;
+}
+
+  // when completed put all API calls in a seperate folder for better readability
+
 app.post('/processform', listController.saveConvenion)
 
 app.get('/showConventions', listController.getAllConventions)
 app.get('/showConvention/:id', listController.getOneConvention)
-//app.get('/showConvention/:id', listController.travel)
+app.get('/showConvention/:id', listController.travel)
 
 
 
