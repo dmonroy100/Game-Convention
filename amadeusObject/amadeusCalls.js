@@ -1,6 +1,6 @@
+const amadeusObj = require ('../app.js')
 
-
-var amadeus = amadeusObject.getAmadeus;
+var amadeus = amadeusObj.getAmadeus;
 
 exports.run = function (data){
   amadeus.referenceData.urls.checkinLinks.get({
