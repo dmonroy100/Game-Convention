@@ -13,6 +13,14 @@ bodyParser = require("body-parser")
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
+var Amadeus = require('amadeus');
+var amadeus = new Amadeus({
+    clientId:    '../config/apitravel.js',
+    clientSecret: '../config/apisecret.js'
+  });
+
+  
+
 const mongoose = require( 'mongoose' );
 
 var uristring =
