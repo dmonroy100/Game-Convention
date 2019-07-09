@@ -11,7 +11,7 @@ exports.travel = ( req, res ) => {
   console.dir(con)
   con.Location = req.body.Location
 
-  amadeus.client.referenceData.locations.get({
+  amadeus.referenceData.locations.get({
     keyword: 'con.Location'
   }).then(function(response){
     console.log(response.data); // first page
