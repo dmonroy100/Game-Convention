@@ -1,17 +1,5 @@
 'use strict';
 const Convention = require( '../models/Convention' );
-const cID = require ('./config/clientId.js');
-const cSecret = require('./config/clientSecret.js');
-
-console.log(cID.getclientID)
-console.log(cSecret.getclientSecret)
-
-
-var Amadeus = require('amadeus');
-var amadeus = new Amadeus({
-    clientId: cID.getclientID,
-    clientSecret: cSecret.getclientSecret
-  });
 
 
 exports.travel = ( req, res ) => {
