@@ -228,7 +228,7 @@ exports.getAmadeus = function (data){
   return amadeus;
 }
 
-const amadeusCall = require('../amadeusObject/amadeusCalls.js')
+const amadeusCall = require('./amadeusObject/amadeusCalls.js')
 
 amadeusCall.run
   // when completed put all API calls in a seperate folder for better readability
