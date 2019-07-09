@@ -15,5 +15,5 @@ exports.run = function (data){
     console.log(error.code); //=> A unique error code to identify the type of error
   });
 
-  return response.result;
+  return response.data;
 }
