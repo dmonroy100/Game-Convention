@@ -4,6 +4,7 @@ var Amadeus = require('amadeus');
 var amadeus = new Amadeus({
     clientId: '../config/apitravel.js',
     clientSecret: '../config/apisecret.js'
+    logLevel: 'debug'
   });
 var amadeus = new Amadeus();
 
@@ -11,14 +12,13 @@ exports.travel = ( req, res ) => {
   console.dir(con)
   con.Location = req.body.Location
 
-  amadeus.referenceData.locations.get({
+  amadeus.client.referenceData.locations.get({
     keyword: 'con.Location'
   }).then(function(response){
     console.log(response.data); // first page
     return amadeus.next(response);
-  }).then(function(nextResponse){
-    console.log(nextResponse.data); // second page
-  }); }
+  })
+}
 
 
 exports.saveConvenion = ( req, res ) => {
