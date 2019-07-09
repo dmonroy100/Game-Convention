@@ -222,8 +222,8 @@ function processFormData(req,res,next){
   res.render('formdata',
      {title:"Form Data", Name:req.body.Name, Website:req.body.Website,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description})
 }
-const cID = require ('config/clientId.js');
-const cSecret = require('config/clientSecret.js')
+const cID = require ('./config/clientId.js');
+const cSecret = require('./config/clientSecret.js');
 
 console.log(cID.getclientID)
 console.log(cSecret.getclientSecret)
