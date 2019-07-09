@@ -1,5 +1,27 @@
 'use strict';
 const Convention = require( '../models/Convention' );
+const amadeus = require('amadeus');
+var apikey = require(../config/apitravel);
+var apisecret = require(../config/apisecret);
+
+
+exports.travel ( req, res) => {
+  console.dir(con)
+  con.Location = req.body.Location
+
+  amadeus.referenceData.locations.get({
+    keyword: 'con.Location'
+  }).then(function(response){
+    console.log(response.data); // first page
+    return amadeus.next(response);
+  }).then(function(nextResponse){
+    console.log(nextResponse.data); // second page
+  }); .catch(function(error){
+    console.log(error);
+})
+
+}
+
 
 exports.saveConvenion = ( req, res ) => {
   //console.log("in saveSkill!")

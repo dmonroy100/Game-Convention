@@ -19,7 +19,7 @@ var amadeus = new Amadeus({
     clientSecret: '../config/apisecret.js'
   });
 
-  
+var amadeus = new Amadeus();
 
 const mongoose = require( 'mongoose' );
 
@@ -228,6 +228,8 @@ app.post('/processform', listController.saveConvenion)
 
 app.get('/showConventions', listController.getAllConventions)
 app.get('/showConvention/:id', listController.getOneConvention)
+app.get('/showConvention/:id', listController.travel)
+
 
 app.get('/discussion',discussionController.getAllDiscussion)
 
