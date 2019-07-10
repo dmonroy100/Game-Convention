@@ -5,23 +5,23 @@
     <form method="post" action="/processDiscussion">
       Username: <input type="text" name="d_username"> <br>
       Title:<br>
-      <textarea name="title" rows="5" cols="80"></textarea>
+      <textarea name="d_title" rows="5" cols="80"></textarea>
 
       <br>
 
       Details:<br>
-      <textarea name="details" rows="5" cols="80"></textarea>
+      <textarea name="d_details" rows="5" cols="80"></textarea>
 
       <br>
       <input class="btn btn-lg btn-warning" type="submit">
     </form>
 
     <ol>
-    <% for(i = 0; i< discussion.length; i++){  %>
+    <% for(i = 0; i< discussions.length; i++){  %>
           <li>
-                <b>     <%= discussion[i].d_username %> </b>
-                Title:  <%= discussion[i].d_title %>    <br>
-                Details:<i><%= discussion[i].d_details %> </i><br>
+                <b>     <%= discussions[i].d_username %> </b>
+                Title:  <%= discussions[i].d_title %>    <br>
+                Details:<i><%= discussions[i].d_details %> </i><br>
           </li>
       <% } %>
       </ol>

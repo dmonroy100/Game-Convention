@@ -201,6 +201,15 @@ app.get('/profileview', function(req, res, next) {
   res.render('profileview');
 });
 
+//test forum
+app.get('/distest', function(req, res, next) {
+  res.render('distest');
+});
+
+app.get('/disbar', function(req, res, next) {
+  res.render('disbar');
+});
+
 //render addConvention, showList
 app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});

@@ -31,9 +31,9 @@ exports.getAllDiscussion = ( req, res ) => {
   //gconsle.log('in getAllSkills')
   Discussion.find()
     .exec()
-    .then( ( discussion ) => {
+    .then( ( discussions ) => {
       res.render( 'discussion', {
-        title:"discussion",d_title:d_title
+        title:"discussion",discussions:discussions
       } );
     } )
     .catch( ( error ) => {
