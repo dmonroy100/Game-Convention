@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 var conventionSchema = Schema( {
   Name: String,
   Website: String,
+  Facebookgroup: String,
   Location: String,
   From: Date,
   To: Date,
