@@ -30,7 +30,7 @@
 #myUL li a {
   border: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
+  background-color: rgba(50,115,220,0.3);
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
@@ -52,11 +52,13 @@
 <ul id="myUL">
   <% for(i = 0; i<conventions.length; i++){  %>
     <li> <a href="/showConvention/<%= conventions[i]._id %>">
-      <%= conventions[i].Name %><br>
+      <h3><%= conventions[i].Name %></h3>
       <%= conventions[i].From.toLocaleDateString('en-US') %> ~
       <%= conventions[i].To.toLocaleDateString('en-US') %><br>
-      <%= conventions[i].Location %>
+      <%= conventions[i].Location %><br>
+      <p> <%= conventions[i].Description %> </p>
       </a>
+      <br>
     </li>
   <% } %>
 </ul>
