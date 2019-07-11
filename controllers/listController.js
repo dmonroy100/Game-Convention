@@ -21,10 +21,13 @@ exports.saveConvenion = ( req, res ) => {
   let newConvention = new Convention( {
     Name: req.body.Name,
     Website: req.body.Website,
+    Facebookgroup: req.body.Facebookgroup,
     From: req.body.From,
     To:req.body.To,
     Location:req.body.Location,
     Description:req.body.Description,
+    Guest:req.body.Guest,
+    Schedule:req.body.Schedule,
     Picture: req.body.Picture
     }
   )

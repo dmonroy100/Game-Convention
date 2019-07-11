@@ -3,14 +3,17 @@
 
 	    <h1><%=  convention.Name  %> </h1>
 
-			<a class="btn btn-primary" href="<%=convention.Website%>" role="button">Official Website</a>
-			<br>
+			<a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
+			<a class="btn btn-primary" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
+			<br><br>
 			From: <%= convention.From.toLocaleDateString('en-US')  %> <br>
 			To:   <%= convention.To.toLocaleDateString('en-US')  %> <br>
 	    Location: <%= convention.Location %><br>
       Description: <%= convention.Description %><br>
-			Picture: <img src="<%= convention.Picture %>"> <br>
-			console.log(convention.Website%>)
+			Special Guest: <%= convention.Guest %><br>
+			Schedule of Events: <br><%= convention.Schedule %><br><br>
+			<img src="<%= convention.Picture %>"> <br>
+
 
 
 <%- include('bootfooter') -%>

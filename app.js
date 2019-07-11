@@ -185,6 +185,9 @@ app.get('/', function(req, res, next) {
   res.render('index');
 });
 
+app.get('/abc', function(req, res, next) {
+  res.render('abc');
+});
 
 app.get('/editprofile', function(req, res, next) {
   res.render('editprofile');
@@ -202,8 +205,13 @@ app.get('/profileview', function(req, res, next) {
   res.render('profileview');
 });
 
-app.get('/mapapi', function(req, res, next) {
-  res.render('mapapi');
+//test forum
+app.get('/distest', function(req, res, next) {
+  res.render('distest');
+});
+
+app.get('/disbar', function(req, res, next) {
+  res.render('disbar');
 });
 
 //render addConvention, showList
@@ -218,7 +226,7 @@ app.use(function(req,res,next){
 
 function processFormData(req,res,next){
   res.render('formdata',
-     {title:"Form Data", Name:req.body.Name, Website:req.body.Website,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description})
+     {title:"Form Data", Name:req.body.Name, Website:req.body.Website,Facebookgroup:req.body.Facebookgroup,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description,Guest:req.body.Guest,Schedule:req.body.Schedule})
 }
 
 
