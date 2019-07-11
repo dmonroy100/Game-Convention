@@ -200,6 +200,11 @@ app.get('/navbar', function(req, res, next) {
   res.render('navbar');
 });
 
+app.get('/navigation', function(req, res, next) {
+  res.render('navigation');
+});
+
+
 app.get('/profileview', function(req, res, next) {
   res.render('profileview');
 });
