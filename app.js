@@ -1,4 +1,3 @@
-
 console.log("running app.js")
 var createError = require('http-errors');
 var express = require('express');
@@ -222,7 +221,6 @@ app.get('/addConvention', function(req, res, next) {
 app.get('/mapapi', function(req, res, next) {
   res.render('mapapi');
 });
-
 
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
