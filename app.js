@@ -184,6 +184,9 @@ app.get('/', function(req, res, next) {
   res.render('index');
 });
 
+app.get('/abc', function(req, res, next) {
+  res.render('abc');
+});
 
 app.get('/editprofile', function(req, res, next) {
   res.render('editprofile');
