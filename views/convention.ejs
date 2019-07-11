@@ -1,19 +1,80 @@
+<style> h1 {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+} </style>
+
 <%- include('bootheader') -%>
 <%- include('navbar') -%>
 
-	    <h1><%=  convention.Name  %> </h1>
+<div class="wrapper">
+	<div class="page-header page-header-small">
+		<div class="page-header-image" data-parallax="true" style="background-image: url('<%= convention.Picture %>');">
+		</div>
+		<div class="content-center">
+			<div class="container">
+				<h1 class="title"><%=  convention.Name  %></h1>
+				<div class="text-center">
+					<a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
+					<a class="btn btn-primary" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-			<a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
-			<a class="btn btn-primary" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
-			<br><br>
-			From: <%= convention.From.toLocaleDateString('en-US')  %> <br>
-			To:   <%= convention.To.toLocaleDateString('en-US')  %> <br>
-	    Location: <%= convention.Location %><br>
-      Description: <%= convention.Description %><br>
-			Special Guest: <%= convention.Guest %><br>
-			Schedule of Events: <br><%= convention.Schedule %><br><br>
-			<img src="<%= convention.Picture %>" width="800" height="600"> <br>
+<div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+  <div class="card card-plain">
+    <div class="card-header" role="tab" id="headingOne">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          General Information:
+
+      <i class="now-ui-icons arrows-1_minimal-down"></i>
+        </a>
+    </div>
+
+    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-body">
 
 
+				<br><br>
+				From: <%= convention.From.toLocaleDateString('en-US')  %> <br>
+				To:   <%= convention.To.toLocaleDateString('en-US')  %> <br>
+				Location: <%= convention.Location %><br>
+				Description: <%= convention.Description %><br>
+				Special Guest: <%= convention.Guest %><br>
+				Schedule of Events: <br><%= convention.Schedule %><br><br>
+				<img src="<%= convention.Picture %>" width="800" height="600"> <br>
 
+      </div>
+    </div>
+  </div>
+  <div class="card card-plain">
+    <div class="card-header" role="tab" id="headingTwo">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Collapsible Group Item #2
+
+        <i class="now-ui-icons arrows-1_minimal-down"></i>
+        </a>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card card-plain">
+    <div class="card-header" role="tab" id="headingThree">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      Collapsible Group Item #3
+
+      <i class="now-ui-icons arrows-1_minimal-down"></i>
+      </a>
+    </div>
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 <%- include('bootfooter') -%>
