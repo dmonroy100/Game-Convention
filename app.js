@@ -219,6 +219,11 @@ app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
 
+app.get('/mapapi', function(req, res, next) {
+  res.render('mapapi');
+});
+
+
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
   next()
