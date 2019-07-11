@@ -9,6 +9,7 @@ var conventionSchema = Schema( {
   Location: String,
   From: Date,
   To: Date,
+  Guest: String,
   Description: String,
   Picture: String,
   Schedule:String,
