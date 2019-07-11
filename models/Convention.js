@@ -11,6 +11,7 @@ var conventionSchema = Schema( {
   To: Date,
   Description: String,
   Picture: String,
+  Schedule:String,
   ConventionType: String,
   ConventionTicketPrice: String,
   ConventionCelebritiesGoing: String,

@@ -225,7 +225,7 @@ app.use(function(req,res,next){
 
 function processFormData(req,res,next){
   res.render('formdata',
-     {title:"Form Data", Name:req.body.Name, Website:req.body.Website,Facebookgroup:req.body.Facebookgroup,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description})
+     {title:"Form Data", Name:req.body.Name, Website:req.body.Website,Facebookgroup:req.body.Facebookgroup,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description,Schedule:req.body.Schedule})
 }
 const cID = require ('./config/clientId.js');
 const cSecret = require('./config/clientSecret.js');
