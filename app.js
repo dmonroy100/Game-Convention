@@ -20,7 +20,7 @@ var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
     //'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz' ||
-    'mongodb://heroku_1mh6jvp2:mggno2vrjh2036n5tf58ppqh7t@ds247637.mlab.com:47637/heroku_1mh6jvp2';
+    'mongodb://heroku_03g7jdqb:hnnbgerrljnmvdlu2uc57sqt3t@ds243607.mlab.com:43607/heroku_03g7jdqb';
 console.log("setting uristring to "+uristring)
 //uristring ='mongodb://localhost/convengo'
     // Makes connection asynchronously.  Mongoose will queue up database
