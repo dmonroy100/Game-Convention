@@ -5,6 +5,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const amadeus = require('./amadeusObject/amadeusCalls')
 
 // AUTHENTICATION MODULES
 session = require("express-session")
@@ -218,6 +219,11 @@ app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
 
+app.get('/mapapi', function(req, res, next) {
+  res.render('mapapi');
+});
+
+
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
   next()
@@ -227,27 +233,17 @@ function processFormData(req,res,next){
   res.render('formdata',
      {title:"Form Data", Name:req.body.Name, Website:req.body.Website,Facebookgroup:req.body.Facebookgroup,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description,Guest:req.body.Guest,Schedule:req.body.Schedule})
 }
-const cID = require ('./config/clientId.js');
-const cSecret = require('./config/clientSecret.js');
 
-var Amadeus = require('amadeus');
-var amadeus = new Amadeus({
-    clientId: cID.getclientID,
-    clientSecret: cSecret.getclientSecret
-  });
-
-exports.getAmadeus = function (data){
-  return amadeus;
-}
-
-const amadeusCall = require('./amadeusObject/amadeusCalls.js')
-
-amadeusCall.run
 
 app.get('/apitest', function(req, res, next) {
-  res.render('apitest');
+  amadeus.run(req,res,next)
+  res.send('apitest completed');
 });
-  // when completed put all API calls in a seperate folder for better readability
+
+
+// when completed put all API calls in a seperate folder for better readability
+//END OF API CALLS FOR AMADEUS
+
 
 app.post('/processform', listController.saveConvenion)
 
