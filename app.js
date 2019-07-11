@@ -1,10 +1,10 @@
-
 console.log("running app.js")
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const amadeus = require('./amadeusObject/amadeusCalls')
 
 // AUTHENTICATION MODULES
 session = require("express-session")
@@ -20,7 +20,7 @@ var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
     //'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz' ||
-    'mongodb://heroku_1mh6jvp2:mggno2vrjh2036n5tf58ppqh7t@ds247637.mlab.com:47637/heroku_1mh6jvp2';
+    'mongodb://heroku_03g7jdqb:hnnbgerrljnmvdlu2uc57sqt3t@ds243607.mlab.com:43607/heroku_03g7jdqb';
 console.log("setting uristring to "+uristring)
 //uristring ='mongodb://localhost/convengo'
     // Makes connection asynchronously.  Mongoose will queue up database
@@ -218,6 +218,10 @@ app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
 
+app.get('/mapapi', function(req, res, next) {
+  res.render('mapapi');
+});
+
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
   next()
@@ -225,29 +229,19 @@ app.use(function(req,res,next){
 
 function processFormData(req,res,next){
   res.render('formdata',
-     {title:"Form Data", Name:req.body.Name, Website:req.body.Website,Facebookgroup:req.body.Facebookgroup,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description})
-}
-const cID = require ('./config/clientId.js');
-const cSecret = require('./config/clientSecret.js');
-
-var Amadeus = require('amadeus');
-var amadeus = new Amadeus({
-    clientId: cID.getclientID,
-    clientSecret: cSecret.getclientSecret
-  });
-
-exports.getAmadeus = function (data){
-  return amadeus;
+     {title:"Form Data", Name:req.body.Name, Website:req.body.Website,Facebookgroup:req.body.Facebookgroup,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description,Guest:req.body.Guest,Schedule:req.body.Schedule})
 }
 
-const amadeusCall = require('./amadeusObject/amadeusCalls.js')
-
-amadeusCall.run
 
 app.get('/apitest', function(req, res, next) {
-  res.render('apitest');
+  amadeus.run(req,res,next)
+  res.send('apitest completed');
 });
-  // when completed put all API calls in a seperate folder for better readability
+
+
+// when completed put all API calls in a seperate folder for better readability
+//END OF API CALLS FOR AMADEUS
+
 
 app.post('/processform', listController.saveConvenion)
 
