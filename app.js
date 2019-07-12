@@ -91,14 +91,9 @@ app.use((req,res,next) => {
   next()
 })
 
-// here are the authentication routes
 
 app.get('/loginerror', function(req,res){
   res.render('loginerror',{})
-})
-
-app.get('/login', function(req,res){
-  res.render('login',{})
 })
 
 // route for logging out
@@ -121,7 +116,7 @@ app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'e
 
 app.get('/login/authorized',
         passport.authenticate('google', {
-                successRedirect : '/profile',
+                successRedirect : '/conventions',
                 failureRedirect : '/loginerror'
         })
       );
@@ -141,22 +136,6 @@ function isLoggedIn(req, res, next) {
       res.redirect('/login');
     }
 }
-
-// we require them to be logged in to see their profile
-app.get('/Profile', isLoggedIn, function(req, res) {
-        res.render('Profile')
-    });
-
-app.get('/editprofile',isLoggedIn, (req,res)=>{
-  res.render('editprofile')
-})
-
-app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
-app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
-
-
-app.post('/updateProfile',profileController.update);
-
 
 // END OF THE AUTHENTICATION ROUTES
 
@@ -188,9 +167,6 @@ app.get('/abc', function(req, res, next) {
   res.render('abc');
 });
 
-app.get('/editprofile', function(req, res, next) {
-  res.render('editprofile');
-});
 
 app.get('/convbar', function(req, res, next) {
   res.render('convbar');
@@ -204,10 +180,6 @@ app.get('/navigation', function(req, res, next) {
   res.render('navigation');
 });
 
-
-app.get('/profileview', function(req, res, next) {
-  res.render('profileview');
-});
 
 //test forum
 app.get('/distest', function(req, res, next) {
@@ -223,9 +195,6 @@ app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
 
-app.get('/mapapi', function(req, res, next) {
-  res.render('mapapi');
-});
 
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
