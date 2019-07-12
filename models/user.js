@@ -28,7 +28,6 @@ var userSchema = Schema( {
   followers: String,
   following: String
 
-
 } );
 
 console.log("loaded module User")
