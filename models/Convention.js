@@ -20,7 +20,8 @@ var conventionSchema = Schema( {
   ConventionTicketPrice: String,
   ConventionCelebritiesGoing: String,
   ConventionContactInformation: String,
-  ConventionEvents: String
+  ConventionEvents: String,
+  badges: [String]
 } );
 
 module.exports = mongoose.model('Convention', conventionSchema);

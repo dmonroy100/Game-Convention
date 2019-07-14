@@ -33,8 +33,7 @@ console.log("setting uristring to "+uristring)
       }
     });
 
-Test = require('./models/test')
-console.log("Test = "+Test)
+
 console.log("about to require ./models/User")
 User = require( './models/user' )
 console.log("required User")
