@@ -205,11 +205,6 @@ app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
 
-app.get('/editConvention', function(req, res, next) {
-  res.render('editConvention',{title:"Editting Convention"});
-});
-
-
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
   next()
@@ -219,6 +214,7 @@ function processFormData(req,res,next){
   res.render('formdata',
      {title:"Form Data", Name:req.body.Name, Website:req.body.Website,Facebookgroup:req.body.Facebookgroup,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description,Guest:req.body.Guest,Schedule:req.body.Schedule})
 }
+
 
 app.get('/apitest', function(req, res, next) {
   amadeus.run(req,res,next)
@@ -235,7 +231,10 @@ app.post('/processform', listController.saveConvenion)
 app.get('/showConventions', listController.getAllConventions)
 app.get('/showConvention/:id', listController.getOneConvention)
 app.get('/showConvention/:id', listController.travel)
-app.post('/updateConvention',listController.update)
+app.get('/editConvention',listController.update)
+app.get('/showConvention/:id', listController.getOneConvention)
+
+
 
 app.get('/showProfile/:id', profileController.getOneProfile)
 

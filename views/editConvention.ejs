@@ -4,17 +4,17 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Edit Convention</h5>
-    <form method="post" action="/updateConvention">
-      Name: <br><input type="text" value="" name="Name"> <br><br>
-      Website: <br><input type="text" value="" name="Website"> <br><br>
-      Facebookgroup: <br><input type="text" value="" name="Facebookgroup"> <br><br>
-      From: <br><input type="date" value="" name="From"> <br><br>
-      To: <br><input type="date" value="" name="To"> <br><br>
-      Location: <br><input type="text" value="" name="Location"> <br><br>
-      Description: <br><textarea name="Description" value="" rows="5" cols="80"></textarea> <br><br>
-      Special Guests: <br><textarea name="Special Guests" value="" rows="5" cols="80"></textarea> <br><br>
-      Schedule:<br><textarea name="Schedule" value="" rows="5" cols="100"></textarea> <br><br>
-      Picture: <br><input type="text" name="Picture" value="" class="img-fluid" alt="Responsive image">
+    <form method="post" action="/editConvention">
+      Name: <br><input type="text" placeholder="<%=  convention.Name  %>" value="<%=  convention.Name  %>" name="Name"> <br><br>
+      Website: <br><input type="text" placeholder="<%=convention.Website%>" value="<%=convention.Website%>" name="Website"> <br><br>
+      Facebookgroup: <br><input type="text" placeholder="<%=convention.Facebookgroup%>" value="<%=convention.Facebookgroup%>" name="Facebookgroup"> <br><br>
+      From: <br><input type="date" placeholder="<%= convention.From%>" value="<%= convention.From%>" name="From"> <br><br>
+      To: <br><input type="date" placeholder="<%= convention.To %>" value="<%= convention.To %>" name="To"> <br><br>
+      Location: <br><input type="text" placeholder="<%= convention.Location %>" value="<%= convention.Location %>" name="Location"> <br><br>
+      Description: <br><textarea name="Description" placeholder="<%= convention.Description %>" value="<%= convention.Description %>" rows="5" cols="80"></textarea> <br><br>
+      Special Guests: <br><textarea name="Special Guests" placeholder="<%= convention.Guest %>" value="<%= convention.Guest %>" rows="5" cols="80"></textarea> <br><br>
+      Schedule:<br><textarea name="Schedule" placeholder="<%= convention.Schedule %>" value="<%= convention.Schedule %>" rows="5" cols="100"></textarea> <br><br>
+      Picture: <br><input type="text" name="Picture" placeholder="<%= convention.Picture %>" value="<%= convention.Picture %>" class="img-fluid" alt="Responsive image">
       Badges: <br><br><div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="Badges">
         <label class="form-check-label" for="inlineCheckbox1">Needs Deleted</label>

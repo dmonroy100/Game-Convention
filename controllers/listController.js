@@ -1,13 +1,12 @@
 'use strict';
 const Convention = require( '../models/Convention' );
 
-
 exports.travel = ( req, res ) => {
   console.dir(con)
   con.Location = req.body.Location
 
   amadeus.referenceData.locations.get({
-    keyword: 'con.Location'
+    keyword: '<%= convention.Location %>'
   }).then(function(response){
     console.log(response.data); // first page
     return amadeus.next(response);
@@ -30,7 +29,10 @@ exports.saveConvenion = ( req, res ) => {
     Guest:req.body.Guest,
     Vendor: req.body.Vendor,
     Schedule:req.body.Schedule,
-    Picture: req.body.Picture
+    Picture: req.body.Picture,
+    Badges: req.body.Badges,
+    Notifications: req.body.Notifications,
+    Guest: req.body.Guest
     }
   )
 
@@ -66,6 +68,7 @@ exports.getOneConvention = ( req, res ) => {
 	  //gconsle.log('in getAllSkills')
 	  const id = req.params.id
 	  console.log('the id is '+id)
+    console.log('the name is '+ Convention.Name)
 	  Convention.findOne({_id:id})
 	    .exec()
 	    .then( ( convention ) => {
@@ -84,19 +87,31 @@ exports.getOneConvention = ( req, res ) => {
 //needs changed~!!!!!!
   exports.update = ( req, res ) => {
 
-  User.findOne(res.locals.user._id)
+  Convention.findOne(res.locals.Name)
   .exec()
   .then((p) => {
     console.log("just found a profile")
     console.dir(p)
-    p.userName = req.body.userName
-    p.profilePicURL = req.body.profilePicURL
-    p.zipcode = req.body.zipcode
-    p.lastUpdate = new Date()
+    p.Name = req.body.Name
+    p.Picture = req.body.Picture
+    p.Website = req.body.Website
+    p.Facebookgroup = req.body.Facebookgroup
+    p.From=req.body.From
+    p.To=req.body.To
+    p.Location=req.body.Location
+    p.Description=req.body.Description
+    p.Moderator=req.body.Moderator
+    p.Guest=req.body.Guest
+    p.Vendor= req.body.Vendor
+    p.Schedule=req.body.Schedule
+    p.Badges=req.body.Badges
+    p.Notifications=req.body.Notifications
+    p.Guest=req.body.Guest
+    console.log("in")
     p.save()
-     .then( ( profile ) => {
-      res.render( 'showProfile', {
-          profile:profile, title:"Profile"
+     .then( ( convention ) => {
+      res.render( 'conventions', {
+        convention:convention, title:"convention"
         } );
      })
    })
