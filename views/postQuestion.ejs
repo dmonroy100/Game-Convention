@@ -1,0 +1,28 @@
+<%- include('bootheader'); -%>
+<%- include('navbar'); -%>
+
+  <div class="jumbotron masthead text-center" id="">
+    <h1>Post Question Here!</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <form method="post" action="/processQuestionPost">
+              <div class="form-group">
+                <h5 class="card-header">Title</h5>
+                <input type="text" class="form-control" id="question" name="question"> <br>
+              </div>
+              <div class="form-group">
+                <h5 class="card-header">Description</h5>
+                <textarea class="form-control" name = "description" rows="6"></textarea>
+              </div>
+              <input class="btn btn-primary" type="submit">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

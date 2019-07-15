@@ -41,6 +41,9 @@ console.log("required User")
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
 const discussionController = require('./controllers/discussionController')
+const modController = require('./controllers/modController')
+const qAndaController = require('./controllers/qAndaController');
+
 
 var app = express();
 
@@ -71,7 +74,7 @@ const approvedLogins = ["tjhickey724@gmail.com","csjbs2018@gmail.com"];
 
 // here is where we check on their logged in status
 app.use((req,res,next) => {
-  res.locals.title="Game-Convention"
+  res.locals.title="ConvenGo"
   res.locals.loggedIn = false
   if (req.isAuthenticated()){
     if (req.user.googleemail.endsWith("@brandeis.edu") ||
@@ -173,11 +176,6 @@ app.get('/', function(req, res, next) {
   res.render('index');
 });
 
-app.get('/abc', function(req, res, next) {
-  res.render('abc');
-});
-
-
 app.get('/convbar', function(req, res, next) {
   res.render('convbar');
 });
@@ -204,6 +202,15 @@ app.get('/disbar', function(req, res, next) {
 app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
+
+app.get('/editConvention', function(req, res, next) {
+  res.render('editConvention',{title:"Editting Convention"});
+});
+
+app.get('/moderatorRequests', function(req, res, next) {
+  res.render('moderatorRequests',{title:"moderatorRequests"});
+});
+
 
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
@@ -241,6 +248,49 @@ app.get('/showProfile/:id', profileController.getOneProfile)
 app.get('/discussion',discussionController.getAllDiscussion)
 
 app.post('/processDiscussion',discussionController.saveDiscussion)
+
+app.post('/processRequest', modController.saveMod)
+
+app.get('/modList', modController.getAllMod)
+////// Forums
+
+
+
+
+app.get('/postQuestion', function(req, res, next){
+  res.render('postQuestion')
+})
+
+//app.post('/forumDelete', isLoggedIn, qAndaController.deleteQuestion)
+
+app.get('/showQuestions', qAndaController.getAllQuestions)
+
+app.post('/processQuestionPost', qAndaController.saveQuestionPost)
+
+app.get('/showQuestion/:id', qAndaController.attachAllAnswers, qAndaController.showOneQuestion)
+
+// //to edit an existing question
+// app.get('/showQuestion/:id/editQuestion',isLoggedIn, (req,res)=>{
+//   res.render('editQuestion' ,{
+//     req: req
+//   })
+// })
+
+//to edit an existing question
+app.get('/showQuestion/:id/editQuestion', qAndaController.showPreviousQ, qAndaController.editQuestion)
+
+app.post('/showQuestion/:id/editQuestion/processQuestionPost',qAndaController.editQuestion)
+
+//to save a new answer post
+app.post('/showQuestion/:id/processAnswerPost', qAndaController.saveAnswer)
+
+//to delete an existing answers
+app.post('/showQuestion/:id/answerDelete',qAndaController.deleteAnswer)
+
+//-------------
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

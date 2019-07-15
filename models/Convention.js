@@ -10,7 +10,7 @@ var conventionSchema = Schema( {
   Location: String,
   From: Date,
   To: Date,
-  Moderators: [ObjectId],
+  ModeratorS: ObjectId,
   Guest: [String],
   Vendors: [String],
   Description: String,
