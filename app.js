@@ -174,11 +174,6 @@ app.get('/', function(req, res, next) {
   res.render('index');
 });
 
-app.get('/abc', function(req, res, next) {
-  res.render('abc');
-});
-
-
 app.get('/convbar', function(req, res, next) {
   res.render('convbar');
 });
