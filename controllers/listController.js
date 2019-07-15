@@ -1,15 +1,15 @@
 'use strict';
 const Convention = require( '../models/Convention' );
+const Mod = require( '../models/Mod' );
 
 exports.addConvention = (req,res,next) => {
-
-	const z = Convention.findOne({_id:req.params.convid}).exec()
-	console.dir(z)
-	console.log("what?")
+  console.log("convid = "+req.params.convid)
 	Convention.findOne({_id:req.params.convid})
 	.exec()
 	.then( (convention) => {
 		console.log("found the convention")
+		console.log(convention)
+		console.log(convention._id)
 		res.locals.convention = convention
 		next()
 	})
@@ -82,26 +82,27 @@ exports.getAllConventions = ( req, res ) => {
     } );
 };
 
-exports.getOneConvention = ( req, res ) => {
-	  //gconsle.log('in getAllSkills')
-	  const id = req.params.id
-	  console.log('the id is '+id)
-    console.log('the name is '+ Convention.Name)
-	  Convention.findOne({_id:id})
-	    .exec()
-	    .then( ( convention ) => {
-	      res.render( 'convention', {
-	        convention:convention, title:"Convention"
-	      } );
-	    } )
-	    .catch( ( error ) => {
-	      console.log( error.message );
-	      return [];
-	    } )
-	    .then( () => {
-	      //console.log( 'skill promise complete' );
-	    } );
-	};
+
+	exports.addModerators = ( req, res, next ) => {
+		  //gconsle.log('in getAllSkills')
+			console.log("in addModerators")
+			console.dir(res.locals)
+		  const convid = res.locals.convention._id
+
+		  Mod.find({m_convId:convid})
+		    .exec()
+		    .then( ( mods ) => {
+					res.locals.modLists = mods
+					next()
+		    } )
+		    .catch( ( error ) => {
+		      console.log( error.message );
+		      res.send("addModerators error :"+error.message)
+		    } )
+		    .then( () => {
+		      //console.log( 'skill promise complete' );
+		    } );
+		};
 //needs changed~!!!!!!
   exports.update = ( req, res ) => {
 

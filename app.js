@@ -239,10 +239,16 @@ app.get('/apitest', function(req, res, next) {
 app.post('/processform', listController.saveConvenion)
 
 app.get('/showConventions', listController.getAllConventions)
-app.get('/showConvention/:id', listController.getOneConvention)
-app.get('/showConvention/:id', listController.travel)
+//app.get('/showConvention/:id', listController.getOneConvention)
+//app.get('/showConvention/:id', listController.travel)
 app.get('/editConvention',listController.update)
-app.get('/showConvention/:id', listController.getOneConvention)
+app.get('/showConvention/:convid',
+    listController.addConvention,
+    listController.addModerators,
+    (req,res) => {
+      res.render('convention',{title:'Convention'})
+    }
+  )
 
 
 
