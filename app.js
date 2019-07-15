@@ -71,7 +71,7 @@ const approvedLogins = ["tjhickey724@gmail.com","csjbs2018@gmail.com"];
 
 // here is where we check on their logged in status
 app.use((req,res,next) => {
-  res.locals.title="YellowCartwheel"
+  res.locals.title="Game-Convention"
   res.locals.loggedIn = false
   if (req.isAuthenticated()){
     if (req.user.googleemail.endsWith("@brandeis.edu") ||
@@ -113,6 +113,14 @@ app.get('/logout', function(req, res) {
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 
 
+var ownerList= [
+  'cathyxie@brandeis.edu',
+   'dmonroy@brandeis.edu',
+   'rami072@brandeis.edu',
+   'greghsu23@brandeis.edu',
+   'tlsimala@brandeis.edu'
+ ]
+
 app.get('/login/authorized',
         passport.authenticate('google', {
                 successRedirect : '/conventions',
@@ -149,8 +157,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
+if(isLoggedIn==true && ownerList.includes(req.user.googleemail)){
+  app.get('/moderatorRequests', function(req, res, next) {
+    res.render('moderatorRequests');
+  });
+}
 app.use(function(req,res,next){
   console.log("about to look for routes!!!")
   //console.dir(req.headers)
@@ -194,6 +205,10 @@ app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
 
+app.get('/editConvention', function(req, res, next) {
+  res.render('editConvention',{title:"Editting Convention"});
+});
+
 
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
@@ -204,7 +219,6 @@ function processFormData(req,res,next){
   res.render('formdata',
      {title:"Form Data", Name:req.body.Name, Website:req.body.Website,Facebookgroup:req.body.Facebookgroup,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description,Guest:req.body.Guest,Schedule:req.body.Schedule})
 }
-
 
 app.get('/apitest', function(req, res, next) {
   amadeus.run(req,res,next)
@@ -221,8 +235,9 @@ app.post('/processform', listController.saveConvenion)
 app.get('/showConventions', listController.getAllConventions)
 app.get('/showConvention/:id', listController.getOneConvention)
 app.get('/showConvention/:id', listController.travel)
+app.post('/updateConvention',listController.update)
 
-
+app.get('/showProfile/:id', profileController.getOneProfile)
 
 app.get('/discussion',discussionController.getAllDiscussion)
 

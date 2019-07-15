@@ -4,18 +4,29 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Edit Convention</h5>
-    <form method="post" action="/processform">
-      Name: <br><input type="text" name="Name"> <br><br>
-      Website: <br><input type="text" name="Website"> <br><br>
-      Facebookgroup: <br><input type="text" name="Facebookgroup"> <br><br>
-      From: <br><input type="date" name="From"> <br><br>
-      To: <br><input type="date" name="To"> <br><br>
-      Location: <br><input type="text" name="Location"> <br><br>
-      Description: <br><textarea name="Description" rows="5" cols="80"></textarea> <br><br>
-      Special Guests: <br><textarea name="Special Guests" rows="5" cols="80"></textarea> <br><br>
-      Schedule:<br><textarea name="Schedule" rows="5" cols="100"></textarea> <br><br>
-      Picture: <br><input type="text" name="Picture" class="img-fluid" alt="Responsive image">
-
+    <form method="post" action="/updateConvention">
+      Name: <br><input type="text" value="" name="Name"> <br><br>
+      Website: <br><input type="text" value="" name="Website"> <br><br>
+      Facebookgroup: <br><input type="text" value="" name="Facebookgroup"> <br><br>
+      From: <br><input type="date" value="" name="From"> <br><br>
+      To: <br><input type="date" value="" name="To"> <br><br>
+      Location: <br><input type="text" value="" name="Location"> <br><br>
+      Description: <br><textarea name="Description" value="" rows="5" cols="80"></textarea> <br><br>
+      Special Guests: <br><textarea name="Special Guests" value="" rows="5" cols="80"></textarea> <br><br>
+      Schedule:<br><textarea name="Schedule" value="" rows="5" cols="100"></textarea> <br><br>
+      Picture: <br><input type="text" name="Picture" value="" class="img-fluid" alt="Responsive image">
+      Badges: <br><br><div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="Badges">
+        <label class="form-check-label" for="inlineCheckbox1">Needs Deleted</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="Badges">
+        <label class="form-check-label" for="inlineCheckbox2">Needs Updated</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" name="Badges">
+        <label class="form-check-label" for="inlineCheckbox3">Updated</label>
+      </div>
       <br><br>
 
       <input type="submit">

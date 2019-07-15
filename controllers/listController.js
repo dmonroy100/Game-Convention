@@ -81,3 +81,30 @@ exports.getOneConvention = ( req, res ) => {
 	      //console.log( 'skill promise complete' );
 	    } );
 	};
+//needs changed~!!!!!!
+  exports.update = ( req, res ) => {
+
+  User.findOne(res.locals.user._id)
+  .exec()
+  .then((p) => {
+    console.log("just found a profile")
+    console.dir(p)
+    p.userName = req.body.userName
+    p.profilePicURL = req.body.profilePicURL
+    p.zipcode = req.body.zipcode
+    p.lastUpdate = new Date()
+    p.save()
+     .then( ( profile ) => {
+      res.render( 'showProfile', {
+          profile:profile, title:"Profile"
+        } );
+     })
+   })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+};
