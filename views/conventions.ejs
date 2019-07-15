@@ -45,7 +45,12 @@
 </head>
 <body>
 
-<h2>Conventions <a href="#" class="btn btn-primary" role="button" aria-pressed="true">edit</a></h2>
+<h2>
+  Conventions
+  <% if (conventions.ModeratorS == true){ %>
+    <a href="#" class="btn btn-primary" role="button" aria-pressed="true">edit</a>
+  <% } %>
+</h2>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
