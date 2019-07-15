@@ -26,7 +26,7 @@ exports.saveConvenion = ( req, res ) => {
     To:req.body.To,
     Location:req.body.Location,
     Description:req.body.Description,
-    Moderator: req.body.Moderator,
+    ModeratorS: req.user.moderator,
     Guest:req.body.Guest,
     Vendor: req.body.Vendor,
     Schedule:req.body.Schedule,
