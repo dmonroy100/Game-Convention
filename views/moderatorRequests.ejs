@@ -1,0 +1,14 @@
+<%- include('bootheader') -%>
+<%- include('navbar') -%>
+
+
+    <form method="post" action="/processRequest">
+      Convention you want to edit:<br> <input type="text" name="m_convName"> <br>
+      Your email: <br> <input type="text" name="m_email"> <br>
+      Reasons why you're qualified: <br> <input type="text" name="m_reason"> <br>
+      <br>
+      <input class="btn btn-lg btn-warning" type="submit">
+    </form>
+
+
+<%- include('bootfooter') -%>

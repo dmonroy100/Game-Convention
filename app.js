@@ -41,6 +41,7 @@ console.log("required User")
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
 const discussionController = require('./controllers/discussionController')
+const modController = require('./controllers/modController')
 
 var app = express();
 
@@ -209,6 +210,10 @@ app.get('/editConvention', function(req, res, next) {
   res.render('editConvention',{title:"Editting Convention"});
 });
 
+app.get('/moderatorRequests', function(req, res, next) {
+  res.render('moderatorRequests',{title:"moderatorRequests"});
+});
+
 
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
@@ -242,6 +247,10 @@ app.get('/showProfile/:id', profileController.getOneProfile)
 app.get('/discussion',discussionController.getAllDiscussion)
 
 app.post('/processDiscussion',discussionController.saveDiscussion)
+
+app.post('/processRequest', modController.saveMod)
+
+app.get('/modList', modController.getAllMod)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
