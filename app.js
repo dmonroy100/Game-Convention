@@ -42,6 +42,8 @@ const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
 const discussionController = require('./controllers/discussionController')
 const modController = require('./controllers/modController')
+const qAndaController = require('./controllers/qAndaController');
+
 
 var app = express();
 
@@ -246,6 +248,45 @@ app.post('/processDiscussion',discussionController.saveDiscussion)
 app.post('/processRequest', modController.saveMod)
 
 app.get('/modList', modController.getAllMod)
+////// Forums
+
+
+
+
+app.get('/postQuestion', function(req, res, next){
+  res.render('postQuestion')
+})
+
+//app.post('/forumDelete', isLoggedIn, qAndaController.deleteQuestion)
+
+app.get('/showQuestions', qAndaController.getAllQuestions)
+
+app.post('/processQuestionPost', qAndaController.saveQuestionPost)
+
+app.get('/showQuestion/:id', qAndaController.attachAllAnswers, qAndaController.showOneQuestion)
+
+// //to edit an existing question
+// app.get('/showQuestion/:id/editQuestion',isLoggedIn, (req,res)=>{
+//   res.render('editQuestion' ,{
+//     req: req
+//   })
+// })
+
+//to edit an existing question
+app.get('/showQuestion/:id/editQuestion', qAndaController.showPreviousQ, qAndaController.editQuestion)
+
+app.post('/showQuestion/:id/editQuestion/processQuestionPost',qAndaController.editQuestion)
+
+//to save a new answer post
+app.post('/showQuestion/:id/processAnswerPost', qAndaController.saveAnswer)
+
+//to delete an existing answers
+app.post('/showQuestion/:id/answerDelete',qAndaController.deleteAnswer)
+
+//-------------
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

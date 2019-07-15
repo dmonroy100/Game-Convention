@@ -1,0 +1,75 @@
+<%- include('header') -%>
+<%- include('navbar') -%>
+
+<div class="jumbotron masthead text-center" id="north">
+  <h1><b>Question: </b><%= question.question %> </h1>
+  <!-- Author -->
+  <h4 class="text-center">
+    by
+    <a href="/showProfile/<%=user._id%>"><%=question.userName%></a>
+    posted on <%= question.createdAt %>
+  </h4>
+  <% if (question.userId.equals(user._id)) { %>
+       <a class="btn btn-primary" href="/showQuestion/<%=question._id%>/editQuestion" role="button">Edit</a>
+   <% } %>
+  <a class="btn btn-primary" href="/showQuestions" role="button">Return to Question List</a>
+</div>
+
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col">
+      <h5><b>Description: </b></h5>
+      <hr>
+      <!-- Post Content -->
+      <p class="lead" id ="description"><%= question.description%></p>
+      <hr>
+
+      <h5><b>Comments: </b></h5>
+      <hr>
+        <% for(i = 0; i < answers.length; i++){  %>
+
+
+        <!-- Single Comment in card-->
+          <div class="media mb-3" id ="description">
+            <a href="/showProfile/<%=answers[i].userId%>"><img class="d-flex mr-3 rounded-circle" id="profilePic" src="<%=answers[i].profilePicURL%>" width="40px" height="40px" alt="user profile pic"></a>
+            <div class="media-body">
+              <h5><%= answers[i].userName %></h5>
+              <h6><%= answers[i].answer %></h6>
+              <% if (answers[i].userId.equals(user._id)) { %>
+                <form method="post" action="/showQuestion/<%=question._id%>/answerDelete">
+                  <input type="hidden" name="delete" value="<%=answers[i]._id%>">
+                  <input class="btn btn-sm btn-outline-danger" type="submit" value="delete">
+                  &nbsp&nbsp&nbsp
+                  <button type="button" class="btn btn-sm btn-outline-dark">
+                    <i class="fa fa-thumbs-up fa-1x"></i>
+                    <i class="glyphicon glyphicon-thumbs-up">1</i>
+                  </button>
+                </form>
+              <% } %>
+            </div>
+          </div>
+        <% } %>
+      <!-- Comments Form -->
+      <div class="card">
+        <h5 class="card-header">Leave a Comment:</h5>
+        <div class="card-body">
+          <form action="/showQuestion/<%=req.params.id%>/processAnswerPost" method="post">
+            <div class="form-group">
+              <textarea class="form-control" name="answer" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
