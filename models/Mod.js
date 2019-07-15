@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var modSchema = Schema( {
-  m_convName: String,
+  m_convId: ObjectId,
   userId: ObjectId,
   m_email: String,
   m_reason: String,

@@ -252,7 +252,7 @@ app.get('/discussion',discussionController.getAllDiscussion)
 
 app.post('/processDiscussion',discussionController.saveDiscussion)
 
-app.post('/processRequest', modController.saveMod)
+app.post('/processRequest/:convid', modController.saveMod)
 
 app.get('/modList', modController.getAllMod)
 ////// Forums

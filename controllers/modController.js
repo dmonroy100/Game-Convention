@@ -9,7 +9,7 @@ exports.saveMod = ( req, res ) => {
   let newMod = new Mod(
    {
 
-    m_convName: req.body.m_convName,
+    m_convId: req.params.convid,
     userId: req.user._id,
     m_email: req.body.m_email,
     m_reason: req.body.m_reason,
@@ -22,7 +22,7 @@ exports.saveMod = ( req, res ) => {
 
   newMod.save()
     .then( () => {
-      res.redirect( 'conventions' );
+      res.redirect( '/showConvention/'+req.params.convid );
     } )
     .catch( error => {
       res.send( error );
