@@ -1,6 +1,24 @@
 'use strict';
 const Convention = require( '../models/Convention' );
 
+exports.addConvention = (req,res,next) => {
+
+	const z = Convention.findOne({_id:req.params.convid}).exec()
+	console.dir(z)
+	console.log("what?")
+	Convention.findOne({_id:req.params.convid})
+	.exec()
+	.then( (convention) => {
+		console.log("found the convention")
+		res.locals.convention = convention
+		next()
+	})
+	.catch((error) => {
+		console.log("Error in AddConvention")
+		res.send("error is "+error)
+	})
+}
+
 exports.travel = ( req, res ) => {
   console.dir(con)
   con.Location = req.body.Location
@@ -25,7 +43,7 @@ exports.saveConvenion = ( req, res ) => {
     To:req.body.To,
     Location:req.body.Location,
     Description:req.body.Description,
-    ModeratorS: req.user.moderator,
+    //ModeratorS: req.user.moderator,
     Guest:req.body.Guest,
     Vendor: req.body.Vendor,
     Schedule:req.body.Schedule,

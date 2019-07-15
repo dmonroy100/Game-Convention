@@ -19,6 +19,7 @@ const mongoose = require( 'mongoose' );
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
+    'mongodb://localhost/convengo' ||
     //'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz' ||
     'mongodb://heroku_03g7jdqb:hnnbgerrljnmvdlu2uc57sqt3t@ds243607.mlab.com:43607/heroku_03g7jdqb';
 console.log("setting uristring to "+uristring)
@@ -126,7 +127,7 @@ var ownerList= [
 
 app.get('/login/authorized',
         passport.authenticate('google', {
-                successRedirect : '/conventions',
+                successRedirect : '/showConventions',
                 failureRedirect : '/loginerror'
         })
       );
@@ -203,8 +204,10 @@ app.get('/addConvention', function(req, res, next) {
   res.render('addConvention',{title:"Adding Convention"});
 });
 
-app.get('/editConvention', function(req, res, next) {
-  res.render('editConvention',{title:"Editting Convention"});
+app.get('/editConvention/:convid',
+  listController.addConvention,
+  function(req, res, next) {
+    res.render('editConvention',{title:"Editting Convention"});
 });
 
 app.get('/moderatorRequests', function(req, res, next) {
