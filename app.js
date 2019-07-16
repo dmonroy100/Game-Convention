@@ -95,8 +95,8 @@ app.use((req,res,next) => {
 })
 
 
-app.get('/loginerror', function(req,res){
-  res.render('loginerror',{})
+app.get('/error', function(req,res){
+  res.render('error',{})
 })
 
 app.get('/login', function(req,res){
@@ -132,7 +132,7 @@ var ownerList= [
 app.get('/login/authorized',
         passport.authenticate('google', {
                 successRedirect : '/showConventions',
-                failureRedirect : '/loginerror'
+                failureRedirect : '/error'
         })
       );
 
@@ -277,11 +277,11 @@ app.get('/postQuestion', function(req, res, next){
 
 //app.post('/forumDelete', isLoggedIn, qAndaController.deleteQuestion)
 
-app.get('/showQuestions', qAndaController.getAllQuestions)
+app.get('/showQuestions',isLoggedIn, qAndaController.getAllQuestions)
 
-app.post('/processQuestionPost', qAndaController.saveQuestionPost)
+app.post('/processQuestionPost', isLoggedIn, qAndaController.saveQuestionPost)
 
-app.get('/showQuestion/:id', qAndaController.attachAllAnswers, qAndaController.showOneQuestion)
+app.get('/showQuestion/:id', isLoggedIn, qAndaController.attachAllAnswers, qAndaController.showOneQuestion)
 
 // //to edit an existing question
 // app.get('/showQuestion/:id/editQuestion',isLoggedIn, (req,res)=>{
