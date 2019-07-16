@@ -129,8 +129,8 @@ app.get('/login/authorized',
         passport.authenticate('google', {
                 successRedirect : '/discussion',
                 failureRedirect : '/loginerror'
-        //})
-      //);
+        })
+      );
 
 
 // route middleware to make sure a user is logged in
