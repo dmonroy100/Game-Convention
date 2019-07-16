@@ -37,7 +37,7 @@ console.log("setting uristring to "+uristring)
 
 console.log("about to require ./models/User")
 User = require( './models/user' )
-Mod = require( './models/Mod' )
+//Mod = require( './models/Mod' )
 console.log("required User")
 
 const listController = require('./controllers/listController')
