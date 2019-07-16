@@ -125,10 +125,10 @@ var ownerList= [
    'tlsimala@brandeis.edu'
  ]
 
-//app.get('/login/authorized',
-        //passport.authenticate('google', {
-                //successRedirect : '/showConventions',
-                //failureRedirect : '/loginerror'
+app.get('/login/authorized',
+        passport.authenticate('google', {
+                successRedirect : '/addConvention',
+                failureRedirect : '/loginerror'
         //})
       //);
 
