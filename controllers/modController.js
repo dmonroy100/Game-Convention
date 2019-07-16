@@ -13,7 +13,8 @@ exports.saveMod = ( req, res ) => {
     userId: req.user._id,
     m_email: req.body.m_email,
     m_reason: req.body.m_reason,
-    m_createdAt: new Date()
+    m_createdAt: new Date(),
+    m_status: req.user.mod_status
 
    }
   )
