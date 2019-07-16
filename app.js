@@ -216,7 +216,7 @@ app.get('/editConvention/:convid',
   function(req, res, next) {
     res.render('editConvention',{title:"Editting Convention"});
 
-};
+});
 
 app.get('/moderatorRequests', function(req, res, next) {
   res.render('moderatorRequests',{title:"moderatorRequests"});

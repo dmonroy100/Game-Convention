@@ -15,6 +15,7 @@
 			<div class="container">
 				<h1 class="title"><%=  convention.Name  %></h1>
 				<div class="text-center">
+          <h5><span class="badge badge-warning"><%= convention.Badges %></span></h5>
 					<a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
 					<a class="btn btn-primary" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
 				</div>
@@ -47,7 +48,7 @@
 
       </div>
 			<h2>Moderators</h2>
-      <%- include('modList') -%>
+    
 
 			<div>
 
