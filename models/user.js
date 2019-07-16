@@ -27,7 +27,7 @@ var userSchema = Schema( {
   websiteURL: String,
   followers: String,
   following: String,
-  moderator: {type: Boolean, default: false}
+  mod_status: { type: Number, default: 0 }
 
 } );
 
