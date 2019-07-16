@@ -983,7 +983,11 @@
             <!-- <a class="dropdown-item" href="/login">Login</a> -->
             <!-- Button trigger modal -->
             <!-- put the if statement here!!!!!!!!!!!!!!!!!!! -->
-            <a class="dropdown-item" button type ="button" data-target="#exampleModal" data-toggle="modal" id="loginbutton" input onclick="change()">Login</a>
+            <% if (loggedIn) {%>
+              <a class="dropdown-item" button type ="button" data-target="#exampleModal" data-toggle="modal" id="logoutbutton" input onclick="change()">Logout</a>
+            <% } else { %>
+              <a class="dropdown-item" button type ="button" data-target="#exampleModal" data-toggle="modal" id="loginbutton" input onclick="change()">Login</a>
+            <% } %>
             <a class="dropdown-item" href="#">Contributions</a>
             <a class="dropdown-item" href="#">Notifications</a>
             <a class="dropdown-item" href="#">Requests</a>
