@@ -95,8 +95,8 @@ app.use((req,res,next) => {
 })
 
 
-app.get('/loginerror', function(req,res){
-  res.render('loginerror',{})
+app.get('/error', function(req,res){
+  res.render('error',{})
 })
 
 app.get('/login', function(req,res){
@@ -132,7 +132,7 @@ var ownerList= [
 app.get('/login/authorized',
         passport.authenticate('google', {
                 successRedirect : '/showConventions',
-                failureRedirect : '/loginerror'
+                failureRedirect : '/error'
         })
       );
 
