@@ -19,7 +19,7 @@ const mongoose = require( 'mongoose' );
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://localhost/convengo' ||
+    //'mongodb://localhost/convengo' ||
     //'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz' ||
     'mongodb://heroku_03g7jdqb:hnnbgerrljnmvdlu2uc57sqt3t@ds243607.mlab.com:43607/heroku_03g7jdqb';
 console.log("setting uristring to "+uristring)
@@ -78,7 +78,7 @@ app.use((req,res,next) => {
   res.locals.title="ConvenGo"
   res.locals.loggedIn = false
   if (req.isAuthenticated()){
-    if (req.user.googleemail.endsWith("@brandeis.edu") ||
+    if (req.user.googleemail.endsWith("@brandeis.edu") ||req.user.googleemail.endsWith("@gmail.com")||
           approvedLogins.includes(req.user.googleemail))
           {
             console.log("user has been Authenticated")
@@ -97,6 +97,10 @@ app.use((req,res,next) => {
 
 app.get('/loginerror', function(req,res){
   res.render('loginerror',{})
+})
+
+app.get('/login', function(req,res){
+  res.render('login',{})
 })
 
 // route for logging out
@@ -147,6 +151,8 @@ function isLoggedIn(req, res, next) {
       res.redirect('/login');
     }
 }
+
+
 
 // END OF THE AUTHENTICATION ROUTES
 

@@ -983,7 +983,11 @@
             <!-- <a class="dropdown-item" href="/login">Login</a> -->
             <!-- Button trigger modal -->
             <!-- put the if statement here!!!!!!!!!!!!!!!!!!! -->
-            <a class="dropdown-item" button type ="button" data-target="#exampleModal" data-toggle="modal" id="loginbutton" input onclick="change()">Login</a>
+            <% if (loggedIn) {%>
+              <a class="dropdown-item" button type ="button" data-target="#exampleModal2" data-toggle="modal" id="logoutbutton" input onclick="change()">Logout</a>
+            <% } else { %>
+              <a class="dropdown-item" button type ="button" data-target="#exampleModal" data-toggle="modal" id="loginbutton" input onclick="change()">Login</a>
+            <% } %>
             <a class="dropdown-item" href="#">Contributions</a>
             <a class="dropdown-item" href="#">Notifications</a>
             <a class="dropdown-item" href="#">Requests</a>
@@ -1018,6 +1022,28 @@
         <p> You must have a gmail account to login to ConvenGO</p>
         <a class="btn btn-danger" href="/auth/google">
             <span class="fa fa-google-plus"> Google</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1>Logout</h1>
+        <p> See you soon <3</p>
+
+        <a class="btn btn-danger" href="/logout">
+            <!-- <span class="fa fa-google-plus"> Google</span> -->
         </a>
       </div>
     </div>

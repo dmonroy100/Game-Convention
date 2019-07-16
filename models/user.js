@@ -26,8 +26,7 @@ var userSchema = Schema( {
   facebookURL: String,
   websiteURL: String,
   followers: String,
-  following: String,
-  moderator: {type: Boolean, default: false}
+  following: String
 
 } );
 

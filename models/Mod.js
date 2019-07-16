@@ -8,7 +8,8 @@ var modSchema = Schema( {
   userId: ObjectId,
   m_email: String,
   m_reason: String,
-  m_createdAt: Date
+  m_createdAt: Date,
+  m_status: Number
 } );
 
 module.exports = mongoose.model( 'Mod', modSchema );
