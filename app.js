@@ -247,7 +247,7 @@ app.post('/processform', listController.saveConvenion)
 app.get('/showConventions', listController.getAllConventions)
 //app.get('/showConvention/:id', listController.getOneConvention)
 //app.get('/showConvention/:id', listController.travel)
-app.get('/editConvention',listController.update)
+app.post('/editConvention',listController.update)
 app.get('/showConvention/:convid',
     listController.addConvention,
     listController.addModerators,
@@ -255,8 +255,6 @@ app.get('/showConvention/:convid',
       res.render('convention',{title:'Convention'})
     }
   )
-
-
 
 app.get('/showProfile/:id', profileController.getOneProfile)
 
