@@ -37,6 +37,7 @@ console.log("setting uristring to "+uristring)
 
 console.log("about to require ./models/User")
 User = require( './models/user' )
+Mod = require( './models/Mod' )
 console.log("required User")
 
 const listController = require('./controllers/listController')
@@ -214,7 +215,8 @@ app.get('/editConvention/:convid',
   listController.addConvention,
   function(req, res, next) {
     res.render('editConvention',{title:"Editting Convention"});
-});
+
+};
 
 app.get('/moderatorRequests', function(req, res, next) {
   res.render('moderatorRequests',{title:"moderatorRequests"});
