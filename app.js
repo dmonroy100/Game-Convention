@@ -127,7 +127,7 @@ var ownerList= [
 
 app.get('/login/authorized',
         passport.authenticate('google', {
-                successRedirect : '/discussion',
+                successRedirect : '/',
                 failureRedirect : '/loginerror'
         })
       );
