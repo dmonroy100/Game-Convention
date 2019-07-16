@@ -10,7 +10,7 @@ var modSchema = Schema( {
   m_reason: String,
   m_createdAt: Date,
   m_level: Number,
-  m_status: ObjectId
+  //m_status: ObjectId
 } );
 
 module.exports = mongoose.model( 'Mod', modSchema );
