@@ -9,7 +9,7 @@ var modSchema = Schema( {
   m_email: String,
   m_reason: String,
   m_createdAt: Date,
-  m_status: ObjectId
+  m_status: Number
 } );
 
 module.exports = mongoose.model( 'Mod', modSchema );
