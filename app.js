@@ -99,6 +99,10 @@ app.get('/loginerror', function(req,res){
   res.render('loginerror',{})
 })
 
+app.get('/login', function(req,res){
+  res.render('login',{})
+})
+
 // route for logging out
 app.get('/logout', function(req, res) {
         req.session.destroy((error)=>{console.log("Error in destroying session: "+error)});
