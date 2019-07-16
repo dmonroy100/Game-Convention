@@ -148,6 +148,12 @@ function isLoggedIn(req, res, next) {
     }
 }
 
+app.get('/profile', isLoggedIn, function(req, res) {
+	        res.render('profile')/*, {
+	            user : req.user // get the user out of session and pass to template
+	        });*/
+	    });
+
 // END OF THE AUTHENTICATION ROUTES
 
 
