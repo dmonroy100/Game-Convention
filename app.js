@@ -78,7 +78,7 @@ app.use((req,res,next) => {
   res.locals.title="ConvenGo"
   res.locals.loggedIn = false
   if (req.isAuthenticated()){
-    if (req.user.googleemail.endsWith("@brandeis.edu") ||
+    if (req.user.googleemail.endsWith("@brandeis.edu") ||req.user.googleemail.endsWith("@gmail.com")||
           approvedLogins.includes(req.user.googleemail))
           {
             console.log("user has been Authenticated")
@@ -125,12 +125,12 @@ var ownerList= [
    'tlsimala@brandeis.edu'
  ]
 
-app.get('/login/authorized',
-        passport.authenticate('google', {
-                successRedirect : '/showConventions',
-                failureRedirect : '/loginerror'
-        })
-      );
+//app.get('/login/authorized',
+        //passport.authenticate('google', {
+                //successRedirect : '/showConventions',
+                //failureRedirect : '/loginerror'
+        //})
+      //);
 
 
 // route middleware to make sure a user is logged in
