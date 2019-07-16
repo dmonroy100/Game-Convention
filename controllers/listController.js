@@ -112,104 +112,20 @@ exports.getAllConventions = ( req, res ) => {
   .then((p) => {
     console.log("just found a profile")
     console.dir(p)
-    if(p.Picture = null){
-      p.Picture=p.Picture
-    }
-    else{
-      p.Picture = req.body.Picture
-    }
-    if(p.Website = null){
-      p.Website=p.Website
-    }
-    else{
-      p.Website = req.body.Website
-    }
-    if(p.Facebookgroup = null){
-      p.Facebookgroup=p.Facebookgroup
-    }
-    else{
-      p.Facebookgroup = req.body.Facebookgroup
-    }
-    if(p.From = null){
-      p.From=p.From
-    }
-    else{
-      p.From=req.body.From
-    }
-    if(p.To = null){
-      p.To=p.To
-    }
-    else{
-      p.To=req.body.To
-    }
-    if(p.Location = null){
-      p.Location=p.Location
-    }
-    else{
-      p.Location=req.body.Location
-    }
-    if(p.Description = null){
-      console.log("if")
-      console.log(p.Description)
-      p.Description=req.body.Description
-      console.log(p.Description)
-    }
-    else{
-      console.log("else")
-      console.log(p.Description)
-      p.Description=p.Description
-      console.log(p.Description)
-    }
-    if(p.Moderator = null){
-      p.Moderator=p.Moderator
-    }
-    else{
-      p.Moderator=req.body.Moderator
-    }
-    if(p.Guest = null){
-      p.Guest=p.Guest
-    }
-    else{
-      p.Guest=req.body.Guest
-    }
-    if(p.Vendor = null){
-      p.Vendor=p.Vendor
-    }
-    else{
-      p.Vendor= req.body.Vendor
-    }
-    if(p.Schedule=null){
-      p.Schedule=p.Schedule
-    }
-    else{
-      p.Schedule=req.body.Schedule
-    }
-    if(p.Badges=null){
-      p.Badges=p.Badges
-    }
-    else{
-      p.Badges=req.body.Badges
-    }
-    if(p.Notifications=null){
-      p.Notifications=p.Notifications
-    }
-    else{
-        p.Notifications=req.body.Notifications
-    }
-    // p.Name = req.body.Name
-    // p.Picture = req.body.Picture
-    // p.Website = req.body.Website
-    // p.Facebookgroup = req.body.Facebookgroup
-    // p.From=req.body.From
-    // p.To=req.body.To
-    // p.Location=req.body.Location
-    // p.Description=req.body.Description
-    // p.Moderator=req.body.Moderator
-    // p.Guest=req.body.Guest
-    // p.Vendor= req.body.Vendor
-    // p.Schedule=req.body.Schedule
-    // p.Badges=req.body.Badges
-    // p.Notifications=req.body.Notifications
+    p.Name = req.body.Name
+    p.Picture = req.body.Picture
+    p.Website = req.body.Website
+    p.Facebookgroup = req.body.Facebookgroup
+    p.From=req.body.From
+    p.To=req.body.To
+    p.Location=req.body.Location
+    p.Description=req.body.Description
+    p.Moderator=req.body.Moderator
+    p.Guest=req.body.Guest
+    p.Vendor= req.body.Vendor
+    p.Schedule=req.body.Schedule
+    p.Badges=req.body.Badges
+    p.Notifications=req.body.Notifications
     console.log("in")
     p.save()
      .then( ( convention ) => {
