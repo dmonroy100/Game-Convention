@@ -19,7 +19,7 @@ const mongoose = require( 'mongoose' );
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    // 'mongodb://localhost/convengo' ||
+    'mongodb://localhost/convengo' ||
     //'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz' ||
     'mongodb://heroku_03g7jdqb:hnnbgerrljnmvdlu2uc57sqt3t@ds243607.mlab.com:43607/heroku_03g7jdqb';
 console.log("setting uristring to "+uristring)
@@ -186,6 +186,10 @@ app.get('/', function(req, res, next) {
 
 app.get('/convbar', function(req, res, next) {
   res.render('convbar');
+});
+
+app.get('/profile', function(req, res, next) {
+  res.render('profile');
 });
 
 app.get('/navbar', function(req, res, next) {
