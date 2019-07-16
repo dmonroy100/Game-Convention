@@ -9,7 +9,8 @@ var modSchema = Schema( {
   m_email: String,
   m_reason: String,
   m_createdAt: Date,
-  m_status: Number
+  m_level: Number,
+  m_status: ObjectId
 } );
 
 module.exports = mongoose.model( 'Mod', modSchema );

@@ -14,7 +14,8 @@ exports.saveMod = ( req, res ) => {
     m_email: req.body.m_email,
     m_reason: req.body.m_reason,
     m_createdAt: new Date(),
-    m_status: 0
+    m_level: 0,
+    m_status: req.user.m_status //set user.m_status to true
 
    }
   )
