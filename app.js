@@ -212,6 +212,7 @@ app.get('/addConvention', function(req, res, next) {
 
 app.get('/editConvention/:convid',
   listController.addConvention,
+  listController.addModerators,
   function(req, res, next) {
     res.render('editConvention',{title:"Editting Convention"});
 });
