@@ -94,7 +94,7 @@ exports.addCelebrities = ( req, res, next ) => {
     Celebrity.find({m_convId:convid})
       .exec()
       .then( ( celebrities ) => {
-        res.locals.Guest = celebrities
+        res.locals.celebrityList = celebrities
         next()
       } )
       .catch( ( error ) => {
@@ -115,7 +115,7 @@ exports.addVendors = ( req, res, next ) => {
     Vendor.find({m_convId:convid})
       .exec()
       .then( ( vendors ) => {
-        res.locals.Vendor = vendors
+        res.locals.vendorList = vendors
         next()
       } )
       .catch( ( error ) => {

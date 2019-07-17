@@ -1,15 +1,11 @@
 
-    <ol>
-    <% for(i = 0; i< celebrityList.length; i++){  %>
-          <li>
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="<%= celebrityList[i].Picture%> " alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Name: <%= celebrityList[i].Name%></h5>
-                <h6 class="card-title">Title: <%= celebrityList[i].Title %></h6>
-                <p class="card-text"> Description:  <%= celebrityList[i].Description %>  </p>
-              </div>
-            </div>
-          </li>
-      <% } %>
-      </ol>
+<ol>
+<% for(i = 0; i< celebrityList.length; i++){  %>
+      <li>
+            Name: <%= celebrityList[i].Name%> <br>
+            Title:  <%= celebrityList[i].Title %>    <br>
+            Description: <%= celebrityList[i].Description %> <br>
+            Picture: <%= modLists[i].Picture %> <br>
+      </li>
+  <% } %>
+  </ol>
