@@ -15,6 +15,7 @@
 			<div class="container">
 				<h1 class="title"><%=  convention.Name  %></h1>
 				<div class="text-center">
+          <h5><span class="badge badge-warning"><%= convention.Badges %></span></h5>
 					<a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
 					<a class="btn btn-primary" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
 				</div>
@@ -47,7 +48,7 @@
 
       </div>
 			<h2>Moderators</h2>
-      <%- include('modList') -%>
+
 
 			<div>
 
@@ -63,13 +64,13 @@
   <div class="card card-plain">
     <div class="card-header" role="tab" id="headingTwo">
     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-
+      Hotels and Flights
         <i class="now-ui-icons arrows-1_minimal-down"></i>
         </a>
     </div>
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="card-body">
-
+        <%- include('cheapoair') -%>
       </div>
     </div>
   </div>
@@ -90,4 +91,6 @@
 
 </div>
 </div>
+
+<br><br>
 <%- include('bootfooter') -%>

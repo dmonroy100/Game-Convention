@@ -19,7 +19,7 @@ const mongoose = require( 'mongoose' );
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    // 'mongodb://localhost/convengo' ||
+    'mongodb://localhost/convengo' ||
     //'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz' ||
     'mongodb://heroku_03g7jdqb:hnnbgerrljnmvdlu2uc57sqt3t@ds243607.mlab.com:43607/heroku_03g7jdqb';
 console.log("setting uristring to "+uristring)
@@ -37,6 +37,7 @@ console.log("setting uristring to "+uristring)
 
 console.log("about to require ./models/User")
 User = require( './models/user' )
+//Mod = require( './models/Mod' )
 console.log("required User")
 
 const listController = require('./controllers/listController')
@@ -187,6 +188,10 @@ app.get('/convbar', function(req, res, next) {
   res.render('convbar');
 });
 
+app.get('/profile', function(req, res, next) {
+  res.render('profile');
+});
+
 app.get('/navbar', function(req, res, next) {
   res.render('navbar');
 });
@@ -214,6 +219,7 @@ app.get('/editConvention/:convid',
   listController.addConvention,
   function(req, res, next) {
     res.render('editConvention',{title:"Editting Convention"});
+
 });
 
 app.get('/moderatorRequests', function(req, res, next) {
@@ -246,7 +252,7 @@ app.post('/processform', listController.saveConvenion)
 
 app.get('/showConventions', listController.getAllConventions)
 //app.get('/showConvention/:id', listController.getOneConvention)
-//app.get('/showConvention/:id', listController.travel)
+// app.get('/showConvention/:id', listController.travel)
 app.post('/editConvention',listController.update)
 app.get('/showConvention/:convid',
     listController.addConvention,
