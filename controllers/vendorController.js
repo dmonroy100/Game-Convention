@@ -3,6 +3,7 @@ const Vendor = require( '../models/Vendor' );
 
 exports.saveVendor = ( req, res ) => {
   let newVendor = new Celebrity( {
+    convId: req.params.convid,
     Name: req.body.Name,
     Website: req.body.Website,
     From: req.body.Date,
@@ -15,10 +16,28 @@ exports.saveVendor = ( req, res ) => {
 
   newVendor.save()
     .then( () => {
-      res.redirect( '/showConvention' );
+      res.redirect( '/showConvention/'+req.params.convid );
     } )
     .catch( error => {
       res.send( error );
+    } );
+};
+
+exports.getAllMod = ( req, res ) => {
+  //gconsle.log('in getAllSkills')
+  Mod.find()
+    .exec()
+    .then( ( modLists ) => {
+      res.render( 'modList', {
+        title:"modList",modLists:modLists
+      } );
+    } )
+    .catch( ( error ) => {
+      console.log( error.message );
+      return [];
+    } )
+    .then( () => {
+      //console.log( 'skill promise complete' );
     } );
 };
 

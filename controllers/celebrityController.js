@@ -3,6 +3,7 @@ const Celebrity = require( '../models/Celebrity' );
 
 exports.saveCelebrity = ( req, res ) => {
   let newCelebrity = new Celebrity( {
+    convId: req.params.convid,
     Name: req.body.Name,
     From: req.body.From,
     To: req.body.To,
@@ -14,15 +15,30 @@ exports.saveCelebrity = ( req, res ) => {
 
   newCelebrity.save()
     .then( () => {
-      res.redirect( '/showConvention' );
+      res.redirect( '/showConvention/'+req.params.convid  );
     } )
     .catch( error => {
       res.send( error );
     } );
 };
 
+exports.getAllCelebrities = ( req, res ) => {
+  Celebrity.find()
+    .exec()
+    .then( ( celebrityList ) => {
+      res.render( 'celebrityList', {
+        title:"celebrityList",celebrityList:celebrityList
+      } );
+    } )
+    .catch( ( error ) => {
+      console.log( error.message );
+      return [];
+    } )
+    .then( () => {
+    } );
+};
+
 exports.getOneCelebrity = ( req, res ) => {
-  //gconsle.log('in getAllSkills')
   const id = req.params.id
   console.log('the id is '+id)
   Celebrity.findOne({_id:id})
@@ -37,6 +53,5 @@ exports.getOneCelebrity = ( req, res ) => {
       return [];
     } )
     .then( () => {
-      //console.log( 'skill promise complete' );
     } );
 };
