@@ -6,8 +6,6 @@ exports.saveVendor = ( req, res ) => {
     convId: req.params.convid,
     Name: req.body.Name,
     Website: req.body.Website,
-    From: req.body.Date,
-    To: req.body.Date,
     Description: req.body.Description,
     Booth: req.body.Booth,
     Picture: req.body.Picture
@@ -23,13 +21,13 @@ exports.saveVendor = ( req, res ) => {
     } );
 };
 
-exports.getAllMod = ( req, res ) => {
+exports.getAllVendors = ( req, res ) => {
   //gconsle.log('in getAllSkills')
   Mod.find()
     .exec()
-    .then( ( modLists ) => {
-      res.render( 'modList', {
-        title:"modList",modLists:modLists
+    .then( ( vendorList ) => {
+      res.render( 'vendorList', {
+        title:"vendorList",vendorList:vendorList
       } );
     } )
     .catch( ( error ) => {

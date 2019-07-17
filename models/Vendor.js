@@ -7,8 +7,6 @@ var VendorSchema = Schema( {
   convId: ObjectId,
   Name: String,
   Website: String,
-  From: Date,
-  To: Date,
   Description: String,
   Booth: String,
   Picture: String

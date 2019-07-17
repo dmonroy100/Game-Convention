@@ -6,8 +6,6 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 var CelebritySchema = Schema( {
   convId: ObjectId,
   Name: String,
-  From: Date,
-  To: Date,
   Description: String,
   Picture: String,
   Schedule:String,

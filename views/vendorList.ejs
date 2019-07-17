@@ -1,0 +1,16 @@
+
+<ol>
+<% for(i = 0; i< vendorList.length; i++){  %>
+      <li>
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="<%= vendorList[i].Picture%> " alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Name: <%= vendorList[i].Name%></h5>
+            <h6 class="card-title">Booth: <%= vendorList[i].Booth %></h6>
+            <p class="card-text"> Description:  <%= vendorList[i].Description %> </p>
+             <a href="<%= vendorList[i].Website %>" class="card-link">Their Website</a>
+          </div>
+        </div>
+      </li>
+  <% } %>
+  </ol>

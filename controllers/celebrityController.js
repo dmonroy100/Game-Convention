@@ -5,8 +5,6 @@ exports.saveCelebrity = ( req, res ) => {
   let newCelebrity = new Celebrity( {
     convId: req.params.convid,
     Name: req.body.Name,
-    From: req.body.From,
-    To: req.body.To,
     Description: req.body.Description,
     Picture: req.body.Picture,
     Title: req.body.Title
