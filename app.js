@@ -127,22 +127,22 @@ app.use((req,res,next) => {
        res.locals.status = 'owner'
      } else if (modOneList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
        console.log("Mod Level One has logged in")
-       res.locals.status = 'Mod Level One'
+       res.locals.status = 'modOne'
      } else if (modTwoList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
        console.log("Mod Level Two has logged in")
-       res.locals.status = 'Mod Level Two'
+       res.locals.status = 'modTwo'
      } else if (modThreeList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
        console.log("Mod Level Three has logged in")
-       res.locals.status = 'Mod Level Three'
+       res.locals.status = 'modThree'
      } else if (modFourList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
        console.log("Mod Level Four has logged in")
-       res.locals.status = 'Mod Level Four'
+       res.locals.status = 'modFour'
      } else if (modFiveList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
        console.log("Mod Level Five has logged in")
-       res.locals.status = 'Mod Level Five'
+       res.locals.status = 'modFive'
      }else {
        console.log('regular user has logged in')
-       res.locals.status = 'Regular User'
+       res.locals.status = 'reg'
      }
    }
   }
