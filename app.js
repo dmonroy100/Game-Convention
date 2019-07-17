@@ -319,11 +319,11 @@ app.post('/processRequest/:convid', modController.saveMod)
 
 app.get('/modList', modController.getAllMod)
 
-app.post('/processRequest/:convid', celebrityController.saveCelebrity)
+app.post('/processRequest2/:convid', celebrityController.saveCelebrity)
 
 app.get('/celebrityList', celebrityController.getAllCelebrities)
 
-app.post('/processRequest/:convid', vendorController.saveVendor)
+app.post('/processRequest3/:convid', vendorController.saveVendor)
 
 app.get('/vendorList', vendorController.getAllVendors)
 ////// Forums
