@@ -44,7 +44,9 @@ const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
 const discussionController = require('./controllers/discussionController')
 const modController = require('./controllers/modController')
-const qAndaController = require('./controllers/qAndaController');
+const qAndaController = require('./controllers/qAndaController')
+const vendorController = require('./controllers/Vendor')
+const celebrityController = require('./controllers/Celebrity')
 
 
 var app = express();
