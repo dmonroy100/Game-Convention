@@ -68,11 +68,9 @@ exports.followCon = ( req, res ) => {
       console.log("just found a profile")
       console.dir(p)
       p.followCon.push(req.params.convid);
-      console.log("in")
       p.save()
-       .then( ( followCon ) => {
-        res.render( 'convention', {
-          followCon:followCon
+       .then( ( ) => {
+        res.render( '/showConvention/'+req.params.convid, {
           } );
        })
      })
@@ -94,9 +92,8 @@ exports.followUser = ( req, res ) => {
       p.following.push(req.params.userId);
       console.log("in")
       p.save()
-       .then( ( following ) => {
+       .then( ( ) => {
         res.render( 'profile', {
-          following:following
           } );
        })
      })
