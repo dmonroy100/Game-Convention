@@ -1,3 +1,5 @@
+
+
 <html>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -983,11 +985,46 @@
             <!-- <a class="dropdown-item" href="/login">Login</a> -->
             <!-- Button trigger modal -->
             <!-- put the if statement here!!!!!!!!!!!!!!!!!!! -->
-            <% if (loggedIn) {%>
+
+
+
+            <% if (loggedIn) { %>
               <a class="dropdown-item" button type ="button" data-target="#exampleModal2" data-toggle="modal" id="logoutbutton" input onclick="change()">Logout</a>
+              <% if (status == 'modOne') { %>
+              <a class="dropdown-item" button type ="button" id="status" ><b>U'r Moderator Level 1!</b></a>
+              <% } else if (status == 'modTwo') { %>
+              <a class="dropdown-item" button type ="button" id="status" ><b>U'r Moderator Level 2!</b></a>
+              <% } else if (status == 'modThree') { %>
+              <a class="dropdown-item" button type ="button" id="status" ><b>U'r Moderator Level 3!</b></a>
+              <% } else if (status == 'modFour') { %>
+              <a class="dropdown-item" button type ="button" id="status" ><b>U'r Moderator Level 4!</b></a>
+              <% } else if (status == 'modFive') { %>
+              <a class="dropdown-item" button type ="button" id="status" ><b>U'r Moderator Level 5!</b></a>
+              <% } else if (status == 'owner') { %>
+              <a class="dropdown-item" button type ="button" id="status" ><b>U'r Owner!</b></a>
+              <% } else { %>
+              <a class="dropdown-item" button type ="button" id="status" ><b>U'r Regular User</b></a>
+              <% } %>
+
             <% } else { %>
-              <a class="dropdown-item" button type ="button" data-target="#exampleModal" data-toggle="modal" id="loginbutton" input onclick="change()">Login</a>
+              <a class="dropdown-item" button type ="button" data-target="#exampleModal" data-toggle="modal" id="loginbutton" input onclick="change()">login</a>
+
+
+
             <% } %>
+
+
+
+
+
+
+
+
+
+
+
+
+
             <a class="dropdown-item" href="#">Contributions</a>
             <a class="dropdown-item" href="#">Notifications</a>
             <a class="dropdown-item" href="#">Requests</a>
@@ -1052,3 +1089,5 @@
     </div>
   </div>
   </div>
+
+</html>
