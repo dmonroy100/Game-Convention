@@ -1,5 +1,6 @@
 'use strict';
 const User = require( '../models/user' );
+const Convention = require( '../models/Convention' );
 
 exports.update = ( req, res ) => {
 
@@ -58,4 +59,52 @@ exports.getOneProfile = ( req, res ) => {
     .then( () => {
       //console.log( 'skill promise complete' );
     } );
+};
+
+exports.followCon = ( req, res ) => {
+  User.findOne(res.locals.user_id)
+    .exec()
+    .then((p) => {
+      console.log("just found a profile")
+      console.dir(p)
+      p.followCon.push(req.params.convid);
+      console.log("in")
+      p.save()
+       .then( ( followCon ) => {
+        res.render( 'convention', {
+          followCon:followCon
+          } );
+       })
+     })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+};
+
+exports.followUser = ( req, res ) => {
+  User.findOne(res.locals.user_id)
+    .exec()
+    .then((p) => {
+      console.log("just found a profile")
+      console.dir(p)
+      p.following.push(req.params.userId);
+      console.log("in")
+      p.save()
+       .then( ( following ) => {
+        res.render( 'profile', {
+          following:following
+          } );
+       })
+     })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
 };

@@ -2,6 +2,7 @@
 console.log("trying to load module User.js")
 const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 //var userSchema = mongoose.Schema( {any:{}})
 
@@ -25,9 +26,9 @@ var userSchema = Schema( {
   instagramURL: String,
   facebookURL: String,
   websiteURL: String,
-  followers: [String],
-  following: [String],
-  followCon: [String],
+  followers: [ObjectId],
+  following: [ObjectId],
+  followCon: [ObjectId],
   //m_status: { type: Boolean, default: false },
 
 } );
