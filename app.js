@@ -343,13 +343,6 @@ app.post('/processQuestionPost', isLoggedIn, qAndaController.saveQuestionPost)
 
 app.get('/showQuestion/:id', isLoggedIn, qAndaController.attachAllAnswers, qAndaController.showOneQuestion)
 
-// //to edit an existing question
-// app.get('/showQuestion/:id/editQuestion',isLoggedIn, (req,res)=>{
-//   res.render('editQuestion' ,{
-//     req: req
-//   })
-// })
-
 //to edit an existing question
 app.get('/showQuestion/:id/editQuestion', qAndaController.showPreviousQ, qAndaController.editQuestion)
 

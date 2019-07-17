@@ -25,7 +25,7 @@ exports.getAllCelebrities = ( req, res ) => {
     .exec()
     .then( ( celebrityList ) => {
       res.render( 'celebrityList', {
-        title:"celebrityList",celebrityList:celebrityList
+        title:"celebrityList", celebrityList:celebrityList
       } );
     } )
     .catch( ( error ) => {

@@ -2,7 +2,7 @@
 const Vendor = require( '../models/Vendor' );
 
 exports.saveVendor = ( req, res ) => {
-  let newVendor = new Celebrity( {
+  let newVendor = new Vendor( {
     convId: req.params.convid,
     Name: req.body.Name,
     Website: req.body.Website,
@@ -23,7 +23,7 @@ exports.saveVendor = ( req, res ) => {
 
 exports.getAllVendors = ( req, res ) => {
   //gconsle.log('in getAllSkills')
-  Mod.find()
+  Vendor.find()
     .exec()
     .then( ( vendorList ) => {
       res.render( 'vendorList', {

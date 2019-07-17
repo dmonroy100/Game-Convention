@@ -91,7 +91,7 @@ exports.addCelebrities = ( req, res, next ) => {
     console.dir(res.locals)
     const convid = res.locals.convention._id
 
-    Celebrity.find({m_convId:convid})
+    Celebrity.find({convId:convid})
       .exec()
       .then( ( celebrities ) => {
         res.locals.celebrityList = celebrities
@@ -112,7 +112,7 @@ exports.addVendors = ( req, res, next ) => {
     console.dir(res.locals)
     const convid = res.locals.convention._id
 
-    Vendor.find({m_convId:convid})
+    Vendor.find({convId:convid})
       .exec()
       .then( ( vendors ) => {
         res.locals.vendorList = vendors
