@@ -302,6 +302,8 @@ app.post('/editConvention',listController.update)
 app.get('/showConvention/:convid',
     listController.addConvention,
     listController.addModerators,
+    listController.addVendors,
+    listController.addCelebrities,
     (req,res) => {
       res.render('convention',{title:'Convention'})
     }
@@ -316,6 +318,14 @@ app.post('/processDiscussion',discussionController.saveDiscussion)
 app.post('/processRequest/:convid', modController.saveMod)
 
 app.get('/modList', modController.getAllMod)
+
+app.post('/processRequest/:convid', celebrityController.saveCelebrity)
+
+app.get('/celebrityList', celebrityController.getAllCelebrities)
+
+app.post('/processRequest/:convid', vendorController.saveVendor)
+
+app.get('/vendorList', vendorController.getAllVendors)
 ////// Forums
 
 
