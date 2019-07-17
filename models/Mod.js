@@ -10,6 +10,7 @@ var modSchema = Schema( {
   m_reason: String,
   m_createdAt: Date,
   m_level: Number,
+  //m_conlist: [String],
   //m_status: ObjectId
 } );
 

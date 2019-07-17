@@ -25,8 +25,9 @@ var userSchema = Schema( {
   instagramURL: String,
   facebookURL: String,
   websiteURL: String,
-  followers: String,
-  following: String,
+  followers: [String],
+  following: [String],
+  followCon: [String],
   //m_status: { type: Boolean, default: false },
 
 } );
