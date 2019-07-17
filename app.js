@@ -44,10 +44,42 @@ const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
 const discussionController = require('./controllers/discussionController')
 const modController = require('./controllers/modController')
-const qAndaController = require('./controllers/qAndaController');
+const qAndaController = require('./controllers/qAndaController')
+const vendorController = require('./controllers/vendorController')
+const celebrityController = require('./controllers/celebrityController')
 
 
 var app = express();
+
+
+var ownerList= [
+   //'cathyxie@brandeis.edu',
+   //'dmonroy@brandeis.edu',
+   // 'rami072@brandeis.edu',
+   'greghsu23@brandeis.edu',
+   'tlsimala@brandeis.edu'
+ ]
+
+//different levels of moderators, tests
+var modOneList = [
+    "xly18ling@gmail.com",
+]
+
+var modTwoList = [
+    "greghsu23@gmail.com"
+]
+
+var modThreeList = [
+    "dmonroy@brandeis.edu"
+]
+
+var modFourList = [
+    "rami072@brandeis.edu"
+]
+
+var modFiveList = [
+    "cathyxie@brandeis.edu",
+]
 
 
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -89,8 +121,30 @@ app.use((req,res,next) => {
     else {
       res.locals.loggedIn = false
     }
-    console.log('req.user = ')
-    console.dir(req.user)
+    if (req.user){
+     if (ownerList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+       console.log("Owner has logged in")
+       res.locals.status = 'owner'
+     } else if (modOneList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+       console.log("Mod Level One has logged in")
+       res.locals.status = 'Mod Level One'
+     } else if (modTwoList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+       console.log("Mod Level Two has logged in")
+       res.locals.status = 'Mod Level Two'
+     } else if (modThreeList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+       console.log("Mod Level Three has logged in")
+       res.locals.status = 'Mod Level Three'
+     } else if (modFourList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+       console.log("Mod Level Four has logged in")
+       res.locals.status = 'Mod Level Four'
+     } else if (modFiveList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+       console.log("Mod Level Five has logged in")
+       res.locals.status = 'Mod Level Five'
+     }else {
+       console.log('regular user has logged in')
+       res.locals.status = 'Regular User'
+     }
+   }
   }
   next()
 })
@@ -120,15 +174,6 @@ app.get('/logout', function(req, res) {
 // profile gets us their basic information including their name
 // email gets their emails
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
-
-
-var ownerList= [
-  'cathyxie@brandeis.edu',
-   'dmonroy@brandeis.edu',
-   'rami072@brandeis.edu',
-   'greghsu23@brandeis.edu',
-   'tlsimala@brandeis.edu'
- ]
 
 app.get('/login/authorized',
         passport.authenticate('google', {
@@ -257,6 +302,8 @@ app.post('/editConvention',listController.update)
 app.get('/showConvention/:convid',
     listController.addConvention,
     listController.addModerators,
+    listController.addVendors,
+    listController.addCelebrities,
     (req,res) => {
       res.render('convention',{title:'Convention'})
     }
@@ -271,6 +318,14 @@ app.post('/processDiscussion',discussionController.saveDiscussion)
 app.post('/processRequest/:convid', modController.saveMod)
 
 app.get('/modList', modController.getAllMod)
+
+app.post('/processRequest/:convid', celebrityController.saveCelebrity)
+
+app.get('/celebrityList', celebrityController.getAllCelebrities)
+
+app.post('/processRequest/:convid', vendorController.saveVendor)
+
+app.get('/vendorList', vendorController.getAllVendors)
 ////// Forums
 
 app.post('/processFollowCon', profileController.followCon)
@@ -287,13 +342,6 @@ app.get('/showQuestions',isLoggedIn, qAndaController.getAllQuestions)
 app.post('/processQuestionPost', isLoggedIn, qAndaController.saveQuestionPost)
 
 app.get('/showQuestion/:id', isLoggedIn, qAndaController.attachAllAnswers, qAndaController.showOneQuestion)
-
-// //to edit an existing question
-// app.get('/showQuestion/:id/editQuestion',isLoggedIn, (req,res)=>{
-//   res.render('editQuestion' ,{
-//     req: req
-//   })
-// })
 
 //to edit an existing question
 app.get('/showQuestion/:id/editQuestion', qAndaController.showPreviousQ, qAndaController.editQuestion)

@@ -1,6 +1,8 @@
 'use strict';
 const Convention = require( '../models/Convention' );
 const Mod = require( '../models/Mod' );
+const Celebrity = require('../models/Celebrity');
+const Vendor = require('../models/Vendor');
 
 exports.addConvention = (req,res,next) => {
   console.log("convid = "+req.params.convid)
@@ -83,6 +85,47 @@ exports.getAllConventions = ( req, res ) => {
     } );
 };
 
+exports.addCelebrities = ( req, res, next ) => {
+    //gconsle.log('in getAllSkills')
+    console.log("in addCelebrities")
+    console.dir(res.locals)
+    const convid = res.locals.convention._id
+
+    Celebrity.find({convId:convid})
+      .exec()
+      .then( ( celebrities ) => {
+        res.locals.celebrityList = celebrities
+        next()
+      } )
+      .catch( ( error ) => {
+        console.log( error.message );
+        res.send("addCelebrities error :"+error.message)
+      } )
+      .then( () => {
+        //console.log( 'skill promise complete' );
+      } );
+  };
+
+exports.addVendors = ( req, res, next ) => {
+    //gconsle.log('in getAllSkills')
+    console.log("in addVendors")
+    console.dir(res.locals)
+    const convid = res.locals.convention._id
+
+    Vendor.find({convId:convid})
+      .exec()
+      .then( ( vendors ) => {
+        res.locals.vendorList = vendors
+        next()
+      } )
+      .catch( ( error ) => {
+        console.log( error.message );
+        res.send("addVendors error :"+error.message)
+      } )
+      .then( () => {
+        //console.log( 'skill promise complete' );
+      } );
+  };
 
 	exports.addModerators = ( req, res, next ) => {
 		  //gconsle.log('in getAllSkills')

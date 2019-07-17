@@ -1,6 +1,6 @@
 <style> h1 {
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 } </style>
 
 <%- include('bootheader') -%>
@@ -23,80 +23,85 @@
 				<h1 class="title"><%=  convention.Name  %></h1>
 				<div class="text-center">
           <h5><span class="badge badge-warning"><%= convention.Badges %></span></h5>
-					<a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
-					<a class="btn btn-primary" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
-				</div>
-			</div>
-		</div>
-	</div>
+          <a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
+          <a class="btn btn-primary" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
-  <div class="card card-plain">
-    <div class="card-header" role="tab" id="headingOne">
+  <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+    <div class="card card-plain">
+      <div class="card-header" role="tab" id="headingOne">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           General Information:
 
-      <i class="now-ui-icons arrows-1_minimal-down"></i>
+          <i class="now-ui-icons arrows-1_minimal-down"></i>
         </a>
-    </div>
-
-    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-      <div class="card-body">
-
-
-				<br><br>
-				From: <%= convention.From  %> <br>
-				To:   <%= convention.To  %> <br>
-				Location: <%= convention.Location %><br>
-				Description: <%= convention.Description %><br>
-				Special Guest: <%= convention.Guest %><br>
-				Schedule of Events: <br><%= convention.Schedule %><br><br>
-
-
       </div>
-			<h2>Moderators</h2>
+
+      <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+        <div class="card-body">
 
 
-			<div>
+          <br><br>
+          From: <%= convention.From  %> <br>
+          To:   <%= convention.To  %> <br>
+          Location: <%= convention.Location %><br>
+          Description: <%= convention.Description %><br>
+          Schedule of Events: <br><%= convention.Schedule %><br><br>
 
-				    <form method="post" action="/processRequest/<%= convention._id %>">
-							Hey <%= user.googlename %>, explain
-				      why you're qualified: <br> <textarea name="m_reason"></textarea><br>
-				      <br>
-				      <input class="btn btn-lg btn-warning" type="submit">
-				    </form>
-			</div>
+        </div>
+
+        <h2>Celebrities</h2>
+        <%- include('celebrity') -%>
+        <%- include('celebrityList') -%>
+        <h2>Vendors</h2>
+        <%- include('vendor') -%>
+        <%- include('vendorList') -%>
+        <h2>Moderators</h2>
+        <%- include('modList') -%>
+
+        <div>
+
+          <form method="post" action="/processRequest/<%= convention._id %>">
+            Hey <%= user.googlename %>, explain
+            why you're qualified: <br> <textarea name="m_reason"></textarea><br>
+            <br>
+            <input class="btn btn-lg btn-warning" type="submit">
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="card card-plain">
-    <div class="card-header" role="tab" id="headingTwo">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      Hotels and Flights
-        <i class="now-ui-icons arrows-1_minimal-down"></i>
+    <div class="card card-plain">
+      <div class="card-header" role="tab" id="headingTwo">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Hotels and Flights
+          <i class="now-ui-icons arrows-1_minimal-down"></i>
         </a>
-    </div>
-    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="card-body">
-        <%- include('cheapoair') -%>
+      </div>
+      <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="card-body">
+          <%- include('cheapoair') -%>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card card-plain">
-    <div class="card-header" role="tab" id="headingThree">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-      Map
+    <div class="card card-plain">
+      <div class="card-header" role="tab" id="headingThree">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Map
 
-      <i class="now-ui-icons arrows-1_minimal-down"></i>
-      </a>
-    </div>
-    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="card-body">
-        <%- include('mapapi') -%>
+          <i class="now-ui-icons arrows-1_minimal-down"></i>
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+        <div class="card-body">
+          <%- include('mapapi') -%>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
 </div>
 
 <br><br>
