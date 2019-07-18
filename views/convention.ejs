@@ -8,20 +8,20 @@
 
 <div class="wrapper">
   <div>
-  <a href="/editConvention/<%= convention._id %>" class="btn btn-primary" role="button" aria-pressed="true">edit</a>
+    <a href="/editConvention/<%= convention._id %>" class="btn btn-primary" role="button" aria-pressed="true">edit</a>
   </div>
   <div>
-  <form method="post" action="/processFollowCon" >
-    <button type="submit" name="followCon">follow</button>
-  </form>
+    <form method="post" action="/processFollowCon" >
+      <button type="submit" name="followCon">follow</button>
+    </form>
   </div>
-	<div class="page-header page-header-small">
-		<div class="page-header-image" data-parallax="true" style="background-image: url('<%= convention.Picture %>');">
-		</div>
-		<div class="content-center">
-			<div class="container">
-				<h1 class="title"><%=  convention.Name  %></h1>
-				<div class="text-center">
+  <div class="page-header page-header-small">
+    <div class="page-header-image" data-parallax="true" style="background-image: url('<%= convention.Picture %>');">
+    </div>
+    <div class="content-center">
+      <div class="container">
+        <h1 class="title"><%=  convention.Name  %></h1>
+        <div class="text-center">
           <h5><span class="badge badge-warning"><%= convention.Badges %></span></h5>
           <a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
           <a class="btn btn-primary" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
@@ -54,10 +54,55 @@
         </div>
 
         <h2>Celebrities</h2>
-        <%- include('celebrity') -%>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal21">
+          Add Celebrity
+        </button>
+
+        <!-- Modal -->
+
+        <div class="modal fade" id="exampleModal21" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel21" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel21">Celebrity</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%- include('celebrity') -%>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <%- include('celebrityList') -%>
         <h2>Vendors</h2>
-        <%- include('vendor') -%>
+        <!-- Button trigger modal -->
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal13">
+          Add Vendors
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel13" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel13">Vendor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%- include('vendor') -%>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <%- include('vendorList') -%>
         <h2>Moderators</h2>
         <%- include('modList') -%>
