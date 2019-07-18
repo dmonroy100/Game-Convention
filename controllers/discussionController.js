@@ -8,6 +8,7 @@ exports.saveDiscussion = ( req, res ) => {
   let newDiscussion = new Discussion(
    {
 
+    convId: req.params.convid,
     d_username: req.body.d_username,
     d_title: req.body.d_title,
     d_details: req.body.d_details,

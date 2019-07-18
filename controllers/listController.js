@@ -3,6 +3,7 @@ const Convention = require( '../models/Convention' );
 const Mod = require( '../models/Mod' );
 const Celebrity = require('../models/Celebrity');
 const Vendor = require('../models/Vendor');
+const Discussion = require('../models/Discussion');
 
 exports.addConvention = (req,res,next) => {
   console.log("convid = "+req.params.convid)
@@ -147,6 +148,28 @@ exports.addVendors = ( req, res, next ) => {
 		      //console.log( 'skill promise complete' );
 		    } );
 		};
+
+    exports.addDiscussion = ( req, res, next ) => {
+        //gconsle.log('in getAllSkills')
+        console.log("in discussion")
+        console.dir(res.locals)
+        const convid = res.locals.convention._id
+
+        Discussion.find({m_convId:convid})
+          .exec()
+          .then( ( discussions ) => {
+            res.locals.discussions = discussions
+            next()
+          } )
+          .catch( ( error ) => {
+            console.log( error.message );
+            res.send("addDiscussion error :"+error.message)
+          } )
+          .then( () => {
+            //console.log( 'skill promise complete' );
+          } );
+      };
+
 //needs changed~!!!!!!
   exports.update = ( req, res ) => {
 
