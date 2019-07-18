@@ -150,8 +150,8 @@ exports.addVendors = ( req, res, next ) => {
 //needs changed~!!!!!!
   exports.update = ( req, res ) => {
 
-  Convention.findOne(res.locals.user_id)
-  .exec()
+  Convention.findOne({_id:req.body.convid})
+	.exec()
   .then((p) => {
     console.log("just found a profile")
     console.dir(p)
@@ -163,23 +163,23 @@ exports.addVendors = ( req, res, next ) => {
     p.To=req.body.To
     p.Location=req.body.Location
     p.Description=req.body.Description
-    p.Moderator=req.body.Moderator
-    p.Guest=req.body.Guest
-    p.Vendor= req.body.Vendor
+    //p.Moderator=req.body.Moderator
+    //p.Guest=req.body.Guest
+    //p.Vendor= req.body.Vendor
     p.Schedule=req.body.Schedule
-    p.Badges=req.body.Badges
-    p.Notifications=req.body.Notifications
+    //p.Badges=req.body.Badges
+    //p.Notifications=req.body.Notifications
     console.log("in")
     p.save()
      .then( ( convention ) => {
-      res.render( 'convention', {
-        convention:convention, title:"convention"
-        } );
+      res.redirect( 'showConvention/'+req.body.convid);
      })
    })
   .catch(function (error) {
     // handle error
-    console.log(error);
+		console.log("error in update")
+    console.dir(error);
+		res.send("error in update = "+error)
   })
   .finally(function () {
     // always executed
