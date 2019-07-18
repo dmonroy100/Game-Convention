@@ -18,7 +18,7 @@ var conventionSchema = Schema( {
   ConventionTicketPrice: String,
   Badges: [String],
   Notifications: [String],
-  Approval: False
+  Approval: {type: Boolean, default:false}
 } );
 
 module.exports = mongoose.model('Convention', conventionSchema);

@@ -52,8 +52,10 @@
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
+<div>
 <ul id="myUL">
   <% for(i = 0; i<conventions.length; i++){  %>
+      <% if (conventions[i].Approval == false) { %>
     <li> <a href="/showConvention/<%= conventions[i]._id %>">
       <h3><%= conventions[i].Name %></h3>
       <%= conventions[i].From %> ~
@@ -67,8 +69,12 @@
       <br>
     </li>
   <% } %>
+<% } %>
 </ul>
 
+</div>
+<div>
+  </div>
 <script>
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
