@@ -52,8 +52,9 @@
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
-<div>
+<div class="container">
 <ul id="myUL">
+  <h3>PENDING</h3>
   <% for(i = 0; i<conventions.length; i++){  %>
       <% if (conventions[i].Approval == false) { %>
     <li> <a href="/showConvention/<%= conventions[i]._id %>">
@@ -71,8 +72,29 @@
   <% } %>
 <% } %>
 </ul>
-
 </div>
+<div class="container">
+<ul id="myUL">
+  <h3>ACCEPTED</h3>
+  <% for(i = 0; i<conventions.length; i++){  %>
+      <% if (conventions[i].Approval == true) { %>
+    <li> <a href="/showConvention/<%= conventions[i]._id %>">
+      <h3><%= conventions[i].Name %></h3>
+      <%= conventions[i].From %> ~
+      <%= conventions[i].To %><br>
+      <%= conventions[i].Location %><br>
+      <%= conventions[i].badges %><br>
+      <p hidden> <%= conventions[i].Description %> </p>
+      <p hidden> <%= conventions[i].Guest %> </p>
+      <p hidden> <%= conventions[i].Schedule %> </p>
+      </a>
+      <br>
+    </li>
+  <% } %>
+<% } %>
+</ul>
+</div>
+
 <div>
   </div>
 <script>

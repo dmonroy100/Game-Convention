@@ -313,6 +313,8 @@ app.get('/showConvention/:convid',
       res.render('convention',{title:'Convention'})
     }
   )
+app.post('/processApprove', listController.updateApproval)
+app.post('/processDeny', listController.updateDeny)
 
 app.get('/showProfile/:id', profileController.getOneProfile)
 
