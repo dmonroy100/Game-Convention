@@ -10,11 +10,20 @@
   <div>
   <a href="/editConvention/<%= convention._id %>" class="btn btn-primary" role="button" aria-pressed="true">edit</a>
   </div>
-  <div>
-  <form method="post" action="/processFollowCon" >
-    <button type="submit" name="followCon">follow</button>
-  </form>
-  </div>
+
+  // if user.followCon.includes(req.params.convid)
+    <div>
+    <form method="post" action="/processUnfollowCon" >
+      <button type="submit" name="unfollowCon">unfollow</button>
+    </form>
+    </div>
+  // else
+    <div>
+    <form method="post" action="/processFollowCon" >
+      <button type="submit" name="followCon">follow</button>
+    </form>
+    </div>
+
 	<div class="page-header page-header-small">
 		<div class="page-header-image" data-parallax="true" style="background-image: url('<%= convention.Picture %>');">
 		</div>

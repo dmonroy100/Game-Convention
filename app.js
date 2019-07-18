@@ -330,6 +330,8 @@ app.get('/vendorList', vendorController.getAllVendors)
 
 app.post('/processFollowCon', profileController.followCon)
 
+app.post('/processUnfollowCon', profileController.unfollowCon)
+
 
 app.get('/postQuestion', function(req, res, next){
   res.render('postQuestion')
