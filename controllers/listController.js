@@ -153,7 +153,6 @@ exports.addVendors = ( req, res, next ) => {
   Convention.findOne(res.locals.user_id)
   .exec()
   .then((p) => {
-    console.log("just found a profile")
     console.dir(p)
     p.Name = req.body.Name
     p.Picture = req.body.Picture

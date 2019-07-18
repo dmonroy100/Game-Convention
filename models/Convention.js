@@ -10,20 +10,15 @@ var conventionSchema = Schema( {
   Location: String,
   From: Date,
   To: Date,
-  ModeratorS: [ObjectId],
-  Guest: [ObjectId],
-  Vendors: [ObjectId],
   Description: String,
   Picture: String,
   Schedule:String,
   m_status: ObjectId,
   ConventionType: String,
   ConventionTicketPrice: String,
-  //ConventionCelebritiesGoing: String,
-  ConventionContactInformation: String,
-  ConventionEvents: String,
   Badges: [String],
-  Notifications: [String]
+  Notifications: [String],
+  Approval: False
 } );
 
 module.exports = mongoose.model('Convention', conventionSchema);
