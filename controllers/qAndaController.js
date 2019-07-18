@@ -13,7 +13,7 @@ exports.saveQuestionPost = ( req, res ) => {
     {
       userId: req.user._id,
       //questionId: req._id,
-      userName:req.user.userName,
+      userName:req.user.googlename,
       question: req.body.question,
       description: req.body.description,
       createdAt: new Date()

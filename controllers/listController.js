@@ -53,7 +53,7 @@ exports.saveConvenion = ( req, res ) => {
     Badges: req.body.Badges,
     Notifications: req.body.Notifications,
     Guest: req.body.Guest,
-    m_status: req.Mod.m_status
+    //m_status: req.Mod.m_status
     }
   )
 

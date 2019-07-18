@@ -83,6 +83,28 @@ exports.followCon = ( req, res ) => {
     });
 };
 
+exports.unfollowCon = ( req, res ) => {
+  User.findOne(res.locals.user_id)
+    .exec()
+    .then((p) => {
+      console.log("just found a profile")
+      console.dir(p)
+      p.followCon.pull(req.params.convid);
+      p.save()
+       .then( ( ) => {
+        res.render( '/showConvention/'+req.params.convid, {
+          } );
+       })
+     })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+};
+
 exports.followUser = ( req, res ) => {
   User.findOne(res.locals.user_id)
     .exec()
@@ -90,6 +112,29 @@ exports.followUser = ( req, res ) => {
       console.log("just found a profile")
       console.dir(p)
       p.following.push(req.params.userId);
+      console.log("in")
+      p.save()
+       .then( ( ) => {
+        res.render( 'profile', {
+          } );
+       })
+     })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+};
+
+exports.unfollowUser = ( req, res ) => {
+  User.findOne(res.locals.user_id)
+    .exec()
+    .then((p) => {
+      console.log("just found a profile")
+      console.dir(p)
+      p.following.pull(req.params.userId);
       console.log("in")
       p.save()
        .then( ( ) => {
