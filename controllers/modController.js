@@ -15,7 +15,7 @@ exports.saveMod = ( req, res ) => {
     m_reason: req.body.m_reason,
     m_createdAt: new Date(),
     m_level: 0
-    
+
     //m_status: req.user.m_status //set user.m_status to true
 
    }
@@ -33,10 +33,10 @@ exports.saveMod = ( req, res ) => {
 };
 
 exports.updateDeny = (req, res) => {
-  console.log("convention id" + req.body.m_convId)
-    Mod.deleteOne({_id:req.body.m_userId})
+  console.log("convention id" + req.body.modid)
+    Mod.deleteOne({_id:req.body.modid})
     .exec()
-    .then(()=>{res.redirect('/showConvention/'+req.body.m_convId)})
+    .then(()=>{res.redirect('/showConvention/'+req.body.convid)})
     .catch((error)=>{res.send(error)})
   }
     //console.log("This shouldn't happen!")
@@ -45,7 +45,7 @@ exports.updateDeny = (req, res) => {
 
     exports.updateModLevel1 = ( req, res ) => {
 
-      Mod.findOne({_id:req.body.userId})
+      Mod.findOne({_id:req.body.modid})
       .exec()
       .then((p) => {
         console.dir(p)
@@ -53,7 +53,7 @@ exports.updateDeny = (req, res) => {
         console.log("in")
         p.save()
         .then( ( convention ) => {
-          res.redirect( 'showConvention/'+req.body.m_convId);
+          res.redirect( 'showConvention/'+req.body.convid);
         })
       })
       .catch(function (error) {
