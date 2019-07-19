@@ -23,8 +23,8 @@ const localMongo = 'mongodb://localhost/convengo';
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    localMongo
-    // mlab
+    //localMongo
+    mlab
 
 console.log("setting uristring to "+uristring)
 //uristring ='mongodb://localhost/convengo'
@@ -232,6 +232,10 @@ app.get('/convbar', function(req, res, next) {
 
 app.get('/profile', function(req, res, next) {
   res.render('profile');
+});
+
+app.get('/bookmark', function(req, res, next) {
+  res.render('bookmark');
 });
 
 app.get('/navbar', function(req, res, next) {
