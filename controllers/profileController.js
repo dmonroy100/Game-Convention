@@ -65,12 +65,12 @@ exports.followCon = ( req, res ) => {
   User.findOne(res.locals.user_id)
     .exec()
     .then((p) => {
-      console.log("just found a profile")
+      console.log("just follow a convention")
       console.dir(p)
       p.followCon.push(req.params.convid);
       p.save()
        .then( ( ) => {
-        res.render( '/showConvention/'+req.params.convid, {
+        res.render( '/bookmark', {
           } );
        })
      })
@@ -81,6 +81,24 @@ exports.followCon = ( req, res ) => {
     .finally(function () {
       // always executed
     });
+};
+
+exports.getAllFollowCon = ( req, res ) => {
+  //gconsle.log('in getAllSkills')
+  User.findOne(res.locals.user_id)
+    .exec()
+    .then( ( profile ) => {
+      res.render( '/bookmark', {
+        profile:profile
+      } );
+    } )
+    .catch( ( error ) => {
+      console.log( error.message );
+      return [];
+    } )
+    .then( () => {
+      //console.log( 'skill promise complete' );
+    } );
 };
 
 exports.unfollowCon = ( req, res ) => {

@@ -234,6 +234,10 @@ app.get('/profile', function(req, res, next) {
   res.render('profile');
 });
 
+app.get('/bookmark', function(req, res, next) {
+  res.render('bookmark');
+});
+
 app.get('/navbar', function(req, res, next) {
   res.render('navbar');
 });

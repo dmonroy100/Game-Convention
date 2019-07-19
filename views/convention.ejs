@@ -24,18 +24,19 @@ h1 {
     <a href="/editConvention/<%= convention._id %>" class="btn btn-primary" role="button" aria-pressed="true">edit</a>
   </div>
 
-  // if user.followCon.includes(req.params.convid)
+  //if (User.followCon.includes(convention._id)) {%>
     <div>
     <form method="post" action="/processUnfollowCon" >
       <button type="submit" name="unfollowCon">unfollow</button>
     </form>
     </div>
-  // else
+  // } else { %>
     <div>
     <form method="post" action="/processFollowCon" >
       <button type="submit" name="followCon">follow</button>
     </form>
     </div>
+  // } %>
 
 	<div class="page-header page-header-small">
 		<div class="page-header-image" data-parallax="true" style="background-image: url('<%= convention.Picture %>');">
@@ -122,18 +123,31 @@ h1 {
         </div>
 
         <%- include('vendorList') -%>
-        <h2>Moderators</h2>
-        <%- include('modList') -%>
 
-        <div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal23">
+          Request to be a Moderator
+        </button>
 
-          <form method="post" action="/processRequest/<%= convention._id %>">
-            <%# Hey = user.googlename,%>
-            why you're qualified: <br> <textarea name="m_reason"></textarea><br>
-            <br>
-            <input class="btn btn-lg btn-warning" type="submit">
-          </form>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal23" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel23" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel23">Moderator Request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%- include('requestMod') -%>
+              </div>
+            </div>
+          </div>
         </div>
+        <%- include('modList') -%>
+        <h4>Pending</h4>
+        <%- include('pendingmodList') -%>
+
       </div>
     </div>
     <div class="card card-plain">
