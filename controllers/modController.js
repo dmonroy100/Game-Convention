@@ -14,7 +14,8 @@ exports.saveMod = ( req, res ) => {
     m_email: req.body.m_email,
     m_reason: req.body.m_reason,
     m_createdAt: new Date(),
-    m_level: 0,
+    m_level: 0
+    
     //m_status: req.user.m_status //set user.m_status to true
 
    }
@@ -30,6 +31,138 @@ exports.saveMod = ( req, res ) => {
       res.send( error );
     } );
 };
+
+exports.updateDeny = (req, res) => {
+  console.log("convention id" + req.body.m_convId)
+    Mod.deleteOne({_id:req.body.m_userId})
+    .exec()
+    .then(()=>{res.redirect('/showConvention/'+req.body.m_convId)})
+    .catch((error)=>{res.send(error)})
+  }
+    //console.log("This shouldn't happen!")
+    // res.send(`unknown deleteId: ${deleteId} Contact the Developer!!!`)
+
+
+    exports.updateModLevel1 = ( req, res ) => {
+
+      Mod.findOne({_id:req.body.userId})
+      .exec()
+      .then((p) => {
+        console.dir(p)
+        p.m_level = 1
+        console.log("in")
+        p.save()
+        .then( ( convention ) => {
+          res.redirect( 'showConvention/'+req.body.m_convId);
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("error in update")
+        console.dir(error);
+        res.send("error in update = "+error)
+      })
+      .finally(function () {
+        // always executed
+      });
+    };
+
+    exports.updateModLevel2 = ( req, res ) => {
+
+      Mod.findOne({_id:req.body.userId})
+      .exec()
+      .then((p) => {
+        console.dir(p)
+        p.m_level = 2
+        console.log("in")
+        p.save()
+        .then( ( convention ) => {
+          res.redirect( 'showConvention/'+req.body.m_convId);
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("error in update")
+        console.dir(error);
+        res.send("error in update = "+error)
+      })
+      .finally(function () {
+        // always executed
+      });
+    };
+
+    exports.updateModLevel3 = ( req, res ) => {
+
+      Mod.findOne({_id:req.body.userId})
+      .exec()
+      .then((p) => {
+        console.dir(p)
+        p.m_level = 3
+        console.log("in")
+        p.save()
+        .then( ( convention ) => {
+          res.redirect( 'showConvention/'+req.body.m_convId);
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("error in update")
+        console.dir(error);
+        res.send("error in update = "+error)
+      })
+      .finally(function () {
+        // always executed
+      });
+    };
+    exports.updateModLevel4 = ( req, res ) => {
+
+      Mod.findOne({_id:req.body.userId})
+      .exec()
+      .then((p) => {
+        console.dir(p)
+        p.m_level = 4
+        console.log("in")
+        p.save()
+        .then( ( convention ) => {
+          res.redirect( 'showConvention/'+req.body.m_convId);
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("error in update")
+        console.dir(error);
+        res.send("error in update = "+error)
+      })
+      .finally(function () {
+        // always executed
+      });
+    };
+
+    exports.updateModLevel5 = ( req, res ) => {
+
+      Mod.findOne({_id:req.body.userId})
+      .exec()
+      .then((p) => {
+        console.dir(p)
+        p.m_level = 5
+        console.log("in")
+        p.save()
+        .then( ( convention ) => {
+          res.redirect( 'showConvention/'+req.body.m_convId);
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log("error in update")
+        console.dir(error);
+        res.send("error in update = "+error)
+      })
+      .finally(function () {
+        // always executed
+      });
+    };
+
+
 
 // this displays all of the skills
 exports.getAllMod = ( req, res ) => {

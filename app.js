@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const amadeus = require('./amadeusObject/amadeusCalls')
+// const amadeus = require('./amadeusObject/amadeusCalls')
 
 // AUTHENTICATION MODULES
 session = require("express-session")
@@ -23,10 +23,9 @@ const localMongo = 'mongodb://localhost/convengo';
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    localMongo
-    //'mongodb://localhost/convengo' ||
-    //'mongodb://heroku_lzp0htxz:74m9me91evl2nmqh6qi0bn4t2b@ds247637.mlab.com:47637/heroku_lzp0htxz' ||
-    //'mongodb://heroku_03g7jdqb:hnnbgerrljnmvdlu2uc57sqt3t@ds243607.mlab.com:43607/heroku_03g7jdqb';
+    //localMongo ||
+    mlab
+
 console.log("setting uristring to "+uristring)
 //uristring ='mongodb://localhost/convengo'
     // Makes connection asynchronously.  Mongoose will queue up database
@@ -40,10 +39,8 @@ console.log("setting uristring to "+uristring)
     });
 
 
-console.log("about to require ./models/User")
 User = require( './models/user' )
-//Mod = require( './models/Mod' )
-console.log("required User")
+// Moderator = require('../models/Mod')
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
@@ -58,16 +55,13 @@ var app = express();
 
 
 var ownerList= [
-   //'cathyxie@brandeis.edu',
-   //'dmonroy@brandeis.edu',
-   // 'rami072@brandeis.edu',
    'greghsu23@brandeis.edu',
    'tlsimala@brandeis.edu'
  ]
 
 //different levels of moderators, tests
 var modOneList = [
-    "xly18ling@gmail.com",
+    "xly18ling@gmail.com"
 ]
 
 var modTwoList = [
@@ -83,7 +77,7 @@ var modFourList = [
 ]
 
 var modFiveList = [
-    "cathyxie@brandeis.edu",
+    "cathyxie@brandeis.edu"
 ]
 
 
@@ -108,8 +102,6 @@ app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-
-const approvedLogins = ["tjhickey724@gmail.com","csjbs2018@gmail.com"];
 
 // here is where we check on their logged in status
 app.use((req,res,next) => {
@@ -315,6 +307,9 @@ app.get('/showConvention/:convid',
   )
 app.post('/processApprove', listController.updateApproval)
 app.post('/processDeny', listController.updateDeny)
+
+app.post('/processApprove2', celebrityController.updateApproval)
+app.post('/processDeny2', celebrityController.updateDeny)
 
 app.get('/showProfile/:id', profileController.getOneProfile)
 
