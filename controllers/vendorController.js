@@ -61,7 +61,7 @@ exports.getOneVendor = ( req, res ) => {
 
 
 exports.updateDeny = (req, res) => {
-  console.log("convention id" + req.body.vendorid)
+  console.log("vendor id" + req.body.vendorid)
     // Convention.findOne({_id:req.body.convid})
     Vendor.deleteOne({_id:req.body.vendorid})
     .exec()
