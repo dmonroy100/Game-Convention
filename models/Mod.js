@@ -9,8 +9,7 @@ var modSchema = Schema( {
   m_email: String,
   m_reason: String,
   m_createdAt: Date,
-  m_level: Number,
-  status: String
+  m_level: Number
   //m_conlist: [String],
   //m_status: ObjectId
 } );
