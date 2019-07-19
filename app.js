@@ -234,8 +234,10 @@ app.get('/profile', function(req, res, next) {
   res.render('profile');
 });
 
-app.get('/bookmark', function(req, res, next) {
-  res.render('bookmark');
+app.get('/bookmark',
+  profileController.addConventions,
+  function(req, res, next) {
+     res.render('bookmark');
 });
 
 app.get('/navbar', function(req, res, next) {
@@ -301,6 +303,7 @@ app.get('/showConventions', listController.getAllConventions)
 // app.get('/showConvention/:id', listController.travel)
 app.post('/editConvention',listController.update)
 app.get('/showConvention/:convid',
+    isLoggedIn,
     listController.addConvention,
     listController.addModerators,
     listController.addVendors,
