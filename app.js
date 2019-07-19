@@ -24,7 +24,7 @@ var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
     //localMongo ||
-    mlab
+    localMongo
 console.log("setting uristring to "+uristring)
 //uristring ='mongodb://localhost/convengo'
     // Makes connection asynchronously.  Mongoose will queue up database
@@ -39,7 +39,7 @@ console.log("setting uristring to "+uristring)
 
 
 User = require( './models/user' )
-Moderator = require('../models/Mod')
+// Moderator = require('../models/Mod')
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')

@@ -4,119 +4,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
+    #myInput {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 12px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
 
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
+    #myUL {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
 
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: rgba(50,115,220,0.3);
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
-}
+    #myUL li a {
+      border: 1px solid #ddd;
+      margin-top: -1px; /* Prevent double borders */
+      background-color: rgba(50,115,220,0.3);
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block
+    }
 
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
-}
-</style>
+    #myUL li a:hover:not(.header) {
+      background-color: #eee;
+    }
+  </style>
 </head>
 <body>
 
-<h2>
-  Conventions
-      <a href="#" class="btn btn-primary" role="button" aria-pressed="true">edit</a>
-</h2>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+  <h2>
+    Conventions
+  </h2>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal44">
+    Add Convention
+  </button>
 
-<div class="container">
-<ul id="myUL">
-  <h3>PENDING</h3>
-  <% for(i = 0; i<conventions.length; i++){  %>
-      <% if (conventions[i].Approval == false) { %>
-    <li> <a href="/showConvention/<%= conventions[i]._id %>">
-      <h3><%= conventions[i].Name %></h3>
-      <%= conventions[i].From %> ~
-      <%= conventions[i].To %><br>
-      <%= conventions[i].Location %><br>
-      <%= conventions[i].badges %><br>
-      <p hidden> <%= conventions[i].Description %> </p>
-      <p hidden> <%= conventions[i].Guest %> </p>
-      <p hidden> <%= conventions[i].Schedule %> </p>
-      </a>
-      <br>
-    </li>
-  <% } %>
-<% } %>
-</ul>
-</div>
-<div class="container">
-<ul id="myUL">
-  <h3>ACCEPTED</h3>
-  <% for(i = 0; i<conventions.length; i++){  %>
-      <% if (conventions[i].Approval == true) { %>
-    <li> <a href="/showConvention/<%= conventions[i]._id %>">
-      <h3><%= conventions[i].Name %></h3>
-      <%= conventions[i].From %> ~
-      <%= conventions[i].To %><br>
-      <%= conventions[i].Location %><br>
-      <%= conventions[i].badges %><br>
-      <p hidden> <%= conventions[i].Description %> </p>
-      <p hidden> <%= conventions[i].Guest %> </p>
-      <p hidden> <%= conventions[i].Schedule %> </p>
-      </a>
-      <br>
-    </li>
-  <% } %>
-<% } %>
-</ul>
-</div>
-
-<div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal44" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel44" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel44"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%- include('addConvention') -%>
+        </div>
+      </div>
+    </div>
   </div>
-<script>
-function myFunction() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+
+
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+  <div class="container">
+    <ul id="myUL">
+      <h3>PENDING</h3>
+      <% for(i = 0; i<conventions.length; i++){  %>
+        <% if (conventions[i].Approval == false) { %>
+          <li> <a href="/showConvention/<%= conventions[i]._id %>">
+            <h3><%= conventions[i].Name %></h3>
+            <%= conventions[i].From %> ~
+            <%= conventions[i].To %><br>
+            <%= conventions[i].Location %><br>
+            <%= conventions[i].badges %><br>
+            <p hidden> <%= conventions[i].Description %> </p>
+            <p hidden> <%= conventions[i].Guest %> </p>
+            <p hidden> <%= conventions[i].Schedule %> </p>
+          </a>
+          <br>
+        </li>
+        <% } %>
+        <% } %>
+      </ul>
+    </div>
+    <div class="container">
+      <ul id="myUL">
+        <h3>ACCEPTED</h3>
+        <% for(i = 0; i<conventions.length; i++){  %>
+          <% if (conventions[i].Approval == true) { %>
+            <li> <a href="/showConvention/<%= conventions[i]._id %>">
+              <h3><%= conventions[i].Name %></h3>
+              <%= conventions[i].From %> ~
+              <%= conventions[i].To %><br>
+              <%= conventions[i].Location %><br>
+              <%= conventions[i].badges %><br>
+              <p hidden> <%= conventions[i].Description %> </p>
+              <p hidden> <%= conventions[i].Guest %> </p>
+              <p hidden> <%= conventions[i].Schedule %> </p>
+            </a>
+            <br>
+          </li>
+          <% } %>
+          <% } %>
+        </ul>
+      </div>
+
+      <div>
+      </div>
+      <script>
+        function myFunction() {
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName("li");
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
         }
-    }
-}
-</script>
+      </script>
 
-</body>
-</html>
+    </body>
+    </html>
 
-<%- include('bootfooter') -%>
+    <%- include('bootfooter') -%>
