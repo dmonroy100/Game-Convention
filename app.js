@@ -311,6 +311,9 @@ app.post('/processDeny', listController.updateDeny)
 app.post('/processApprove2', celebrityController.updateApproval)
 app.post('/processDeny2', celebrityController.updateDeny)
 
+app.post('/processApprove3', vendorController.updateApproval)
+app.post('/processDeny3', vendorController.updateDeny)
+
 app.get('/showProfile/:id', profileController.getOneProfile)
 
 app.get('/discussion',discussionController.getAllDiscussion)
