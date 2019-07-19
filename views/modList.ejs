@@ -1,6 +1,7 @@
 
     <ol>
     <% for(i = 0; i< modLists.length; i++){  %>
+      <% if (modLists[i].m_level!=0) { %>
           <li>
                 UserId: <%= modLists[i].userId%> <br>
                 UserEmail:  <%= modLists[i].m_email %>    <br>
@@ -8,5 +9,6 @@
                 Reasons: <%= modLists[i].m_reason %> <br>
                 SubmitAt: <%= modLists[i].m_createdAt %> <br>
           </li>
+          <% } %>
       <% } %>
       </ol>

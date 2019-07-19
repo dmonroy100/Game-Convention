@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const amadeus = require('./amadeusObject/amadeusCalls')
+// const amadeus = require('./amadeusObject/amadeusCalls')
 
 // AUTHENTICATION MODULES
 session = require("express-session")
@@ -40,10 +40,8 @@ console.log("setting uristring to "+uristring)
     });
 
 
-console.log("about to require ./models/User")
 User = require( './models/user' )
-//Mod = require( './models/Mod' )
-console.log("required User")
+Moderator = require('../models/Mod')
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
@@ -58,16 +56,13 @@ var app = express();
 
 
 var ownerList= [
-   //'cathyxie@brandeis.edu',
-   //'dmonroy@brandeis.edu',
-   // 'rami072@brandeis.edu',
    'greghsu23@brandeis.edu',
    'tlsimala@brandeis.edu'
  ]
 
 //different levels of moderators, tests
 var modOneList = [
-    "xly18ling@gmail.com",
+    "xly18ling@gmail.com"
 ]
 
 var modTwoList = [
@@ -83,7 +78,7 @@ var modFourList = [
 ]
 
 var modFiveList = [
-    "cathyxie@brandeis.edu",
+    "cathyxie@brandeis.edu"
 ]
 
 
@@ -108,8 +103,6 @@ app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-
-const approvedLogins = ["tjhickey724@gmail.com","csjbs2018@gmail.com"];
 
 // here is where we check on their logged in status
 app.use((req,res,next) => {
