@@ -7,10 +7,16 @@
     <form method="post" action="/processform">
       Name: <br><input type="text" name="Name"> <br><br>
       Website: <br><input type="text" name="Website"> <br><br>
-      Facebookgroup: <br><input type="text" name="Facebookgroup"> <br><br>
+      Facebook Group URL: <br><input type="text" name="Facebookgroup"> <br><br>
       From: <br><input type="date" name="From"> <br><br>
       To: <br><input type="date" name="To"> <br><br>
       Location: <br><input type="text" name="Location"> <br><br>
+      Category: <br><select class="browser-default custom-select">
+                <option selected>Choose Category</option>
+                <option value="Anime">Anime</option>
+                <option value="Comics">Comics</option>
+                <option value="Video Games">Video Games</option>
+      </select><br><br>
       Description: <br><textarea name="Description" rows="5" cols="80"></textarea> <br><br>
       <!-- Special Guests: <br><textarea name="Special Guests" rows="5" cols="80"></textarea> <br><br> -->
       Schedule:<br><textarea name="Schedule" rows="5" cols="100"></textarea> <br><br>
