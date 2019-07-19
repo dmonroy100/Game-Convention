@@ -25,7 +25,6 @@ var uristring =
     process.env.MONGOHQ_URL ||
     //localMongo ||
     mlab
-    
 console.log("setting uristring to "+uristring)
 //uristring ='mongodb://localhost/convengo'
     // Makes connection asynchronously.  Mongoose will queue up database
@@ -314,6 +313,9 @@ app.get('/showConvention/:convid',
   )
 app.post('/processApprove', listController.updateApproval)
 app.post('/processDeny', listController.updateDeny)
+
+app.post('/processApprove3', vendorController.updateApproval)
+app.post('/processDeny3', vendorController.updateDeny)
 
 app.get('/showProfile/:id', profileController.getOneProfile)
 
