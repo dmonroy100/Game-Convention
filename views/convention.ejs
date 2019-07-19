@@ -1,7 +1,11 @@
-<style> h1 {
+<style>
+h1 {
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-} </style>
+
+}
+
+</style>
 
 <%- include('bootheader') -%>
 <%- include('navbar') -%>
@@ -60,13 +64,9 @@
 
       <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
         <div class="card-body">
-
-
-          <br><br>
-          From: <%= convention.From  %> <br>
-          To:   <%= convention.To  %> <br>
-          Location: <%= convention.Location %><br>
-          Description: <%= convention.Description %><br>
+  <h3> <center> Dates: <%= convention.From  %> to <%= convention.To  %> </center>  </h3>
+        <h4> Location: <%= convention.Location %> </h4>
+      <h6>   Description: <%= convention.Description %><br> <h6>
           Schedule of Events: <br><%= convention.Schedule %><br><br>
 
         </div>
@@ -123,30 +123,17 @@
 
         <%- include('vendorList') -%>
         <h2>Moderators</h2>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal23">
-          Request to be a Moderator
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal23" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel23" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel23">Moderator Request</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <%- include('requestMod') -%>
-              </div>
-            </div>
-          </div>
-        </div>
         <%- include('modList') -%>
-        <h4>Pending</h4>
-        <%- include('pendingmodList') -%>
 
+        <div>
+
+          <form method="post" action="/processRequest/<%= convention._id %>">
+            <%# Hey = user.googlename,%>
+            why you're qualified: <br> <textarea name="m_reason"></textarea><br>
+            <br>
+            <input class="btn btn-lg btn-warning" type="submit">
+          </form>
+        </div>
       </div>
     </div>
     <div class="card card-plain">
