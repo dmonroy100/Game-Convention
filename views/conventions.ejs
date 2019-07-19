@@ -6,42 +6,42 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    * {
-      box-sizing: border-box;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
-    #myInput {
-      background-image: url('/css/searchicon.png');
-      background-position: 10px 12px;
-      background-repeat: no-repeat;
-      width: 100%;
-      font-size: 16px;
-      padding: 12px 20px 12px 40px;
-      border: 1px solid #ddd;
-      margin-bottom: 12px;
-    }
+  #myInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
 
-    #myUL {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
+  #myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
 
-    #myUL li a {
-      border: 1px solid #ddd;
-      margin-top: -1px; /* Prevent double borders */
-      background-color: rgba(50,115,220,0.3);
-      padding: 12px;
-      text-decoration: none;
-      font-size: 18px;
-      color: black;
-      display: block
-    }
+  #myUL li a {
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: rgba(50,115,220,0.3);
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+  }
 
-    #myUL li a:hover:not(.header) {
-      background-color: #eee;
-    }
-    
+  #myUL li a:hover:not(.header) {
+    background-color: #eee;
+  }
+
   @font-face {
     font-family: 'Nucleo Outline';
     src: url("https://github.com/creativetimofficial/now-ui-kit/blob/master/assets/fonts/nucleo-outline.eot");
@@ -119,12 +119,12 @@
       <h3>PENDING</h3>
       <% for(i = 0; i<conventions.length; i++){  %>
         <% if (conventions[i].Approval == false) { %>
-           <a href="/showConvention/<%= conventions[i]._id %>">
+          <a href="/showConvention/<%= conventions[i]._id %>">
           <div class="section section-team text-center">
           <div class="container">
           <div class="team">
           <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-5">
           <div class="team-player">
           <img src= <%= conventions[i].Picture %> alt="Thumbnail Image" class= "thumbImg">
           <h4 class="title"><%= conventions[i].Name %></h4>
@@ -150,24 +150,27 @@
           <h3>ACCEPTED</h3>
           <% for(i = 0; i<conventions.length; i++){  %>
             <% if (conventions[i].Approval == true) { %>
-              <li> <a href="/showConvention/<%= conventions[i]._id %>">
+               <a href="/showConvention/<%= conventions[i]._id %>">
               <div class="section section-team text-center">
               <div class="container">
               <div class="team">
               <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-5">
               <div class="team-player">
-              <img src=<%= conventions[i].Picture %> alt="Thumbnail Image" class= "thumbImg">
+              <img src= <%= conventions[i].Picture %> alt="Thumbnail Image" class= "thumbImg">
               <h4 class="title"><%= conventions[i].Name %></h4>
+              <p class="category text-primary"><%= conventions[i].Location%> </p>
               <p class="category text-primary"><%= conventions[i].From %> -<%= conventions[i].To %></p>
-              <p class="description"><%= conventions[i].Description %></p>
-              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
-              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-instagram"></i></a>
+              <p class="description1"><%= conventions[i].Description %></p>
+              <a href="https://twitter.com/Comic_Con?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
+              <a href="#https://www.instagram.com/comic_con/?hl=en" class="btn btn-primary btn-icon btn-round"><i class="fab fa-instagram"></i></a>
               <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-facebook-square"></i></a>
               </div>
               </div>
+              </div>
+              </div>
+              </div>
               <br>
-              </li>
               <% } %>
               <% } %>
             </ul>
@@ -192,9 +195,9 @@
               }
             }
           }
-        </script>
+          </script>
 
-      </body>
-      </html>
+        </body>
+        </html>
 
-      <%- include('bootfooter') -%>
+        <%- include('bootfooter') -%>
