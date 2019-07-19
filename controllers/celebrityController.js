@@ -53,3 +53,39 @@ exports.getOneCelebrity = ( req, res ) => {
     .then( () => {
     } );
 };
+
+exports.updateDeny = (req, res) => {
+  console.log("celebrity id" + req.body.celebid)
+    // Convention.findOne({_id:req.body.convid})
+    Celebrity.deleteOne({_id:req.body.celebid})
+    .exec()
+    .then(()=>{res.redirect('showConvention/'+req.body.convid)})
+    .catch((error)=>{res.send(error)})
+  }
+    //console.log("This shouldn't happen!")
+    // res.send(`unknown deleteId: ${deleteId} Contact the Developer!!!`)
+
+
+exports.updateApproval = ( req, res ) => {
+
+Celebrity.findOne({_id:req.body.celebid})
+.exec()
+.then((p) => {
+console.dir(p)
+p.Approval = true
+console.log("in")
+p.save()
+ .then( ( convention ) => {
+  res.redirect( 'showConvention/'+req.body.convid);
+ })
+})
+.catch(function (error) {
+// handle error
+console.log("error in update")
+console.dir(error);
+res.send("error in update = "+error)
+})
+.finally(function () {
+// always executed
+});
+};

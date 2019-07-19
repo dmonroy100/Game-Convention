@@ -9,7 +9,8 @@ var CelebritySchema = Schema( {
   Description: String,
   Picture: String,
   Schedule:String,
-  Title: String
+  Title: String,
+  Approval: {type: Boolean, default:false}
 } );
 
 module.exports = mongoose.model('Celebrity', CelebritySchema);
