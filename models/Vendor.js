@@ -9,7 +9,8 @@ var VendorSchema = Schema( {
   Website: String,
   Description: String,
   Booth: String,
-  Picture: String
+  Picture: String,
+  Approval: {type: Boolean, default:false}
 
 } );
 
