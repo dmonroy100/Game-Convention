@@ -124,15 +124,9 @@
         <%- include('vendorList') -%>
         <h2>Moderators</h2>
         <%- include('modList') -%>
+        <h4>Pending</h4>
+        <%- include('pendingmodList') -%>
 
-        <div>
-          <form method="post" action="/processRequest/<%= convention._id %>">
-            Hey <%= user.googlename %>, explain
-            why you're qualified: <br> <textarea name="m_reason"></textarea><br>
-            <br>
-            <input class="btn btn-lg btn-warning" type="submit">
-          </form>
-        </div>
       </div>
     </div>
     <div class="card card-plain">
