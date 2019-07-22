@@ -1,9 +1,5 @@
 <style>
-h1 {
-  color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
-}
 
 </style>
 
@@ -24,19 +20,21 @@ h1 {
     <a href="/editConvention/<%= convention._id %>" class="btn btn-primary" role="button" aria-pressed="true">edit</a>
   </div>
 
-  //if (User.followCon.includes(convention._id)) {%>
+  <% if (user.followCon.includes(convention._id)) {%>
     <div>
     <form method="post" action="/processUnfollowCon" >
+			<input type="hidden" name="convid" value="<%= convention._id %>">
       <button type="submit" name="unfollowCon">unfollow</button>
     </form>
     </div>
-  // } else { %>
+  <% } else { %>
     <div>
     <form method="post" action="/processFollowCon" >
+			<input type="hidden" name="convid" value="<%= convention._id %>">
       <button type="submit" name="followCon">follow</button>
     </form>
     </div>
-  // } %>
+  <% } %>
 
 	<div class="page-header page-header-small">
 		<div class="page-header-image" data-parallax="true" style="background-image: url('<%= convention.Picture %>');">

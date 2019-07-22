@@ -54,6 +54,7 @@ const celebrityController = require('./controllers/celebrityController')
 var app = express();
 
 
+
 var ownerList= [
    'greghsu23@brandeis.edu',
    'tlsimala@brandeis.edu'
@@ -204,6 +205,8 @@ function isLoggedIn(req, res, next) {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+console.log("**** Set the view engine!!!! **** ")
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -234,8 +237,10 @@ app.get('/profile', function(req, res, next) {
   res.render('profile');
 });
 
-app.get('/bookmark', function(req, res, next) {
-  res.render('bookmark');
+app.get('/bookmark',
+  profileController.addConventions,
+  function(req, res, next) {
+     res.render('bookmark');
 });
 
 app.get('/navbar', function(req, res, next) {
@@ -301,6 +306,7 @@ app.get('/showConventions', listController.getAllConventions)
 // app.get('/showConvention/:id', listController.travel)
 app.post('/editConvention',listController.update)
 app.get('/showConvention/:convid',
+    isLoggedIn,
     listController.addConvention,
     listController.addModerators,
     listController.addVendors,

@@ -2,9 +2,15 @@
 <%- include('navbar') -%>
 
 <ol>
+  <% for(i = 0; i<conventions.length; i++){  %>
+
   <li>
-    <b> <%= profile.followCon %> </b>
+    <a href="/showConvention/<%= conventions[i]._id %>">
+           <%= conventions[i].Name %>
+    </a>
   </li>
+
+  <% } %>
 </ol>
 
 
