@@ -23,7 +23,7 @@ const localMongo = 'mongodb://localhost/convengo';
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    //localMongo
+    // localMongo
     mlab
 
 console.log("setting uristring to "+uristring)
@@ -66,7 +66,8 @@ var modOneList = [
 ]
 
 var modTwoList = [
-    "greghsu23@gmail.com"
+    "greghsu23@gmail.com",
+    // "tlsimala@brandeis.edu"
 ]
 
 var modThreeList = [
