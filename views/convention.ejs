@@ -6,19 +6,24 @@
 <%- include('bootheader') -%>
 <%- include('navbar') -%>
 
-<form method="post" action="/processApprove" >
-    <input type="hidden" name="convid" value="<%= convention._id %>" >
-<button type="submit" name="Approval">Approved</button>
-</form>
-<form method="post" action="/processDeny/" >
-    <input type="hidden" name="convid" value="<%= convention._id %>" >
-<button type="submit" name="Approval">Denied</button>
-</form>
+<% if (loggedIn) { %>
+  <% if (status == 'modFive' || status == 'owner') { %>
+    <form method="post" action="/processApprove" >
+        <input type="hidden" name="convid" value="<%= convention._id %>" >
+    <button type="submit" name="Approval">Approved</button>
+    </form>
+    <form method="post" action="/processDeny/" >
+        <input type="hidden" name="convid" value="<%= convention._id %>" >
+    <button type="submit" name="Approval">Denied</button>
+    </form>
 
-<div class="wrapper">
-  <div>
-    <a href="/editConvention/<%= convention._id %>" class="btn btn-primary" role="button" aria-pressed="true">edit</a>
-  </div>
+    <div class="wrapper">
+      <div>
+        <a href="/editConvention/<%= convention._id %>" class="btn btn-primary" role="button" aria-pressed="true">edit</a>
+      </div>
+    <% } %>
+  <% } %>
+
 
   <% if (user.followCon.includes(convention._id)) {%>
     <div>
@@ -144,8 +149,11 @@
         </div>
         <%- include('modList') -%>
         <h4>Pending</h4>
-        <%- include('pendingmodList') -%>
-
+        <% if (loggedIn) { %>
+          <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree' || status == 'modFour') { %>
+              <%- include('pendingmodList') -%>
+              <% } %>
+            <% } %>
       </div>
     </div>
     <div class="card card-plain">
