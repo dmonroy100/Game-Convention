@@ -1,94 +1,13 @@
-<%- include('bootheader') -%>
+<%- include('general') %>
 <%- include('navbar') -%>
 
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    #myInput {
-      background-image: url('/css/searchicon.png');
-      background-position: 10px 12px;
-      background-repeat: no-repeat;
-      width: 100%;
-      font-size: 16px;
-      padding: 12px 20px 12px 40px;
-      border: 1px solid #ddd;
-      margin-bottom: 12px;
-    }
-
-    #myUL {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    #myUL li a {
-      border: 1px solid #ddd;
-      margin-top: -1px; /* Prevent double borders */
-      background-color: rgba(50,115,220,0.3);
-      padding: 12px;
-      text-decoration: none;
-      font-size: 18px;
-      color: black;
-      display: block
-    }
-
-    #myUL li a:hover:not(.header) {
-      background-color: #eee;
-    }
-    
-  @font-face {
-    font-family: 'Nucleo Outline';
-    src: url("https://github.com/creativetimofficial/now-ui-kit/blob/master/assets/fonts/nucleo-outline.eot");
-    src: url("https://github.com/creativetimofficial/now-ui-kit/blob/master/assets/fonts/nucleo-outline.eot") format("embedded-opentype");
-    src: url("https://raw.githack.com/creativetimofficial/now-ui-kit/master/assets/fonts/nucleo-outline.woff2");
-    font-weight: normal;
-    font-style: normal;
-
-  }
-
-  .now-ui-icons {
-    display: inline-block;
-    font: normal normal normal 14px/1 'Nucleo Outline';
-    font-size: inherit;
-    speak: none;
-    text-transform: none;
-    /* Better Font Rendering */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .title1 {
-    font-weight: 700;
-    padding-top: 1000px;
-    margin-top: -250px; /* Prevent double borders */
-    padding: 1px;
-    text-decoration: none;
-    font-size: 30px;
-    color: black;
-    display: block
-  }
-  .description1 {
-    color: #000000;
-    font-weight: 1000;
-  }
-  img.thumbImg {
-    max-width: 300px;
-  }
-
-  </style>
-</head>
-<body>
 
 
-  <h2>
+<div class="overlay">
+</div>
+
     Conventions
-  </h2>
+
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal44">
     Add Convention
