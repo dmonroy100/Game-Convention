@@ -39,91 +39,57 @@
   </div>
 
 
-  <br>
-  <div class="container">
-    <ul id="myUL">
-      <h3>PENDING</h3>
-      <% for(i = 0; i<conventions.length; i++){  %>
-        <% if (conventions[i].Approval == false) { %>
-          <a href="/showConvention/<%= conventions[i]._id %>">
-          <div class="section section-team text-center">
-          <div class="container">
-          <div class="team">
-          <div class="row">
-          <div class="col-md-5">
-          <div class="team-player">
-          <img src= <%= conventions[i].Picture %> alt="Thumbnail Image" class= "thumbImg">
-          <h4 class="title"><%= conventions[i].Name %></h4>
-          <p class="category text-primary"><%= conventions[i].Location%> </p>
-          <p class="category text-primary"><%= conventions[i].From %> -<%= conventions[i].To %></p>
-          <p class="description1"><%= conventions[i].Description %></p>
-          <a href="https://twitter.com/Comic_Con?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
-          <a href="#https://www.instagram.com/comic_con/?hl=en" class="btn btn-primary btn-icon btn-round"><i class="fab fa-instagram"></i></a>
-          <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-facebook-square"></i></a>
-          </div>
-          </div>
-          </div>
-          </div>
-          </div>
-          <br>
 
-          <% } %>
-          <% } %>
-        </ul>
+  <div class="site-section">
+    <div class="container">
+
+      <div class="row">
+        <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto">
+          <h2 class="mb-5">All Conventions</h2>
+        </div>
       </div>
-      <div class="container">
-        <ul id="myUL">
-          <h3>ACCEPTED</h3>
-          <% for(i = 0; i<conventions.length; i++){  %>
-            <% if (conventions[i].Approval == true) { %>
-               <a href="/showConvention/<%= conventions[i]._id %>">
-              <div class="section section-team text-center">
-              <div class="container">
-              <div class="team">
-              <div class="row">
-              <div class="col-md-5">
-              <div class="team-player">
-              <img src= <%= conventions[i].Picture %> alt="Thumbnail Image" class= "thumbImg">
-              <h4 class="title"><%= conventions[i].Name %></h4>
-              <p class="category text-primary"><%= conventions[i].Location%> </p>
-              <p class="category text-primary"><%= conventions[i].From %> -<%= conventions[i].To %></p>
-              <p class="description1"><%= conventions[i].Description %></p>
-              <a href="https://twitter.com/Comic_Con?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="btn btn-primary btn-icon btn-round"><i class="fab fa-twitter"></i></a>
-              <a href="#https://www.instagram.com/comic_con/?hl=en" class="btn btn-primary btn-icon btn-round"><i class="fab fa-instagram"></i></a>
-              <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fab fa-facebook-square"></i></a>
-              </div>
-              </div>
-              </div>
-              </div>
-              </div>
-              <br>
-              <% } %>
-              <% } %>
-            </ul>
-          </div>
 
-          <div>
-          </div>
-          <script>
-          function myFunction() {
-            var input, filter, ul, li, a, i, txtValue;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            ul = document.getElementById("myUL");
-            li = ul.getElementsByTagName("li");
-            for (i = 0; i < li.length; i++) {
-              a = li[i].getElementsByTagName("a")[0];
-              txtValue = a.textContent || a.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-              } else {
-                li[i].style.display = "none";
-              }
-            }
-          }
-          </script>
 
-        </body>
-        </html>
+        <h3>PENDING</h3>
+        <div class="row">
+        <% for(i = 0; i<conventions.length; i++){  %>
+        <% if (conventions[i].Approval == false) { %>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <a href="/showConvention/<%= conventions[i]._id %>" class="unit-9">
+            <div class="image" style="background-image: url('<%= conventions[i].Picture %>'); "></div>
+            <div class="unit-9-content">
+              <h2><%= conventions[i].Name %></h2>
+              <span><%= conventions[i].From %> - <%= conventions[i].To %></span>
+              <span><%= conventions[i].Location%></span>
+            </div>
+          </a>
+        </div>
+        <% } %>
+        <% } %>
+      </div><br><br>
 
-        <%- include('bootfooter') -%>
+
+      <h3>ACCEPTED</h3>
+      <div class="row">
+        <% for(i = 0; i<conventions.length; i++){  %>
+        <% if (conventions[i].Approval == true) { %>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <a href="/showConvention/<%= conventions[i]._id %>" class="unit-9">
+              <div class="image" style="background-image: url('<%= conventions[i].Picture %>'); "></div>
+
+            <div class="unit-9-content">
+              <h2><%= conventions[i].Name %></h2>
+              <span><%= conventions[i].From %> - <%= conventions[i].To %></span>
+              <span><%= conventions[i].Location%></span>
+            </div>
+          </a>
+        </div>
+        <% } %>
+        <% } %>
+      </div>
+
+    </div>
+  </div>
+
+
+<%- include('bootfooter') -%>
