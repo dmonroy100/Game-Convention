@@ -31,15 +31,18 @@
           </div>
           <% } %>
         <% } %>
-      <div class="card-header bg-success" role="tab" id="headingOne">
 
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
+      <div class="card" role="tab" id="headingOne">
+
+        <a data-toggle="collapse" data-parent="card" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           General Information:
           <i class="now-ui-icons arrows-1_minimal-down"></i>
         </a>
       </div>
 
-      <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <!-- Change  -->
+      <div id="collapseOne" class="card-body" role="tabpanel" aria-labelledby="headingOne">
         <div class="card bg-dark text-white">
           <!-- Follow Button -->
             <% if (user.followCon.includes(convention._id)) {%>
