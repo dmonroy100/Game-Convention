@@ -59,7 +59,7 @@
             <div class="image" style="background-image: url('<%= conventions[i].Picture %>'); "></div>
             <div class="unit-9-content">
               <h2><%= conventions[i].Name %></h2>
-              <span><%= conventions[i].From %> - <%= conventions[i].To %></span>
+              <span><%= conventions[i].From.toLocaleDateString('en-US') %> - <%= conventions[i].To.toLocaleDateString('en-US') %></span>
               <span><%= conventions[i].Location%></span>
             </div>
           </a>
@@ -79,7 +79,7 @@
 
             <div class="unit-9-content">
               <h2><%= conventions[i].Name %></h2>
-              <span><%= conventions[i].From %> - <%= conventions[i].To %></span>
+              <span><%= conventions[i].From.toLocaleDateString('en-US') %> - <%= conventions[i].To.toLocaleDateString('en-US') %></span>
               <span><%= conventions[i].Location%></span>
             </div>
           </a>

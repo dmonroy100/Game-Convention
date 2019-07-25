@@ -61,7 +61,7 @@
             <% } %>
             <!-- end -->
 
-          <h3> <center> Dates: <%= convention.From  %> to <%= convention.To  %> </center>  </h3>
+          <h3> <center> Dates: <%= convention.From.toLocaleDateString('en-US')  %> to <%= convention.To.toLocaleDateString('en-US')  %> </center>  </h3>
         <h4> Location: <%= convention.Location %> </h4>
       <h6>   Description: <%= convention.Description %><br> <h6>
           Schedule of Events: <br><%= convention.Schedule %><br><br>
