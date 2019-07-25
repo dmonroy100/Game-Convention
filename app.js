@@ -120,28 +120,30 @@ app.use((req,res,next) => {
       res.locals.loggedIn = false
     }
     if (req.user){
-     if (ownerList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+     if (ownerList.includes(req.user.googleemail)){
        console.log("Owner has logged in")
        res.locals.status = 'owner'
-     } else if (modOneList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+     } else if (modOneList.includes(req.user.googleemail)){
        console.log("Mod Level One has logged in")
        res.locals.status = 'modOne'
-     } else if (modTwoList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+     } else if (modTwoList.includes(req.user.googleemail)){
        console.log("Mod Level Two has logged in")
        res.locals.status = 'modTwo'
-     } else if (modThreeList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+     } else if (modThreeList.includes(req.user.googleemail)){
        console.log("Mod Level Three has logged in")
        res.locals.status = 'modThree'
-     } else if (modFourList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+     } else if (modFourList.includes(req.user.googleemail)){
        console.log("Mod Level Four has logged in")
        res.locals.status = 'modFour'
-     } else if (modFiveList.includes(req.user.googleemail || req.user.googleemail.endsWith("@brandeis.edu"))){
+     } else if (modFiveList.includes(req.user.googleemail)){
        console.log("Mod Level Five has logged in")
        res.locals.status = 'modFive'
      }else {
        console.log('regular user has logged in')
        res.locals.status = 'reg'
      }
+   } else {
+     res.locals.status='reg'
    }
   }
   next()
@@ -213,11 +215,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-if(isLoggedIn==true && ownerList.includes(req.user.googleemail)){
-  app.get('/moderatorRequests', function(req, res, next) {
-    res.render('moderatorRequests');
-  });
-}
+// app.get('/moderatorRequests',
+//          isLoggedIn,
+//          function(req, res, next) {
+//            if (res.locals.status=='owner') {
+//              res.render('moderatorRequests');
+//            } else {
+//              res.send("you must be an owner to visit this section")
+//            }
+// });
+
+
 app.use(function(req,res,next){
   console.log("about to look for routes!!!")
   //console.dir(req.headers)
@@ -273,9 +281,7 @@ app.get('/editConvention/:convid',
 
 });
 
-app.get('/moderatorRequests', function(req, res, next) {
-  res.render('moderatorRequests',{title:"moderatorRequests"});
-});
+
 
 
 app.use(function(req,res,next){
