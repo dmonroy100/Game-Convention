@@ -1,3 +1,17 @@
+<ul id="myUL">
+  <h3>ACCEPTED</h3>
+  <% for(i = 0; i<celebrityList.length; i++){  %>
+    <% if (celebrityList[i].Approval == true) { %>
+
+      Name: <%= celebrityList[i].Name %> <br>
+      Title:  <%= celebrityList[i].Title %>    <br>
+      Description: <%= celebrityList[i].Description %> <br>
+      Picture: <%= celebrityList[i].Picture %> <br>
+
+    <% } %>
+  <% } %>
+</ul>
+
 
 <ul id="myUL">
   <h3>PENDING</h3>
@@ -21,22 +35,9 @@
             <input type="hidden" name="convid" value="<%= celebrityList[i].convId %>" >
             <button type="submit" name="deny">Denied</button>
           </form>
-          <% } %>
-          <% } %>
-          <% } %>
-          <% } %>
-        </ul>
-
-        <ul id="myUL">
-          <h3>ACCEPTED</h3>
-          <% for(i = 0; i<celebrityList.length; i++){  %>
-            <% if (celebrityList[i].Approval == true) { %>
-
-              Name: <%= celebrityList[i].Name %> <br>
-              Title:  <%= celebrityList[i].Title %>    <br>
-              Description: <%= celebrityList[i].Description %> <br>
-              Picture: <%= celebrityList[i].Picture %> <br>
-
-              <% } %>
-              <% } %>
-            </ul>
+        <% } %>
+      <% } %>
+      
+    <% } %>
+  <% } %>
+</ul>

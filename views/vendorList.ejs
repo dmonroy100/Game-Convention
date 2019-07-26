@@ -1,41 +1,45 @@
-
-<ol id="myUL">
-  <h3>PENDING</h3>
-  <% for(i = 0; i<vendorList.length; i++){  %>
-      <% if (vendorList[i].Approval == false) { %>
-        Name: <%= vendorList[i].Name%> <br>
-        Website: <%= vendorList[i].Website %> <br>
-        Booth: <%= vendorList[i].Booth %> <br>
-        Description: <%= vendorList[i].Description %> <br>
-        Picture: <%= vendorList[i].Picture %> <br>
-        <br>
-        <% if (loggedIn) { %>
-          <% if (status == 'modFive' || status == 'owner') { %>
-        <form method="post" action="/processApprove3" >
-            <input type="hidden" name="vendorid" value="<%= vendorList[i]._id %>" >
-            <input type="hidden" name="convid" value="<%= vendorList[i].convId %>" >
-        <button type="submit" name="approval">Approved</button>
-        </form>
-        <form method="post" action="/processDeny3" >
-            <input type="hidden" name="vendorid" value="<%= vendorList[i]._id %>" >
-            <input type="hidden" name="convid" value="<%= vendorList[i].convId %>" >
-        <button type="submit" name="deny">Denied</button>
-        </form>
-        <% } %>
-        <% } %>
-      <% } %>
-  <% } %>
-</ol>
-<ol id="myUL">
+<ul id="myUL">
   <h3>ACCEPTED</h3>
   <% for(i = 0; i<vendorList.length; i++){  %>
-      <% if (vendorList[i].Approval == true) { %>
-        Name: <%= vendorList[i].Name%> <br>
-        Website: <%= vendorList[i].Website %> <br>
-        Booth: <%= vendorList[i].Booth %> <br>
-        Description: <%= vendorList[i].Description %> <br>
-        Picture: <%= vendorList[i].Picture %> <br>
-        <br>
-      <% } %>
+    <% if (vendorList[i].Approval == true) { %>
+      Name: <%= vendorList[i].Name%> <br>
+      Website: <%= vendorList[i].Website %> <br>
+      Booth: <%= vendorList[i].Booth %> <br>
+      Description: <%= vendorList[i].Description %> <br>
+      Picture: <%= vendorList[i].Picture %> <br>
+      <br>
+    <% } %>
   <% } %>
-</ol>
+</ul>
+
+
+<ul id="myUL">
+  <h3>PENDING</h3>
+  <% for(i = 0; i<vendorList.length; i++){  %>
+    <% if (vendorList[i].Approval == false) { %>
+
+      Name: <%= vendorList[i].Name%> <br>
+      Website: <%= vendorList[i].Website %> <br>
+      Booth: <%= vendorList[i].Booth %> <br>
+      Description: <%= vendorList[i].Description %> <br>
+      Picture: <%= vendorList[i].Picture %> <br>
+      <br>
+
+      <% if (loggedIn) { %>
+        <% if (status == 'modFive' || status == 'owner') { %>
+          <form method="post" action="/processApprove3" >
+            <input type="hidden" name="vendorid" value="<%= vendorList[i]._id %>" >
+            <input type="hidden" name="convid" value="<%= vendorList[i].convId %>" >
+            <button type="submit" name="approval">Approved</button>
+          </form>
+          <form method="post" action="/processDeny3" >
+            <input type="hidden" name="vendorid" value="<%= vendorList[i]._id %>" >
+            <input type="hidden" name="convid" value="<%= vendorList[i].convId %>" >
+            <button type="submit" name="deny">Denied</button>
+          </form>
+        <% } %>
+      <% } %>
+
+    <% } %>
+  <% } %>
+</ul>
