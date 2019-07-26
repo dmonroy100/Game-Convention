@@ -9,35 +9,35 @@
                 SubmitAt: <%= modLists[i].m_createdAt.toLocaleDateString('en-US') %> <br>
                 Level:  <%= modLists[i].m_level %> <br>
 
-                <form method="post" action="/processLevel0" >
+                <form method="post" action="/processLevel0"style="display:inline-block">
                     <input type="hidden" name="modid" value="<%= modLists[i]._id %>" >
                     <input type="hidden" name="convid" value="<%= modLists[i].m_convId %>" >
-                <button type="submit" name="deny">Denied</button>
+                <button type="submit" class="btn btn-primary" name="deny">Denied</button>
                 </form>
-                <form method="post" action="/processLevel1" >
+                <form method="post" action="/processLevel1" style="display:inline-block">
                     <input type="hidden" name="modid" value="<%= modLists[i]._id %>" >
                     <input type="hidden" name="convid" value="<%= modLists[i].m_convId %>" >
-                <button type="submit" name="approval">Level 1</button>
+                <button type="submit" class="btn btn-primary" name="approval">Level 1</button>
                 </form>
-                <form method="post" action="/processLevel2/<%= convention._id %>" >
+                <form method="post" action="/processLevel2/<%= convention._id %>" style="display:inline-block">
                     <input type="hidden" name="modid" value="<%= modLists[i]._id %>" >
                     <input type="hidden" name="convid" value="<%= modLists[i].m_convId %>" >
-                <button type="submit" name="approval">Level 2</button>
+                <button type="submit" class="btn btn-primary" name="approval">Level 2</button>
                 </form>
-                <form method="post" action="/processLevel3/<%= convention._id %>" >
+                <form method="post" action="/processLevel3/<%= convention._id %>" style="display:inline-block">
                     <input type="hidden" name="modid" value="<%= modLists[i]._id %>" >
                     <input type="hidden" name="convid" value="<%= modLists[i].m_convId %>" >
-                <button type="submit" name="approval">Level 3</button>
+                <button type="submit" class="btn btn-primary" name="approval">Level 3</button>
                 </form>
-                <form method="post" action="/processLevel4/<%= convention._id %>" >
+                <form method="post" action="/processLevel4/<%= convention._id %>"style="display:inline-block">
                     <input type="hidden" name="modid" value="<%= modLists[i]._id %>" >
                     <input type="hidden" name="convid" value="<%= modLists[i].m_convId %>" >
-                <button type="submit" name="approval">Level 4</button>
+                <button type="submit" class="btn btn-primary" name="approval">Level 4</button>
                 </form>
-                <form method="post" action="/processLevel5/<%= convention._id %>" >
+                <form method="post" action="/processLevel5/<%= convention._id %>" style="display:inline-block">
                     <input type="hidden" name="modid" value="<%= modLists[i]._id %>" >
                     <input type="hidden" name="convid" value="<%= modLists[i].m_convId %>" >
-                <button type="submit" name="approval">Level 5</button>
+                <button type="submit" class="btn btn-primary" name="approval">Level 5</button>
                 </form>
           </li>
           <% } %>
