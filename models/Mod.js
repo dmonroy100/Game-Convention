@@ -6,7 +6,8 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 var modSchema = Schema( {
   m_convId: ObjectId,
   userId: ObjectId,
-  m_email: String,
+  googlename:String,
+  googleemail: String,
   m_reason: String,
   m_createdAt: Date,
   m_level: {type: Number, default: 0}

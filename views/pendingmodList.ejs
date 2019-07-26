@@ -3,11 +3,10 @@
     <% for(i = 0; i< modLists.length; i++){  %>
       <% if (modLists[i].m_level==0) { %>
           <li>
-                UserId: <%= modLists[i].userId%> <br>
-                UserEmail:  <%= modLists[i].m_email %>    <br>
-                Convention: <%= modLists[i].m_convName %> <br>
+                Name: <%= modLists[i].googlename%> <br>
+                UserEmail:  <%= modLists[i].googleemail %>    <br>
                 Reasons: <%= modLists[i].m_reason %> <br>
-                SubmitAt: <%= modLists[i].m_createdAt %> <br>
+                SubmitAt: <%= modLists[i].m_createdAt.toLocaleDateString('en-US') %> <br>
                 Level:  <%= modLists[i].m_level %> <br>
 
                 <form method="post" action="/processLevel0" >

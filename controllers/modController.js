@@ -10,8 +10,9 @@ exports.saveMod = ( req, res ) => {
    {
 
     m_convId: req.params.convid,
+    googlename:req.user.googlename,
     userId: req.user._id,
-    m_email: req.body.m_email,
+    googleemail:req.user.googleemail,
     m_reason: req.body.m_reason,
     m_createdAt: new Date(),
     m_level: 0
