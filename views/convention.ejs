@@ -32,17 +32,16 @@
           <% } %>
         <% } %>
 
+          <div class="card-header" role="tab" id="headingSeven">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              <h2>General Information</h2>
+              <i class="now-ui-icons arrows-1_minimal-down"></i>
+            </a>
+          </div>
 
-      <div class="card" role="tab" id="headingOne">
-
-        <a data-toggle="collapse" data-parent="card" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          General Information:
-          <i class="now-ui-icons arrows-1_minimal-down"></i>
-        </a>
-      </div>
 
       <!-- Change  -->
-      <div id="collapseOne" class="card-body" role="tabpanel" aria-labelledby="headingOne">
+
 
           <!-- Follow Button -->
             <% if (user.followCon.includes(convention._id)) {%>
@@ -66,10 +65,21 @@
         <h4> Location: <%= convention.Location %> </h4>
       <h6>   Description: <%= convention.Description %><br> <h6>
           Schedule of Events: <br><%= convention.Schedule %><br><br>
+  </div>
 
-        </div>
 
-        <h2>Celebrities</h2>
+
+
+        <div class="card card-plain">
+          <div class="card-header" role="tab" id="headingSix">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              <h2>Celebrity</h2>
+              <i class="now-ui-icons arrows-1_minimal-down"></i>
+            </a>
+          </div>
+            <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+              <div class="card-body">
+
         <!-- Button trigger modal -->
         <div>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal21">
@@ -97,7 +107,22 @@
 
 
         <%- include('celebrityList') -%>
-        <h2>Vendors</h2>
+        </div>
+        </div>
+        </div>
+
+
+
+        <div class="card card-plain">
+          <div class="card-header" role="tab" id="headingFive">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              <h2>Vendor</h2>
+              <i class="now-ui-icons arrows-1_minimal-down"></i>
+            </a>
+          </div>
+            <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+              <div class="card-body">
+
         <!-- Button trigger modal -->
         <div>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal13">
@@ -123,43 +148,56 @@
         </div>
 
         <%- include('vendorList') -%>
-
+        </div></div></div>
 
         <!-- Modal -->
-        <h2>Mods</h2>
-        <div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal23">
-          Request to be a Moderator
-        </button>
-        </div>
-        <div class="modal fade" id="exampleModal23" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel23" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel23">Moderator Request</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+
+        <div class="card card-plain">
+          <div class="card-header" role="tab" id="heading8">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+              <h2>Mods</h2>
+              <i class="now-ui-icons arrows-1_minimal-down"></i>
+            </a>
+          </div>
+          <div id="collapse8" class="collapse" role="tabpanel" aria-labelledby="heading8">
+            <div class="card-body">
+              <div>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal23">
+                Request to be a Moderator
+              </button>
               </div>
-              <div class="modal-body">
-                <%- include('requestMod') -%>
+              <div class="modal fade" id="exampleModal23" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel23" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel23">Moderator Request</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%- include('requestMod') -%>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <%- include('modList') -%>
+              <h4>Pending</h4>
+              <% if (loggedIn) { %>
+                <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree' || status == 'modFour') { %>
+                    <%- include('pendingmodList') -%>
+                    <% } %>
+                  <% } %>
             </div>
           </div>
         </div>
-        <%- include('modList') -%>
-        <h4>Pending</h4>
-        <% if (loggedIn) { %>
-          <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree' || status == 'modFour') { %>
-              <%- include('pendingmodList') -%>
-              <% } %>
-            <% } %>
-      </div>
-    </div>
+
+
+
     <div class="card card-plain">
       <div class="card-header" role="tab" id="headingTwo">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Hotels and Flights
+          <h2>Hotels and Flights</h2>
           <i class="now-ui-icons arrows-1_minimal-down"></i>
         </a>
       </div>
@@ -169,17 +207,20 @@
         </div>
       </div>
     </div>
+
+
     <div class="card card-plain">
       <div class="card-header" role="tab" id="headingThree">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Map
-
+          <h2>Map</h2>
           <i class="now-ui-icons arrows-1_minimal-down"></i>
         </a>
       </div>
       <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
         <div class="card-body">
           <%- include('mapapi') -%>
+          <h1>A<br>B<br>C<br>D<br>E<br>F
+          </h1>
         </div>
       </div>
     </div>
