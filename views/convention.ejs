@@ -10,10 +10,10 @@
   <font color="white"><h1 class="title" style="font-size:100px;"><%=  convention.Name  %></h1></font>
   <h5><span class="badge badge-warning"><%= convention.Badges %></span></h5>
   <a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
-  <a class="btn btn-primary" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
+  <a class="btn btn-warning" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
 </div>
 <br>
-
+<div class="container">
   <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
     <div class="card card-plain">
       <% if (loggedIn) { %>
@@ -62,9 +62,9 @@
             <!-- end -->
 
           <h3> <center> Dates: <%= convention.From.toLocaleDateString('en-US')  %> to <%= convention.To.toLocaleDateString('en-US')  %> </center>  </h3>
-        <h4> Location: <%= convention.Location %> </h4>
-      <h6>   Description: <%= convention.Description %><br> <h6>
-          Schedule of Events: <br><%= convention.Schedule %><br><br>
+        <h3> <center> Location: <%= convention.Location %> </h3><br>
+      <h6>   Description: <br><%= convention.Description %> <br><br>
+    Schedule of Events: <br><%= convention.Schedule %></h6><br><br>
   </div>
 
 
@@ -126,7 +126,7 @@
         <!-- Button trigger modal -->
         <div>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal13">
-          Add Vendors
+          Add Vendor
         </button>
         </div>
 
@@ -155,7 +155,7 @@
         <div class="card card-plain">
           <div class="card-header" role="tab" id="heading8">
             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
-              <h2>Mods</h2>
+              <h2>Mod</h2>
               <i class="now-ui-icons arrows-1_minimal-down"></i>
             </a>
           </div>
@@ -197,7 +197,7 @@
     <div class="card card-plain">
       <div class="card-header" role="tab" id="headingTwo">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <h2>Hotels and Flights</h2>
+          <h2>Hotel and Flight</h2>
           <i class="now-ui-icons arrows-1_minimal-down"></i>
         </a>
       </div>
@@ -229,7 +229,8 @@
     </div>
 
   </div>
-</div>
+
 
 <br><br>
+</div>
 <%- include('bootfooter') -%>
