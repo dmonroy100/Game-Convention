@@ -20,7 +20,7 @@ exports.saveDiscussion = ( req, res ) => {
 
   newDiscussion.save()
     .then( () => {
-      res.redirect( 'discussion' );
+      res.redirect( '/showConvention/'+req.params.convid );
     } )
     .catch( error => {
       res.send( error );
@@ -32,9 +32,9 @@ exports.getAllDiscussion = ( req, res ) => {
   //gconsle.log('in getAllSkills')
   Discussion.find()
     .exec()
-    .then( ( discussions ) => {
+    .then( ( discussion ) => {
       res.render( 'discussion', {
-        title:"discussion",discussions:discussions
+        title:"discussion",discussion:discussion
       } );
     } )
     .catch( ( error ) => {

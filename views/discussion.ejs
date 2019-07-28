@@ -1,8 +1,7 @@
-<%- include('bootheader') -%>
-<%- include('navbar') -%>
 
 
-    <form method="post" action="/processDiscussion">
+
+    <form method="post" action="/processDiscussion/<%= convention._id %>">
       Username: <input type="text" name="d_username"> <br>
       Title:<br>
       <textarea name="d_title" rows="1" cols="80"></textarea>
@@ -17,14 +16,11 @@
     </form>
 
     <ol>
-    <% for(i = 0; i< discussions.length; i++){  %>
+    <% for(i = 0; i< discussion.length; i++){  %>
           <li>
-                <b>     <%= discussions[i].d_username %> </b>
-                Title:  <%= discussions[i].d_title %>    <br>
-                Details:<i><%= discussions[i].d_details %> </i><br>
+                <b>     <%= discussion[i].d_username %> </b>
+                Title:  <%= discussion[i].d_title %>    <br>
+                Details:<i><%= discussion[i].d_details %> </i><br>
           </li>
       <% } %>
       </ol>
-
-
-<%- include('bootfooter') -%>

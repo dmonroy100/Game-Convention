@@ -317,6 +317,7 @@ app.get('/showConvention/:convid',
     listController.addModerators,
     listController.addVendors,
     listController.addCelebrities,
+    listController.addDiscussion,
     (req,res) => {
       res.render('convention',{title:'Convention'})
     }
@@ -341,7 +342,7 @@ app.get('/showProfile/:id', profileController.getOneProfile)
 
 app.get('/discussion',discussionController.getAllDiscussion)
 
-app.post('/processDiscussion',discussionController.saveDiscussion)
+app.post('/processDiscussion/:convid',discussionController.saveDiscussion)
 
 app.post('/processRequest/:convid', modController.saveMod)
 

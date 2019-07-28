@@ -155,10 +155,10 @@ exports.addVendors = ( req, res, next ) => {
         console.dir(res.locals)
         const convid = res.locals.convention._id
 
-        Discussion.find({m_convId:convid})
+        Discussion.find({convId:convid})
           .exec()
-          .then( ( discussions ) => {
-            res.locals.discussions = discussions
+          .then( ( discussion ) => {
+            res.locals.discussion = discussion
             next()
           } )
           .catch( ( error ) => {
