@@ -12,9 +12,10 @@
 
   <!-- Button trigger modal -->
   <div class="container" align = "right">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal44">
-    Add Convention
-  </button>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for convention.." title="Type in a name">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal44">
+      Add Convention
+    </button>
 
   </div>
   <!--search bar -->
@@ -38,11 +39,8 @@
     </div>
   </div>
 
-
-
   <div class="site-section">
     <div class="container">
-
       <div class="row">
         <div class="site-section-heading text-center mb-5 w-border col-md-6 mx-auto">
           <h2 class="mb-5">All Conventions</h2>
@@ -73,17 +71,17 @@
       <div class="row">
         <% for(i = 0; i<conventions.length; i++){  %>
         <% if (conventions[i].Approval == true) { %>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
           <a href="/showConvention/<%= conventions[i]._id %>" class="unit-9">
               <div class="image" style="background-image: url('<%= conventions[i].Picture %>'); "></div>
 
             <div class="unit-9-content">
               <h2><%= conventions[i].Name %></h2>
-              <span><%= conventions[i].From.toLocaleDateString('en-US') %> - <%= conventions[i].To.toLocaleDateString('en-US') %></span>
+              <span><%= conventions[i].From.toLocaleDateString('en-US') %> - <%= conventions[i].To.toLocaleDateString('en-US') %></span></li>
               <span><%= conventions[i].Location%></span>
             </div>
           </a>
-        </div>
+          </div>
         <% } %>
         <% } %>
       </div>
@@ -91,5 +89,25 @@
     </div>
   </div>
 
+
+<!-- search bar start -->
+  <script>
+  function myFunction() {
+      var input, filter, divs, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      divs = document.getElementsByClassName("col-md-6 col-lg-3");
+      for (i = 0; i < divs.length; i++) {
+          contents = divs[i].getElementsByClassName("unit-9-content")
+          txtValue = contents[0].innerText
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              divs[i].style.display = "";
+          } else {
+              divs[i].style.display = "none";
+          }
+      }
+  }
+  </script>
+<!-- search bar end -->
 
 <%- include('bootfooter') -%>

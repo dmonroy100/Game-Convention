@@ -1,5 +1,5 @@
-<ul id="myUL">
-  <h3>ACCEPTED</h3>
+<ul>
+  <h4>ACCEPTED</h4>
   <% for(i = 0; i<celebrityList.length; i++){  %>
     <% if (celebrityList[i].Approval == true) { %>
 
@@ -11,10 +11,11 @@
     <% } %>
   <% } %>
 </ul>
+<hr>
 
 
-<ul id="myUL">
-  <h3>PENDING</h3>
+<ul>
+  <h4>PENDING</h4>
   <% for(i = 0; i<celebrityList.length; i++){  %>
     <% if (celebrityList[i].Approval == false) { %>
 
@@ -37,7 +38,7 @@
           </form>
         <% } %>
       <% } %>
-      
+
     <% } %>
   <% } %>
 </ul>

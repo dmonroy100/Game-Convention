@@ -1,5 +1,5 @@
-<ul id="myUL">
-  <h3>ACCEPTED</h3>
+<ul>
+  <h4>ACCEPTED</h4>
   <% for(i = 0; i<vendorList.length; i++){  %>
     <% if (vendorList[i].Approval == true) { %>
       Name: <%= vendorList[i].Name%> <br>
@@ -13,8 +13,8 @@
 </ul>
 
 
-<ul id="myUL">
-  <h3>PENDING</h3>
+<ul>
+  <h4>PENDING</h4>
   <% for(i = 0; i<vendorList.length; i++){  %>
     <% if (vendorList[i].Approval == false) { %>
 
