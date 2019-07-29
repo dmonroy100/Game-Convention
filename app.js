@@ -57,7 +57,8 @@ var app = express();
 
 var ownerList= [
    'greghsu23@brandeis.edu',
-   'tlsimala@brandeis.edu'
+   'tlsimala@brandeis.edu',
+   'cathyxie@brandeis.edu'
  ]
 
 //different levels of moderators, tests
@@ -70,16 +71,11 @@ var modTwoList = [
 ]
 
 var modThreeList = [
-    "dmonroy@brandeis.edu"
-]
-
-var modFourList = [
+    "dmonroy@brandeis.edu",
     "rami072@brandeis.edu"
 ]
 
-var modFiveList = [
-    "cathyxie@brandeis.edu",
-]
+
 
 
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -132,13 +128,7 @@ app.use((req,res,next) => {
      } else if (modThreeList.includes(req.user.googleemail)){
        console.log("Mod Level Three has logged in")
        res.locals.status = 'modThree'
-     } else if (modFourList.includes(req.user.googleemail)){
-       console.log("Mod Level Four has logged in")
-       res.locals.status = 'modFour'
-     } else if (modFiveList.includes(req.user.googleemail)){
-       console.log("Mod Level Five has logged in")
-       res.locals.status = 'modFive'
-     }else {
+     } else {
        console.log('regular user has logged in')
        res.locals.status = 'reg'
      }
