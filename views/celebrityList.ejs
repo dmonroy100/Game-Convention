@@ -1,24 +1,26 @@
 <ul>
-  <h4>ACCEPTED</h4>
   <% for(i = 0; i<celebrityList.length; i++){  %>
     <% if (celebrityList[i].Approval == true) { %>
 
+      <li>
       Name: <%= celebrityList[i].Name %> <br>
       Title:  <%= celebrityList[i].Title %>    <br>
       Description: <%= celebrityList[i].Description %> <br>
       Picture: <%= celebrityList[i].Picture %> <br>
+      </li>
 
     <% } %>
+
   <% } %>
 </ul>
 <hr>
 
-
+<h4>PENDING</h4>
 <ul>
-  <h4>PENDING</h4>
   <% for(i = 0; i<celebrityList.length; i++){  %>
     <% if (celebrityList[i].Approval == false) { %>
 
+      <li>
       Name: <%= celebrityList[i].Name %> <br>
       Title:  <%= celebrityList[i].Title %>    <br>
       Description: <%= celebrityList[i].Description %> <br>
@@ -38,7 +40,8 @@
           </form>
         <% } %>
       <% } %>
-
+      </li>
+      
     <% } %>
   <% } %>
 </ul>
