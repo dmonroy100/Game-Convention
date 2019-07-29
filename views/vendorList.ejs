@@ -1,29 +1,32 @@
-<ul id="myUL">
-  <h3>ACCEPTED</h3>
+<ul>
   <% for(i = 0; i<vendorList.length; i++){  %>
     <% if (vendorList[i].Approval == true) { %>
+
+      <li>
       Name: <%= vendorList[i].Name%> <br>
       Website: <%= vendorList[i].Website %> <br>
       Booth: <%= vendorList[i].Booth %> <br>
       Description: <%= vendorList[i].Description %> <br>
       Picture: <%= vendorList[i].Picture %> <br>
-      <br>
+      </li>
+      
     <% } %>
   <% } %>
 </ul>
+<hr>
 
 
-<ul id="myUL">
-  <h3>PENDING</h3>
+<h4>PENDING</h4>
+<ul>
   <% for(i = 0; i<vendorList.length; i++){  %>
     <% if (vendorList[i].Approval == false) { %>
 
+      <li>
       Name: <%= vendorList[i].Name%> <br>
       Website: <%= vendorList[i].Website %> <br>
       Booth: <%= vendorList[i].Booth %> <br>
       Description: <%= vendorList[i].Description %> <br>
       Picture: <%= vendorList[i].Picture %> <br>
-      <br>
 
       <% if (loggedIn) { %>
         <% if (status == 'modFive' || status == 'owner') { %>
@@ -39,6 +42,7 @@
           </form>
         <% } %>
       <% } %>
+      </li>
 
     <% } %>
   <% } %>
