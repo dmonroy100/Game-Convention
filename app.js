@@ -325,8 +325,6 @@ app.post('/processLevel0', modController.updateDeny)
 app.post('/processLevel1', modController.updateModLevel1)
 app.post('/processLevel2', modController.updateModLevel2)
 app.post('/processLevel3', modController.updateModLevel3)
-app.post('/processLevel4', modController.updateModLevel4)
-app.post('/processLevel5', modController.updateModLevel5)
 
 app.get('/showProfile/:id', profileController.getOneProfile)
 

@@ -70,7 +70,7 @@ exports.updateDeny = (req, res) => {
 
     exports.updateModLevel2 = ( req, res ) => {
 
-      Mod.findOne({_id:req.body.userId})
+      Mod.findOne({_id:req.body.modid})
       .exec()
       .then((p) => {
         console.dir(p)
@@ -78,7 +78,7 @@ exports.updateDeny = (req, res) => {
         console.log("in")
         p.save()
         .then( ( convention ) => {
-          res.redirect( 'showConvention/'+req.body.m_convId);
+          res.redirect( 'showConvention/'+req.body.convid);
         })
       })
       .catch(function (error) {
@@ -94,7 +94,7 @@ exports.updateDeny = (req, res) => {
 
     exports.updateModLevel3 = ( req, res ) => {
 
-      Mod.findOne({_id:req.body.userId})
+      Mod.findOne({_id:req.body.modid})
       .exec()
       .then((p) => {
         console.dir(p)
@@ -102,7 +102,7 @@ exports.updateDeny = (req, res) => {
         console.log("in")
         p.save()
         .then( ( convention ) => {
-          res.redirect( 'showConvention/'+req.body.m_convId);
+          res.redirect( 'showConvention/'+req.body.convid);
         })
       })
       .catch(function (error) {
@@ -115,55 +115,6 @@ exports.updateDeny = (req, res) => {
         // always executed
       });
     };
-    exports.updateModLevel4 = ( req, res ) => {
-
-      Mod.findOne({_id:req.body.userId})
-      .exec()
-      .then((p) => {
-        console.dir(p)
-        p.m_level = 4
-        console.log("in")
-        p.save()
-        .then( ( convention ) => {
-          res.redirect( 'showConvention/'+req.body.m_convId);
-        })
-      })
-      .catch(function (error) {
-        // handle error
-        console.log("error in update")
-        console.dir(error);
-        res.send("error in update = "+error)
-      })
-      .finally(function () {
-        // always executed
-      });
-    };
-
-    exports.updateModLevel5 = ( req, res ) => {
-
-      Mod.findOne({_id:req.body.userId})
-      .exec()
-      .then((p) => {
-        console.dir(p)
-        p.m_level = 5
-        console.log("in")
-        p.save()
-        .then( ( convention ) => {
-          res.redirect( 'showConvention/'+req.body.m_convId);
-        })
-      })
-      .catch(function (error) {
-        // handle error
-        console.log("error in update")
-        console.dir(error);
-        res.send("error in update = "+error)
-      })
-      .finally(function () {
-        // always executed
-      });
-    };
-
-
 
 // this displays all of the skills
 exports.getAllMod = ( req, res ) => {
