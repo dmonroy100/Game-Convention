@@ -67,7 +67,7 @@ var modOneList = [
 ]
 
 var modTwoList = [
-    "greghsu23@gmail.com",
+    "gregsu23@gmail.com",
 ]
 
 var modThreeList = [
