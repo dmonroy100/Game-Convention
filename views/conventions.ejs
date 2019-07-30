@@ -48,24 +48,6 @@
       </div>
 
 
-        <h3>PENDING</h3>
-        <div class="row">
-        <% for(i = 0; i<conventions.length; i++){  %>
-        <% if (conventions[i].Approval == false) { %>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <a href="/showConvention/<%= conventions[i]._id %>" class="unit-9">
-            <div class="image" style="background-image: url('<%= conventions[i].Picture %>'); "></div>
-            <div class="unit-9-content">
-              <h2><%= conventions[i].Name %></h2>
-              <span><%= conventions[i].From.toLocaleDateString('en-US') %> - <%= conventions[i].To.toLocaleDateString('en-US') %></span>
-              <span><%= conventions[i].Location%></span>
-            </div>
-          </a>
-        </div>
-        <% } %>
-        <% } %>
-      </div><br><br>
-
 
       <h3>ACCEPTED</h3>
       <div class="row">
@@ -82,6 +64,24 @@
             </div>
           </a>
           </div>
+        <% } %>
+        <% } %>
+      </div><br><br>
+
+        <h3>PENDING</h3>
+        <div class="row">
+        <% for(i = 0; i<conventions.length; i++){  %>
+        <% if (conventions[i].Approval == false) { %>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <a href="/showConvention/<%= conventions[i]._id %>" class="unit-9">
+            <div class="image" style="background-image: url('<%= conventions[i].Picture %>'); "></div>
+            <div class="unit-9-content">
+              <h2><%= conventions[i].Name %></h2>
+              <span><%= conventions[i].From.toLocaleDateString('en-US') %> - <%= conventions[i].To.toLocaleDateString('en-US') %></span>
+              <span><%= conventions[i].Location%></span>
+            </div>
+          </a>
+        </div>
         <% } %>
         <% } %>
       </div>
