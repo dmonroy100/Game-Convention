@@ -12,6 +12,14 @@ body {
   background-color: #222831;
 }
 
+.modal-body{
+  background-color: #222831;
+}
+
+.modal-title{
+  color: #ff0066;
+}
+
 hr {
   display: block;
   margin-top: 0.5em;
@@ -20,7 +28,7 @@ hr {
   margin-right: auto;
   border-style: inset;
   border-width: 1px;
-} 
+}
 
 .conventionTitle {
   line-height: 10;

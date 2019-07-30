@@ -1,0 +1,9 @@
+<ul id="myUL">
+  <% for(i = 0; i< discussionList.length; i++){  %>
+      <li>
+            <b>     <%= discussionList[i].d_username %> </b>
+            Title:  <%= discussionList[i].d_title %>    <br>
+            Details:<i><%= discussionList[i].d_details %> </i><br>
+      </li>
+  <% } %>
+</ul>

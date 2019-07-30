@@ -2,7 +2,6 @@
 
 
     <form method="post" action="/processDiscussion/<%= convention._id %>">
-      Username: <input type="text" name="d_username"> <br>
       Title:<br>
       <textarea name="d_title" rows="1" cols="80"></textarea>
 
@@ -15,7 +14,7 @@
       <input class="btn btn-lg btn-warning" type="submit">
     </form>
 
-    <ol>
+    <ol><br><br>
     <% for(i = 0; i< discussion.length; i++){  %>
           <li>
                 <b>     <%= discussion[i].d_username %> </b>
