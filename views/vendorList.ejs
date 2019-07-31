@@ -7,9 +7,8 @@
       Website: <%= vendorList[i].Website %> <br>
       Booth: <%= vendorList[i].Booth %> <br>
       Description: <%= vendorList[i].Description %> <br>
-      Picture: <%= vendorList[i].Picture %> <br>
       </li>
-      
+
     <% } %>
   <% } %>
 </ul>
@@ -26,19 +25,18 @@
       Website: <%= vendorList[i].Website %> <br>
       Booth: <%= vendorList[i].Booth %> <br>
       Description: <%= vendorList[i].Description %> <br>
-      Picture: <%= vendorList[i].Picture %> <br>
 
       <% if (loggedIn) { %>
         <% if (status == 'modFive' || status == 'owner') { %>
-          <form method="post" action="/processApprove3" >
+          <form method="post" action="/processApprove3" style="display:inline-block" >
             <input type="hidden" name="vendorid" value="<%= vendorList[i]._id %>" >
             <input type="hidden" name="convid" value="<%= vendorList[i].convId %>" >
-            <button type="submit" name="approval">Approved</button>
+            <button type="submit"  class="btn btn-primary" name="approval">Approved</button>
           </form>
-          <form method="post" action="/processDeny3" >
+          <form method="post" action="/processDeny3" style="display:inline-block" >
             <input type="hidden" name="vendorid" value="<%= vendorList[i]._id %>" >
             <input type="hidden" name="convid" value="<%= vendorList[i].convId %>" >
-            <button type="submit" name="deny">Denied</button>
+            <button type="submit"  class="btn btn-primary" name="deny">Denied</button>
           </form>
         <% } %>
       <% } %>

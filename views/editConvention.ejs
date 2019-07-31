@@ -1,6 +1,8 @@
 <%- include('general') -%>
 <%- include('navbar') -%>
 
+<div class="container">
+  <br><br>  <br><br>
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Edit Convention</h5>
@@ -13,9 +15,7 @@
       To: <br><input type="text" placeholder="<%= convention.To %>" value="<%= convention.To %>" name="To"> <br><br>
       Location: <br><input type="text" placeholder="<%= convention.Location %>" value="<%= convention.Location %>" name="Location"> <br><br>
       Description: <br><input type="text" placeholder="<%= convention.Description %>" value="<%= convention.Description %>" name="Description"> <br><br>
-      Special Guests: <br><input type="text" placeholder="<%= convention.Guest %>" value="<%= convention.Guest %>" name="Guest"><br><br>
-      Schedule:<br><input type="text" placeholder="<%= convention.Schedule %>" value="<%= convention.Schedule %>" name="Schedule"> <br><br>
-      Picture: <br><input type="text" name="Picture" placeholder="<%= convention.Picture %>" value="<%= convention.Picture %>" class="img-fluid" alt="Responsive image">
+      Picture: <br><input type="text" name="Picture" placeholder="<%= convention.Picture %>" value="<%= convention.Picture %>" class="img-fluid" alt="Responsive image"><br><br>
       Badges: <br><br><div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Needs Deleted" name="Badges">
         <label class="form-check-label" for="inlineCheckbox1">Needs Deleted</label>
@@ -30,9 +30,10 @@
       </div>
       <br><br>
 
-      <input type="submit">
+      <input class="btn btn-lg btn-warning" type="submit">
     </form>
   </div>
+</div>
 </div>
 <br><br><br>
 

@@ -4,9 +4,7 @@
 
       <li>
       Name: <%= celebrityList[i].Name %> <br>
-      Title:  <%= celebrityList[i].Title %>    <br>
       Description: <%= celebrityList[i].Description %> <br>
-      Picture: <%= celebrityList[i].Picture %> <br>
       </li>
 
     <% } %>
@@ -22,26 +20,24 @@
 
       <li>
       Name: <%= celebrityList[i].Name %> <br>
-      Title:  <%= celebrityList[i].Title %>    <br>
       Description: <%= celebrityList[i].Description %> <br>
-      Picture: <%= celebrityList[i].Picture %> <br>
 
       <% if (loggedIn) { %>
         <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree' || status == 'modFour') { %>
-          <form method="post" action="/processApprove2" >
+          <form method="post" action="/processApprove2"style="display:inline-block" >
             <input type="hidden" name="celebid" value="<%= celebrityList[i]._id %>" >
             <input type="hidden" name="convid" value="<%= celebrityList[i].convId %>" >
-            <button type="submit" name="approval">Approved</button>
+            <button type="submit"  class="btn btn-primary" name="approval">Approved</button>
           </form>
-          <form method="post" action="/processDeny2" >
+          <form method="post" action="/processDeny2"style="display:inline-block" >
             <input type="hidden" name="celebid" value="<%= celebrityList[i]._id %>" >
             <input type="hidden" name="convid" value="<%= celebrityList[i].convId %>" >
-            <button type="submit" name="deny">Denied</button>
+            <button type="submit"  class="btn btn-primary" name="deny">Denied</button>
           </form>
         <% } %>
       <% } %>
       </li>
-      
+
     <% } %>
   <% } %>
 </ul>
