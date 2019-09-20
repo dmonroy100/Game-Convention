@@ -56,23 +56,18 @@ var app = express();
 
 
 var ownerList= [
-   'greghsu23@brandeis.edu',
    'tlsimala@brandeis.edu',
-   'cathyxie@brandeis.edu'
+   "dmonroy@brandeis.edu"
  ]
 
 //different levels of moderators, tests
 var modOneList = [
-    "xly18ling@gmail.com"
 ]
 
 var modTwoList = [
-    "gregsu23@gmail.com",
 ]
 
 var modThreeList = [
-    "dmonroy@brandeis.edu",
-    "rami072@brandeis.edu"
 ]
 
 
