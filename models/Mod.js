@@ -11,8 +11,6 @@ var modSchema = Schema( {
   m_reason: String,
   m_createdAt: Date,
   m_level: {type: Number, default: 0}
-  //m_conlist: [String],
-  //m_status: ObjectId
 } );
 
 module.exports = mongoose.model( 'Mod', modSchema );

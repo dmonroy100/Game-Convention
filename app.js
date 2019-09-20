@@ -200,17 +200,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.get('/moderatorRequests',
-//          isLoggedIn,
-//          function(req, res, next) {
-//            if (res.locals.status=='owner') {
-//              res.render('moderatorRequests');
-//            } else {
-//              res.send("you must be an owner to visit this section")
-//            }
-// });
-
-
 app.use(function(req,res,next){
   console.log("about to look for routes!!!")
   //console.dir(req.headers)
@@ -293,8 +282,7 @@ app.get('/apitest', function(req, res, next) {
 app.post('/processform', listController.saveConvenion)
 
 app.get('/showConventions', listController.getAllConventions)
-//app.get('/showConvention/:id', listController.getOneConvention)
-// app.get('/showConvention/:id', listController.travel)
+
 app.post('/editConvention',listController.update)
 app.get('/showConvention/:convid',
     isLoggedIn,
@@ -348,8 +336,6 @@ app.post('/processUnfollowCon', profileController.unfollowCon)
 app.get('/postQuestion', function(req, res, next){
   res.render('postQuestion')
 })
-
-//app.post('/forumDelete', isLoggedIn, qAndaController.deleteQuestion)
 
 app.get('/showQuestions',isLoggedIn, qAndaController.getAllQuestions)
 

@@ -62,9 +62,6 @@ exports.updateDeny = (req, res) => {
     .then(()=>{res.redirect('showConvention/'+req.body.convid)})
     .catch((error)=>{res.send(error)})
   }
-    //console.log("This shouldn't happen!")
-    // res.send(`unknown deleteId: ${deleteId} Contact the Developer!!!`)
-
 
 exports.updateApproval = ( req, res ) => {
 
