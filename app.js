@@ -13,12 +13,9 @@ bodyParser = require("body-parser")
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-
 const mongoose = require( 'mongoose' );
-
 const mlab = 'mongodb://heroku_03g7jdqb:hnnbgerrljnmvdlu2uc57sqt3t@ds243607.mlab.com:43607/heroku_03g7jdqb';
 const localMongo = 'mongodb://localhost/convengo';
-
 
 var uristring =
     process.env.MONGOLAB_URI ||
@@ -74,9 +71,6 @@ var modTwoList = [
 var modThreeList = [
 ]
 
-
-
-
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // here we set up authentication with passport
 const passport = require('passport')
@@ -120,7 +114,7 @@ app.use((req,res,next) => {
   res.locals.title="ConvenGo"
   res.locals.loggedIn = false
   if (req.isAuthenticated()){
-    if (req.user.googleemail.endsWith("@brandeis.edu") ||req.user.googleemail.endsWith("@gmail.com")||
+    if (req.user.googleemail.endsWith("@brandeis.edu") || req.user.googleemail.endsWith("@gmail.com")||
           approvedLogins.includes(req.user.googleemail))
           {
             console.log("user has been Authenticated")
