@@ -3,8 +3,6 @@ const Mod = require( '../models/Mod' );
 const User = require( '../models/user' );
 
 exports.saveMod = ( req, res ) => {
-  //console.log("in saveSkill!")
-  //console.dir(req)
 
   let newMod = new Mod(
    {
@@ -17,12 +15,8 @@ exports.saveMod = ( req, res ) => {
     m_createdAt: new Date(),
     m_level: 0
 
-    //m_status: req.user.m_status //set user.m_status to true
-
    }
   )
-
-  //console.log("skill = "+newSkill)
 
   newMod.save()
     .then( () => {
@@ -40,9 +34,6 @@ exports.updateDeny = (req, res) => {
     .then(()=>{res.redirect('/showConvention/'+req.body.convid)})
     .catch((error)=>{res.send(error)})
   }
-    //console.log("This shouldn't happen!")
-    // res.send(`unknown deleteId: ${deleteId} Contact the Developer!!!`)
-
 
     exports.updateModLevel1 = ( req, res ) => {
 
@@ -118,7 +109,7 @@ exports.updateDeny = (req, res) => {
 
 // this displays all of the skills
 exports.getAllMod = ( req, res ) => {
-  //gconsle.log('in getAllSkills')
+
   Mod.find()
     .exec()
     .then( ( modLists ) => {
@@ -131,6 +122,6 @@ exports.getAllMod = ( req, res ) => {
       return [];
     } )
     .then( () => {
-      //console.log( 'skill promise complete' );
+
     } );
 };

@@ -3,8 +3,7 @@ const Question = require( '../models/Question' );
 const Answer = require( '../models/Answer' );
 
 exports.saveQuestionPost = ( req, res ) => {
-  //console.log("in saveSkill!")
-  //console.dir(req)
+
   if (!res.locals.loggedIn) {
     return res.send("You must be logged in to post to a question.")
   }
@@ -31,7 +30,7 @@ exports.saveQuestionPost = ( req, res ) => {
 
 // this displays all of the skills
 exports.getAllQuestions = ( req, res, next ) => {
-  //gconsle.log('in getAllSkills')
+
   Question.find()
   .exec()
   .then( ( questions ) => {
@@ -42,14 +41,14 @@ exports.getAllQuestions = ( req, res, next ) => {
     return [];
   } )
   .then( () => {
-    //console.log( 'skill promise complete' );
+
   } );
 };
 
 
 // this displays all of the skills
 exports.showOneQuestion = ( req, res ) => {
-  //gconsle.log('in getAllSkills')
+
   const id = req.params.id
   console.log('the id is '+id)
   Question.findOne({_id:id})

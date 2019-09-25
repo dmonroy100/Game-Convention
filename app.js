@@ -13,12 +13,9 @@ bodyParser = require("body-parser")
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-
 const mongoose = require( 'mongoose' );
-
 const mlab = 'mongodb://heroku_03g7jdqb:hnnbgerrljnmvdlu2uc57sqt3t@ds243607.mlab.com:43607/heroku_03g7jdqb';
 const localMongo = 'mongodb://localhost/convengo';
-
 
 var uristring =
     process.env.MONGOLAB_URI ||
@@ -53,7 +50,11 @@ const celebrityController = require('./controllers/celebrityController')
 
 var app = express();
 
-
+//middleware that looks up the moderator for the User
+//all the conventions they are moderators of
+//if res.locals.modlist in mod controller
+//function called level which gives it the modlist and convention id
+//minus -1 if they aren't a moderator at all
 
 var ownerList= [
    'tlsimala@brandeis.edu',
@@ -70,18 +71,11 @@ var modTwoList = [
 var modThreeList = [
 ]
 
-
-
-
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // here we set up authentication with passport
 const passport = require('passport')
 const configPassport = require('./config/passport')
 configPassport(passport)
-
-
-
-
 
 /*************************************************************************
      HERE ARE THE AUTHENTICATION ROUTES
@@ -93,14 +87,34 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
+//default celebrity bio
+//who gets to edit the celebrities bio????
+//moderator system for celebrity
+//yeah im here, celebrity automatically added to to a convention page
+//high level moderator can edit any celebrity
+//this is my default bio?
+//let me edit it if I want
+//no just one default bio, i go there and change it
+//celebrity control over there info/or no control give them the option
+//moderators can direct responsibility
+//agent login. verify???
+//once an agent is logged in, and verified by owners
+//then they have full control and then dedicated moderators to their celebrities
+//add their celebrities and become a level 3
+//agents can make their staff all level 3
+//agent field for celebrity or agency
+//moderator list for celebrities
+//vendor logins
+//confidence in models
+//prints
+//console.dirs to debug
 
 // here is where we check on their logged in status
 app.use((req,res,next) => {
   res.locals.title="ConvenGo"
   res.locals.loggedIn = false
   if (req.isAuthenticated()){
-    if (req.user.googleemail.endsWith("@brandeis.edu") ||req.user.googleemail.endsWith("@gmail.com")||
+    if (req.user.googleemail.endsWith("@brandeis.edu") || req.user.googleemail.endsWith("@gmail.com")||
           approvedLogins.includes(req.user.googleemail))
           {
             console.log("user has been Authenticated")
@@ -110,6 +124,36 @@ app.use((req,res,next) => {
     else {
       res.locals.loggedIn = false
     }
+    //this is where you do the mod list
+    //if modList inclues req.user.Id
+    //app.use((req,res, next)=> {
+      //see if they are logged in
+      //if req.users is logged in
+      //const Mod=require("./model/Mod")
+      //if(req.user){
+      // mod.find(req.({userId: req.user._id}))
+      //.then (modList=> {
+    //    res.locals.modList=modList
+            //next()
+//    })
+  //  } else {
+      //if not res.locals.modList=[]
+        //next()
+}
+  //  }
+
+  //app.use((req, res, next)=> {
+
+//}
+  //goes to -1 then .max get max
+  //return getMax()
+  //return d.level
+  //listController.convid getModeratorLevel
+//}
+//})
+//controller that looks for convention id then adds the level
+
+  }
     if (req.user){
      if (ownerList.includes(req.user.googleemail)){
        console.log("Owner has logged in")
@@ -200,17 +244,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.get('/moderatorRequests',
-//          isLoggedIn,
-//          function(req, res, next) {
-//            if (res.locals.status=='owner') {
-//              res.render('moderatorRequests');
-//            } else {
-//              res.send("you must be an owner to visit this section")
-//            }
-// });
-
-
 app.use(function(req,res,next){
   console.log("about to look for routes!!!")
   //console.dir(req.headers)
@@ -260,13 +293,18 @@ app.get('/addConvention', function(req, res, next) {
 });
 
 app.get('/editConvention/:convid',
+//make sure they have mod level
   listController.addConvention,
   function(req, res, next) {
     res.render('editConvention',{title:"Editting Convention"});
 
 });
 
-
+//list controller get moderator level
+//moderators vote to feature it
+//post it up there
+//five in one day
+//feature add to conventions
 
 
 app.use(function(req,res,next){
@@ -279,22 +317,18 @@ function processFormData(req,res,next){
      {title:"Form Data", Name:req.body.Name, Website:req.body.Website,Facebookgroup:req.body.Facebookgroup,From:req.body.From, To:req.body.To, Location:req.body.Location, des:req.body.Description,Guest:req.body.Guest,Schedule:req.body.Schedule})
 }
 
-
 app.get('/apitest', function(req, res, next) {
   amadeus.run(req,res,next)
   res.send('apitest completed');
 });
 
-
 // when completed put all API calls in a seperate folder for better readability
 //END OF API CALLS FOR AMADEUS
-
 
 app.post('/processform', listController.saveConvenion)
 
 app.get('/showConventions', listController.getAllConventions)
-//app.get('/showConvention/:id', listController.getOneConvention)
-// app.get('/showConvention/:id', listController.travel)
+
 app.post('/editConvention',listController.update)
 app.get('/showConvention/:convid',
     isLoggedIn,
@@ -349,8 +383,6 @@ app.get('/postQuestion', function(req, res, next){
   res.render('postQuestion')
 })
 
-//app.post('/forumDelete', isLoggedIn, qAndaController.deleteQuestion)
-
 app.get('/showQuestions',isLoggedIn, qAndaController.getAllQuestions)
 
 app.post('/processQuestionPost', isLoggedIn, qAndaController.saveQuestionPost)
@@ -369,9 +401,6 @@ app.post('/showQuestion/:id/processAnswerPost', qAndaController.saveAnswer)
 app.post('/showQuestion/:id/answerDelete',qAndaController.deleteAnswer)
 
 //-------------
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -22,7 +22,7 @@ exports.saveVendor = ( req, res ) => {
 };
 
 exports.getAllVendors = ( req, res ) => {
-  //gconsle.log('in getAllSkills')
+  
   Vendor.find()
     .exec()
     .then( ( vendorList ) => {

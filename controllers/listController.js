@@ -54,11 +54,8 @@ exports.saveConvenion = ( req, res ) => {
     Badges: req.body.Badges,
     Notifications: req.body.Notifications,
     Guest: req.body.Guest,
-    //m_status: req.Mod.m_status
     }
   )
-
-  //console.log("skill = "+newSkill)
 
   newConvention.save()
     .then( () => {
@@ -82,7 +79,6 @@ exports.getAllConventions = ( req, res ) => {
       return [];
     } )
     .then( () => {
-      //console.log( 'skill promise complete' );
     } );
 };
 
@@ -103,12 +99,12 @@ exports.addCelebrities = ( req, res, next ) => {
         res.send("addCelebrities error :"+error.message)
       } )
       .then( () => {
-        //console.log( 'skill promise complete' );
+
       } );
   };
 
 exports.addVendors = ( req, res, next ) => {
-    //gconsle.log('in getAllSkills')
+
     console.log("in addVendors")
     console.dir(res.locals)
     const convid = res.locals.convention._id
@@ -124,12 +120,12 @@ exports.addVendors = ( req, res, next ) => {
         res.send("addVendors error :"+error.message)
       } )
       .then( () => {
-        //console.log( 'skill promise complete' );
+
       } );
   };
 
 	exports.addModerators = ( req, res, next ) => {
-		  //gconsle.log('in getAllSkills')
+
 			console.log("in addModerators")
 			console.dir(res.locals)
 		  const convid = res.locals.convention._id
@@ -145,12 +141,12 @@ exports.addVendors = ( req, res, next ) => {
 		      res.send("addModerators error :"+error.message)
 		    } )
 		    .then( () => {
-		      //console.log( 'skill promise complete' );
+
 		    } );
 		};
 
     exports.addDiscussion = ( req, res, next ) => {
-        //gconsle.log('in getAllSkills')
+
         console.log("in discussion")
         console.dir(res.locals)
         const convid = res.locals.convention._id
@@ -166,7 +162,7 @@ exports.addVendors = ( req, res, next ) => {
             res.send("addDiscussion error :"+error.message)
           } )
           .then( () => {
-            //console.log( 'skill promise complete' );
+
           } );
       };
 
@@ -179,9 +175,6 @@ exports.addVendors = ( req, res, next ) => {
           .then(()=>{res.redirect('/showConventions')})
           .catch((error)=>{res.send(error)})
         }
-          //console.log("This shouldn't happen!")
-          // res.send(`unknown deleteId: ${deleteId} Contact the Developer!!!`)
-
 
   exports.updateApproval = ( req, res ) => {
 
@@ -244,3 +237,14 @@ exports.addVendors = ( req, res, next ) => {
     // always executed
   });
 };
+
+exports.getModeratorLevel = (req,res) => {
+  const convid= req.params.convId
+  res.locals.modlevel=-1
+  for(let i=0; i<res.locals.conventionsList.length;i++){
+    if(conventionsList[i].convid==convid){
+      res.locals.modLevel=conventionList[i].level
+    }
+  }
+  next()
+}

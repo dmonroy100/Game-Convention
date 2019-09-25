@@ -2,8 +2,6 @@
 const Discussion = require( '../models/Discussion' );
 
 exports.saveDiscussion = ( req, res ) => {
-  //console.log("in saveSkill!")
-  //console.dir(req)
 
   let newDiscussion = new Discussion(
    {
@@ -16,8 +14,6 @@ exports.saveDiscussion = ( req, res ) => {
    }
   )
 
-  //console.log("skill = "+newSkill)
-
   newDiscussion.save()
     .then( () => {
       res.redirect( '/showConvention/'+req.params.convid );
@@ -29,7 +25,7 @@ exports.saveDiscussion = ( req, res ) => {
 
 // this displays all of the skills
 exports.getAllDiscussion = ( req, res ) => {
-  //gconsle.log('in getAllSkills')
+
   Discussion.find()
     .exec()
     .then( ( discussion ) => {
@@ -42,6 +38,5 @@ exports.getAllDiscussion = ( req, res ) => {
       return [];
     } )
     .then( () => {
-      //console.log( 'skill promise complete' );
     } );
 };
