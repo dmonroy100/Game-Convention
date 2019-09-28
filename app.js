@@ -153,7 +153,7 @@ app.use((req,res,next) => {
 //})
 //controller that looks for convention id then adds the level
 
-  }
+  //}
     if (req.user){
      if (ownerList.includes(req.user.googleemail)){
        console.log("Owner has logged in")
