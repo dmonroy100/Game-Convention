@@ -11,6 +11,8 @@ var agentSchema = Schema( {
   agencyName: Stirng,
   websiteURL: String,
   celebrityNames: String,
+  var celebrityArray = new Array(celebrityNames),
+  
   m_createdAt: Date,
   Approval: {type: Boolean, default:false}
 } );
