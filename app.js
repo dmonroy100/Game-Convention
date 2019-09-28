@@ -174,7 +174,6 @@ app.use((req,res,next) => {
    } else {
      res.locals.status='reg'
    }
-  }
   next()
 })
 
