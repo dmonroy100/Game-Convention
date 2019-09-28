@@ -237,3 +237,14 @@ exports.addVendors = ( req, res, next ) => {
     // always executed
   });
 };
+
+exports.getModeratorLevel = (req,res) => {
+  const convid= req.params.convId
+  res.locals.modlevel=-1
+  for(let i=0; i<res.locals.conventionsList.length;i++){
+    if(conventionsList[i].convid==convid){
+      res.locals.modLevel=conventionList[i].level
+    }
+  }
+  next()
+}

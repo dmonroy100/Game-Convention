@@ -18,7 +18,7 @@
 
 .fl-bigmug-line-ico,
 [class^="fl-bigmug-line-"]:before, [class*=" fl-bigmug-line-"]:before,
-[class^="fl-bigmug-line-"]:after, [class*=" fl-bigmug-line-"]:after {
+[class^="fl-bigmug-line-"]:after, [class*=" fl-bigmug-line-"]:after {   
 	font-family: 'fl-bigmug-line';
     font-size: inherit;
 	font-weight: 400;
