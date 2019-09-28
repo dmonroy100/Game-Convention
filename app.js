@@ -172,10 +172,7 @@ function isLoggedIn(req, res, next) {
     }
 }
 
-
-
 // END OF THE AUTHENTICATION ROUTES
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
