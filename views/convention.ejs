@@ -14,6 +14,9 @@
 </div>
 <br>
 <div class="container">
+  <div class="row">
+    <div class="col-sm">
+<div class="container">
   <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
     <div class="card card-plain">
       <% if (loggedIn) { %>
@@ -236,5 +239,11 @@
 
 
 <br><br>
+</div>
+</div>
+<div class="col-sm">
+    <%- include('modList') -%>
+</div>
+</div>
 </div>
 <%- include('bootfooter') -%>
