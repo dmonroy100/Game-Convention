@@ -10,7 +10,7 @@ var agentSchema = Schema( {
   googleemail: String,
   agencyName: Stirng,
   websiteURL: String,
-  celebrityNames: String,
+  celebrityNames: [String],
   m_createdAt: Date,
   Approval: {type: Boolean, default:false}
 } );
