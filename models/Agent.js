@@ -4,15 +4,12 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var agentSchema = Schema( {
-  m_convId: ObjectId,
-  userId: ObjectId,
-  googlename: String,
+  a_celebId: ObjectId,
   googleemail: String,
   agencyName: Stirng,
-  websiteURL: String,
-  celebrityNames: [String],
-  m_createdAt: Date,
-  Approval: {type: Boolean, default:false}
+  celebrityNames: String,
+  a_createdAt: Date,
+  a_level: {type: Number, default: 0}
 } );
 
-module.exports = mongoose.model( 'Mod', modSchema );
+module.exports = mongoose.model( 'Agent', agentSchema );

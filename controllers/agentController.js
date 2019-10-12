@@ -1,25 +1,24 @@
 'use strict';
-const Mod = require( '../models/Mod' );
+const Agent = require( '../models/Agent' );
 const User = require( '../models/user' );
 
 exports.saveAgent = ( req, res ) => {
 
   let newAgent = new Agent(
    {
-    m_convId: req.params.convid,
-    googlename:req.user.googlename,
-    userId: req.user._id,
+    a_celebId: req.Agent.a_celebId,
     googleemail:req.user.googleemail,
-    m_reason: req.body.m_reason,
-    m_createdAt: new Date(),
-    m_level: 2,
+    agencyName:req.Agent.agencyName,
+    a_celebrityIds:req.Agent.celebrityNames,
+    a_createdAt: new Date(),
+    a_level: 0,
 
    }
   )
 
   newAgent.save()
     .then( () => {
-      res.redirect( '/showConvention/'+req.params.convid );
+      res.redirect( '/showAgentPage/');
     } )
     .catch( error => {
       res.send( error );
@@ -27,25 +26,24 @@ exports.saveAgent = ( req, res ) => {
 };
 
 exports.updateDeny = (req, res) => {
-  console.log("convention id" + req.body.modid)
-    Mod.deleteOne({_id:req.body.modid})
+    Agent.deleteOne({_id:req.body.agentId})
     .exec()
-    .then(()=>{res.redirect('/showConvention/'+req.body.convid)})
+    .then(()=>{res.redirect('/showAgentPage/'+req.body.agentId)})
     .catch((error)=>{res.send(error)})
   }
 
-    exports.updateModLevel2 = ( req, res ) => {
+    exports.updateAgentLevel = ( req, res ) => {
 
-      Mod.findOne({_id:req.body.modid})
+      Agent.findOne({_id:req.body.agentId})
       .exec()
       .then((p) => {
         cons
         le.dir(p)
-        p.m_level = 2
+        p.a_level = 2
         console.log("in")
         p.save()
-        .then( ( convention ) => {
-          res.redirect( 'showConvention/'+req.body.convid);
+        .then( ( agent ) => {
+          res.redirect( '/showAgentPage/'+req.body.agentId);
         })
       })
       .catch(function (error) {
@@ -58,22 +56,3 @@ exports.updateDeny = (req, res) => {
         // always executed
       });
     };
-
-// this displays all of the skills
-exports.getAllMod = ( req, res ) => {
-
-  Mod.find()
-    .exec()
-    .then( ( modLists ) => {
-      res.render( 'modList', {
-        title:"modList",modLists:modLists
-      } );
-    } )
-    .catch( ( error ) => {
-      console.log( error.message );
-      return [];
-    } )
-    .then( () => {
-
-    } );
-};
