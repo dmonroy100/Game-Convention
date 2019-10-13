@@ -13,9 +13,6 @@
 <a class="btn btn-warning" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
 </div>
 <br>
-<div class="container">
-<div class="row">
-  <div class="col-md-8">
     <div class="container">
       <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
         <div class="card card-plain">
@@ -160,6 +157,44 @@
 
                     </div>
 
+                    <div class="card card-plain">
+                      <div class="card-header" role="tab" id="heading10">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                          <h2>Moderators</h2>
+                          <i class="now-ui-icons arrows-1_minimal-down"></i>
+                        </a>
+                      </div>
+                      <div id="collapse10" class="collapse" role="tabpanel" aria-labelledby="heading10">
+                        <div class="card-body">
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal23">
+                            Request to be a Moderator
+                          </button>
+                          <hr>
+                          <div class="modal fade" id="exampleModal23" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel23" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel23">Moderator Request</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <%- include('requestMod') -%>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <%- include('modList') -%>
+                          <h4>Pending</h4>
+                          <% if (loggedIn) { %>
+                            <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree') { %>
+                              <%- include('pendingmodList') -%>
+                              <% } %>
+                              <% } %>
+                        </div>
+                      </div>
+                    </div>
 
                     <div class="card card-plain">
                       <div class="card-header" role="tab" id="headingThree">
@@ -176,8 +211,6 @@
                         </div>
                       </div>
                     </div>
-
-
 
                     <div class="card card-plain">
                       <div class="card-header" role="tab" id="heading9">
@@ -198,36 +231,4 @@
 
                   <br><br>
                 </div>
-              </div>
-              <div class="col-sm-4">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal23">
-                  Request to be a Moderator
-                </button>
-                <hr>
-                <div class="modal fade" id="exampleModal23" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel23" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel23">Moderator Request</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <%- include('requestMod') -%>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <%- include('modList') -%>
-                <h4>Pending</h4>
-                <% if (loggedIn) { %>
-                  <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree') { %>
-                    <%- include('pendingmodList') -%>
-                    <% } %>
-                    <% } %>
-                  </div>
-                </div>
-              </div>
-            </div>
             <%- include('bootfooter') -%>
