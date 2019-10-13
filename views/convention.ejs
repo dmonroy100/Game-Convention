@@ -6,228 +6,228 @@
 </div>
 
 <div class="text-center">
-  <br>
-  <font color="white"><h1 class="title" style="font-size:100px;"><%=  convention.Name  %></h1></font>
-  <h5><span class="badge badge-warning"><%= convention.Badges %></span></h5>
-  <a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
-  <a class="btn btn-warning" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
+<br>
+<font color="white"><h1 class="title" style="font-size:100px;"><%=  convention.Name  %></h1></font>
+<h5><span class="badge badge-warning"><%= convention.Badges %></span></h5>
+<a class="btn btn-success" href="<%=convention.Website%>" role="button">Official Website</a>
+<a class="btn btn-warning" href="<%=convention.Facebookgroup%>" role="button">Facebook Group</a>
 </div>
 <br>
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-<div class="container">
-  <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
-    <div class="card card-plain">
-      <% if (loggedIn) { %>
-        <% if (status == 'modFive' || status == 'owner') { %>
-          <div>
-          <form method="post" action="/processApprove" style="display:inline-block">
-              &nbsp&nbsp&nbsp<input type="hidden" name="convid" value="<%= convention._id %>" >
-          <button type="submit" class="btn btn-primary" name="Approval">Approved</button>
-          </form>
-          <form method="post" action="/processDeny/" style="display:inline-block">
-              <input type="hidden" name="convid" value="<%= convention._id %>" >
-          <button type="submit" class="btn btn-primary" name="Denial">Denied</button>
-          </form>
-          <a href="/editConvention/<%= convention._id %>" class="btn btn-primary" role="button" aria-pressed="true" style="display:inline-block">Edit</a>
-          </div>
-          <% } %>
-        <% } %>
-
-          <div class="card-header" role="tab" id="headingSeven">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-              <h2>General Information</h2>
-              <i class="now-ui-icons arrows-1_minimal-down"></i>
-            </a>
-          </div>
-
-
-      <!-- Change  -->
-
-
-          <!-- Follow Button -->
-            <% if (user.followCon.includes(convention._id)) {%>
-              <div>
-              <form method="post" action="/processUnfollowCon" >
-          			<input type="hidden" name="convid" value="<%= convention._id %>">
-                &nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-primary" name="unfollowCon">Unfollow</button>
-              </form>
-              </div>
-            <% } else { %>
-              <div>
-              <form method="post" action="/processFollowCon" >
-          			<input type="hidden" name="convid" value="<%= convention._id %>">
-                &nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-primary" name="followCon">Follow</button>
-              </form>
-              </div>
-            <% } %>
-            <!-- end -->
-
-          <h3> <center> Dates: <%= convention.From.toLocaleDateString('en-US')  %> to <%= convention.To.toLocaleDateString('en-US')  %> </center>  </h3>
-        <h3> <center> Location: <%= convention.Location %> </h3><br>
-      <h6>   &nbsp&nbsp&nbsp&nbsp Description: <br>&nbsp&nbsp&nbsp&nbsp <%= convention.Description %> <br><br>
-  </div>
-
-
-
-
+<div class="row">
+  <div class="col-sm-8">
+    <div class="container">
+      <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
         <div class="card card-plain">
-          <div class="card-header" role="tab" id="headingSix">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-              <h2>Celebrity</h2>
-              <i class="now-ui-icons arrows-1_minimal-down"></i>
-            </a>
-          </div>
-            <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
-              <div class="card-body">
-
-        <!-- Button trigger modal -->
-        <div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal21">
-          Add Celebrity
-        </button>
-        <hr>
-        </div>
-
-        <!-- Modal -->
-
-        <div class="modal fade" id="exampleModal21" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel21" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel21">Celebrity</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <%- include('celebrity') -%>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <%- include('celebrityList') -%>
-        </div>
-        </div>
-        </div>
-
-
-
-        <div class="card card-plain">
-
-          <div class="card-header" role="tab" id="headingFive">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-              <h2>Vendor</h2>
-              <i class="now-ui-icons arrows-1_minimal-down"></i>
-            </a>
-          </div>
-
-          <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
-            <div class="card-body">
-
-              <!-- Button trigger modal -->
+          <% if (loggedIn) { %>
+            <% if (status == 'modFive' || status == 'owner') { %>
               <div>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal13">
-                Add Vendor
-              </button>
-              <hr>
+                <form method="post" action="/processApprove" style="display:inline-block">
+                  &nbsp&nbsp&nbsp<input type="hidden" name="convid" value="<%= convention._id %>" >
+                  <button type="submit" class="btn btn-primary" name="Approval">Approved</button>
+                </form>
+                <form method="post" action="/processDeny/" style="display:inline-block">
+                  <input type="hidden" name="convid" value="<%= convention._id %>" >
+                  <button type="submit" class="btn btn-primary" name="Denial">Denied</button>
+                </form>
+                <a href="/editConvention/<%= convention._id %>" class="btn btn-primary" role="button" aria-pressed="true" style="display:inline-block">Edit</a>
               </div>
-              <!-- Modal -->
+              <% } %>
+              <% } %>
 
-              <div class="modal fade" id="exampleModal13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel13" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel13">Vendor</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+              <div class="card-header" role="tab" id="headingSeven">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  <h2>General Information</h2>
+                  <i class="now-ui-icons arrows-1_minimal-down"></i>
+                </a>
+              </div>
+
+
+              <!-- Change  -->
+
+
+              <!-- Follow Button -->
+              <% if (user.followCon.includes(convention._id)) {%>
+                <div>
+                  <form method="post" action="/processUnfollowCon" >
+                    <input type="hidden" name="convid" value="<%= convention._id %>">
+                    &nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-primary" name="unfollowCon">Unfollow</button>
+                  </form>
+                </div>
+                <% } else { %>
+                  <div>
+                    <form method="post" action="/processFollowCon" >
+                      <input type="hidden" name="convid" value="<%= convention._id %>">
+                      &nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-primary" name="followCon">Follow</button>
+                    </form>
+                  </div>
+                  <% } %>
+                  <!-- end -->
+
+                  <h3> <center> Dates: <%= convention.From.toLocaleDateString('en-US')  %> to <%= convention.To.toLocaleDateString('en-US')  %> </center>  </h3>
+                  <h3> <center> Location: <%= convention.Location %> </h3><br>
+                    <h6>   &nbsp&nbsp&nbsp&nbsp Description: <br>&nbsp&nbsp&nbsp&nbsp <%= convention.Description %> <br><br>
                     </div>
-                    <div class="modal-body">
-                      <%- include('vendor') -%>
+
+
+
+
+                    <div class="card card-plain">
+                      <div class="card-header" role="tab" id="headingSix">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          <h2>Celebrity</h2>
+                          <i class="now-ui-icons arrows-1_minimal-down"></i>
+                        </a>
+                      </div>
+                      <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+                        <div class="card-body">
+
+                          <!-- Button trigger modal -->
+                          <div>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal21">
+                              Add Celebrity
+                            </button>
+                            <hr>
+                          </div>
+
+                          <!-- Modal -->
+
+                          <div class="modal fade" id="exampleModal21" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel21" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel21">Celebrity</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <%- include('celebrity') -%>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <%- include('celebrityList') -%>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div class="card card-plain">
+
+                      <div class="card-header" role="tab" id="headingFive">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          <h2>Vendor</h2>
+                          <i class="now-ui-icons arrows-1_minimal-down"></i>
+                        </a>
+                      </div>
+
+                      <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                        <div class="card-body">
+
+                          <!-- Button trigger modal -->
+                          <div>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal13">
+                              Add Vendor
+                            </button>
+                            <hr>
+                          </div>
+                          <!-- Modal -->
+
+                          <div class="modal fade" id="exampleModal13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel13" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel13">Vendor</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <%- include('vendor') -%>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <%- include('vendorList') -%>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                    <div class="card card-plain">
+                      <div class="card-header" role="tab" id="headingThree">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          <h2>Map</h2>
+                          <i class="now-ui-icons arrows-1_minimal-down"></i>
+                        </a>
+                      </div>
+                      <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="card-body">
+                          <%- include('mapapi') -%>
+                          <h1>A<br>B<br>C<br>D<br>E<br>F
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div class="card card-plain">
+                      <div class="card-header" role="tab" id="heading9">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                          <h2>Discussion</h2>
+                          <i class="now-ui-icons arrows-1_minimal-down"></i>
+                        </a>
+                      </div>
+                      <div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="heading9">
+                        <div class="card-body">
+                          <%- include('discussion') -%>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <br><br>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal23">
+                  Request to be a Moderator
+                </button>
+                <hr>
+                <div class="modal fade" id="exampleModal23" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel23" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel23">Moderator Request</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <%- include('requestMod') -%>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <%- include('modList') -%>
+                <h4>Pending</h4>
+                <% if (loggedIn) { %>
+                  <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree') { %>
+                    <%- include('pendingmodList') -%>
+                    <% } %>
+                    <% } %>
+                  </div>
+                </div>
               </div>
-
-              <%- include('vendorList') -%>
-
             </div>
-          </div>
-
-        </div>
-
-
-    <div class="card card-plain">
-      <div class="card-header" role="tab" id="headingThree">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <h2>Map</h2>
-          <i class="now-ui-icons arrows-1_minimal-down"></i>
-        </a>
-      </div>
-      <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-        <div class="card-body">
-          <%- include('mapapi') -%>
-          <h1>A<br>B<br>C<br>D<br>E<br>F
-          </h1>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="card card-plain">
-      <div class="card-header" role="tab" id="heading9">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
-          <h2>Discussion</h2>
-          <i class="now-ui-icons arrows-1_minimal-down"></i>
-        </a>
-      </div>
-      <div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="heading9">
-        <div class="card-body">
-          <%- include('discussion') -%>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-<br><br>
-</div>
-</div>
-<div class="col-sm-4">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal23">
-    Request to be a Moderator
-  </button>
-  <hr>
-  <div class="modal fade" id="exampleModal23" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel23" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel23">Moderator Request</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%- include('requestMod') -%>
-        </div>
-      </div>
-    </div>
-  </div>
-  <%- include('modList') -%>
-  <h4>Pending</h4>
-  <% if (loggedIn) { %>
-    <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree') { %>
-        <%- include('pendingmodList') -%>
-        <% } %>
-      <% } %>
-</div>
-</div>
-</div>
-</div>
-<%- include('bootfooter') -%>
+            <%- include('bootfooter') -%>
