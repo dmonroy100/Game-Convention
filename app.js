@@ -37,7 +37,7 @@ console.log("setting uristring to "+uristring)
 
 
 User = require( './models/user' )
-// Moderator = require('../models/Mod')
+Moderator = require('../models/Mod')
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
@@ -126,9 +126,9 @@ app.use((req,res,next) => {
     }
   }
   if(req.user){
-  //  Mod modList=modController.getAllMod;
-  //  console.log(modlist.size())
-    if(modList.includes(req.user)){
+   Moderator modLists=modController.getAllMod;
+   console.log(modLists.size())
+    if(modLists.includes(req.user)){
 
     }
   }
