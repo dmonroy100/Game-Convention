@@ -124,6 +124,14 @@ app.use((req,res,next) => {
     else {
       res.locals.loggedIn = false
     }
+  }
+  if(req.user){
+    Mod modList=modController.getAllMod;
+    console.log(modlist.size())
+    if(modList.includes(req.user)){
+
+    }
+  }
     //this is where you do the mod list
     //if modList inclues req.user.Id
     //app.use((req,res, next)=> {
@@ -139,7 +147,6 @@ app.use((req,res,next) => {
   //  } else {
       //if not res.locals.modList=[]
         //next()
-}
   //  }
 
   //app.use((req, res, next)=> {
