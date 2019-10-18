@@ -126,8 +126,8 @@ app.use((req,res,next) => {
     }
   }
   if(req.user){
-    Mod modList=modController.getAllMod;
-    console.log(modlist.size())
+  //  Mod modList=modController.getAllMod;
+  //  console.log(modlist.size())
     if(modList.includes(req.user)){
 
     }
