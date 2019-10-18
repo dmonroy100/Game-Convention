@@ -126,11 +126,9 @@ app.use((req,res,next) => {
     }
   }
   if(req.user){
-   Moderator modLists=modController.getAllMod;
-   //console.log(modLists.size())
-    // if(modLists.includes(req.user)){
-    //
-    // }
+   if(mod.find({req.user._id:req.body.modid)){
+
+   }
   }
     //this is where you do the mod list
     //if modList inclues req.user.Id
