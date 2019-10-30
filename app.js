@@ -232,7 +232,7 @@ function isLoggedIn(req, res, next) {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-console.log("**** Set the view engine!!!! **** ")
+console.log("**** Set the view engine!!!! **** ");
 
 app.use(logger('dev'));
 app.use(express.json());
