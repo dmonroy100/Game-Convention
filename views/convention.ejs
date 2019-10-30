@@ -16,8 +16,12 @@
     <div class="container">
       <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
         <div class="card card-plain">
+          <h1> moderator level: <%- modLevel(convention._id) %></h1>
           <% if (loggedIn) { %>
-            <% if (status == 'modFive' || status == 'owner') { %>
+            <% if (
+               //status == 'modFive' || status == 'owner' ||
+              modLevel(convention._id)>=0
+            ) { %>
               <div>
                 <form method="post" action="/processApprove" style="display:inline-block">
                   &nbsp&nbsp&nbsp<input type="hidden" name="convid" value="<%= convention._id %>" >

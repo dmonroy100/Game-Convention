@@ -37,7 +37,7 @@ console.log("setting uristring to "+uristring)
 
 
 User = require( './models/user' )
-Moderator = require('./models/Mod')
+Mod = require('./models/Mod')
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
@@ -190,7 +190,7 @@ app.use((req,res,next) => {
     console.log("not logged in")
     res.locals.modList = []
     res.locals.modLevel = (x) => -1
-    next() 
+    next()
   }
 
   else {
@@ -199,13 +199,35 @@ app.use((req,res,next) => {
     .exec()
     .then(convlist=> {
       res.locals.modList = convlist
+      console.log("*******")
+      console.log(JSON.stringify(convlist,null,10))
+      //console.log(JSON.stringify(x,null,10))
+
       res.locals.modLevel = (convId) => {
+        console.log("convId="+convId)
+
         const x = convlist.filter(
-            (m) => m.m_convId == convId)
-        if (x==[]) return -1
-        else return x[0].m_level
+            (m) =>
+            {
+               console.log("m.m_convId="+m.m_convId)
+               return m.m_convId.equals(convId)
+             }
+        )
+        console.log("!!!!!!!!!!!!!!!!!")
+        console.log("x="+x)
+        if (x.length==0) {
+          return -1
+        } else {
+          console.log("return m_level")
+          console.log(JSON.stringify(convlist,null,10))
+          console.log(JSON.stringify(x,null,10))
+          return x[0].m_level
+        }
       }
       next()
+    })
+    .catch(error =>{
+      res.send("error in Modfind"+error)
     })
   }
 })
