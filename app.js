@@ -185,6 +185,31 @@ app.use((req,res,next) => {
   next()
 })
 
+app.use((req,res,next) => {
+  if (!res.locals.loggedIn) {
+    console.log("not logged in")
+    res.locals.modList = []
+    res.locals.modLevel = (x) => -1
+    next() 
+  }
+
+  else {
+    console.log("logged in")
+    Mod.find({userId:req.user._id})
+    .exec()
+    .then(convlist=> {
+      res.locals.modList = convlist
+      res.locals.modLevel = (convId) => {
+        const x = convlist.filter(
+            (m) => m.m_convId == convId)
+        if (x==[]) return -1
+        else return x[0].m_level
+      }
+      next()
+    })
+  }
+})
+
 
 app.get('/error', function(req,res){
   res.render('error',{})
