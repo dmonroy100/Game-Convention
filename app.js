@@ -37,7 +37,7 @@ console.log("setting uristring to "+uristring)
 
 
 User = require( './models/user' )
-// Moderator = require('../models/Mod')
+Moderator = require('../models/Mod')
 
 const listController = require('./controllers/listController')
 const profileController = require('./controllers/profileController')
@@ -124,6 +124,12 @@ app.use((req,res,next) => {
     else {
       res.locals.loggedIn = false
     }
+  }
+  if(req.user){
+   if(mod.find({req.user._id:req.body.modid)){
+
+   }
+  }
     //this is where you do the mod list
     //if modList inclues req.user.Id
     //app.use((req,res, next)=> {
@@ -139,7 +145,6 @@ app.use((req,res,next) => {
   //  } else {
       //if not res.locals.modList=[]
         //next()
-}
   //  }
 
   //app.use((req, res, next)=> {
