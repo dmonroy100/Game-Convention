@@ -17,9 +17,7 @@
 
 <!-- Page Content -->
 <div class="container">
-
   <div class="row">
-
     <!-- Post Content Column -->
     <div class="col">
       <h5><b>Description: </b></h5>
@@ -31,8 +29,7 @@
       <h5><b>Comments: </b></h5>
       <hr>
         <% for(i = 0; i < answers.length; i++){  %>
-
-
+          
         <!-- Single Comment in card-->
           <div class="media mb-3" id ="description">
             <a href="/showProfile/<%=answers[i].userId%>"><img class="d-flex mr-3 rounded-circle" id="profilePic" src="<%=answers[i].profilePicURL%>" width="40px" height="40px" alt="user profile pic"></a>
