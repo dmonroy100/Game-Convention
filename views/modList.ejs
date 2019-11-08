@@ -1,13 +1,12 @@
-
-    <ol>
-    <% for(i = 0; i< modLists.length; i++){  %>
-      <% if (modLists[i].m_level!=0) { %>
-          <li>
-                Name: <%= modLists[i].googlename%> <br>
-                UserEmail:  <%= modLists[i].googleemail %>    <br>
-                Level:  <%= modLists[i].m_level %> <br>
-          </li>
-          <% } %>
-      <% } %>
-      </ol>
-      <hr>
+<ol>
+  <% for(i = 0; i< modLists.length; i++){  %>
+    <% if (modLists[i].m_level!=0) { %>
+      <li>
+          Name: <%= modLists[i].googlename%> <br>
+          UserEmail:  <%= modLists[i].googleemail %>    <br>
+          Level:  <%= modLists[i].m_level %> <br>
+      </li>
+  <% } %>
+<% } %>
+  </ol>
+<hr>
