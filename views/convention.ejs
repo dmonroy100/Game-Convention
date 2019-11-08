@@ -192,7 +192,10 @@
                           <%- include('modList') -%>
                           <h4>Pending</h4>
                           <% if (loggedIn) { %>
-                            <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree') { %>
+                            <% if (
+                               //status == 'modFive' || status == 'owner' ||
+                              modLevel(convention._id)>=0
+                            ) { %>
                               <%- include('pendingmodList') -%>
                               <% } %>
                               <% } %>
