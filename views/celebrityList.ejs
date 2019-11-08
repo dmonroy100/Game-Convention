@@ -23,7 +23,10 @@
       Description: <%= celebrityList[i].Description %> <br>
 
       <% if (loggedIn) { %>
-        <% if (status == 'modFive' || status == 'owner' || status == 'modTwo' || status == 'modThree' || status == 'modFour') { %>
+        <% if (
+           //status == 'modFive' || status == 'owner' ||
+          modLevel(convention._id)>=0
+        ) { %>
           <form method="post" action="/processApprove2"style="display:inline-block" >
             <input type="hidden" name="celebid" value="<%= celebrityList[i]._id %>" >
             <input type="hidden" name="convid" value="<%= celebrityList[i].convId %>" >
