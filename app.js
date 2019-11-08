@@ -190,7 +190,7 @@ app.use((req,res,next) => {
     console.log("not logged in")
     res.locals.modList = []
     res.locals.modLevel = (x) => -1
-    next() 
+    next()
   }
 
   else {
