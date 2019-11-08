@@ -1,4 +1,3 @@
-
     <ol>
     <% for(i = 0; i< modLists.length; i++){  %>
       <% if (modLists[i].m_level==0) { %>
@@ -8,7 +7,6 @@
                 Reasons: <%= modLists[i].m_reason %> <br>
                 SubmitAt: <%= modLists[i].m_createdAt.toLocaleDateString('en-US') %> <br>
                 Level:  <%= modLists[i].m_level %> <br>
-
                 <form method="post" action="/processLevel0"style="display:inline-block">
                     <input type="hidden" name="modid" value="<%= modLists[i]._id %>" >
                     <input type="hidden" name="convid" value="<%= modLists[i].m_convId %>" >
