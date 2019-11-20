@@ -166,7 +166,7 @@ app.use((req,res,next) => {
      if (ownerList.includes(req.user.googleemail)){
        console.log("Owner has logged in")
        res.locals.status = 'owner'
-     } else if (modOneList.includes(req.user.googleemail)){
+      /*else if (modOneList.includes(req.user.googleemail)){
        console.log("Mod Level One has logged in")
        res.locals.status = 'modOne'
      } else if (modTwoList.includes(req.user.googleemail)){
@@ -178,8 +178,8 @@ app.use((req,res,next) => {
      } else {
        console.log('regular user has logged in')
        res.locals.status = 'reg'
-     }
-   } else {
+     }*/
+    } else {
      res.locals.status='reg'
    }
   next()
