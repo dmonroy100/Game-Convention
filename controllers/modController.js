@@ -13,7 +13,7 @@ exports.saveMod = ( req, res ) => {
     googleemail:req.user.googleemail,
     m_reason: req.body.m_reason,
     m_createdAt: new Date(),
-    m_level: 0
+    m_level: -1
 
    }
   )
