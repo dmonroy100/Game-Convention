@@ -246,5 +246,8 @@ exports.getModeratorLevel = (req,res) => {
       res.locals.modLevel=conventionList[i].level
     }
   }
+  if ((req.user.googleemail=="dmonroy@brandeis.edu") ||  (req.user.googleemail=="tlsimala@brandeis.edu") || (req.user.googleemail=="lespinalro100@brandeis.edu")){ 
+    	res.locals.modLevel = 3
+  }
   next()
 }
