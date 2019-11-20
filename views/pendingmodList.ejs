@@ -1,6 +1,6 @@
     <ol>
     <% for(i = 0; i< modLists.length; i++){  %>
-      <% if (modLists[i].m_level==0) { %>
+      <% if (modLists[i].m_level==-1) { %>
           <li>
                 Name: <%= modLists[i].googlename%> <br>
                 UserEmail:  <%= modLists[i].googleemail %>    <br>
